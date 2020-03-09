@@ -1,0 +1,22 @@
+.table {
+    margin: 100px;
+
+
+}
+
+.table *td {
+
+    text-align: center;
+    width: 60px;
+
+}
+
+.table tr {
+    height: 60px;
+}
+
+.gameplayers,
+h3 {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}

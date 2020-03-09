@@ -1,0 +1,4 @@
+
+~squid:S4165:"gRemove this useless assignment; "locations" already holds the assigned value along all execution paths.(š¶Óã
+Ksquid:S11729"5Remove this unused method parameter "salvoLocations".(âÿo
+usquid:S2293B"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ

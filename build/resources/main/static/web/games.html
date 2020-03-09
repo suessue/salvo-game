@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Leaderboard!</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles/games.css">
+</head>
+
+<body>
+	<div id="app">
+		<div class="container">
+			<div class="row justify-contents-center">
+				<div class="col">
+					<h1>LEADERBOARD</h1>
+					<h3 v-if="games.player != null">Welcome to Salvo, <em>{{games.player.name}}</em> !</h3>
+
+					<table class="table leaderboard">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">PLAYER</th>
+								<th scope="col">TOTAL POINTS</th>
+								<th scope="col">WINS</th>
+								<th scope="col">LOSSES</th>
+								<th scope="col">TIES</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(player, index) in leaderBoard">
+								<th scope="row">{{(index + 1)}}</th>
+								<td scope="row">{{player.username}}</td>
+								<td scope="row">{{player.totalPoints}}</td>
+								<td scope="row">{{player.wins}}</td>
+								<td scope="row">{{player.losses}}</td>
+								<td scope="row">{{player.ties}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row justify-contents-center">
+				<div class="col">
+					<form v-if="games.player == null" id="loginform">
+						<label>Name: <input type="text" v-model:value="email"></label>
+						<label>Password: <input type="text" v-model:value="pwd"></label>
+						<button type="button" class="btn btn-sm btn-dark" v-on:click="loginNow">Log in</button>
+						<button type="button" class="btn btn-sm btn-dark" v-on:click="signUp">Sign up</button>
+					</form>
+
+					<form v-if="games.player != null" id="logoutform">
+						<button type="button" class="btn btn-sm btn-dark" v-on:click="logout">Log out</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>
+	<script src="scripts/games.js" type="text/javascript"></script>
+
+</body>
+
+</html>
