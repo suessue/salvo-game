@@ -1,14 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="" />
+    <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/salvo18.03.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircrafthor/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircrafthor/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircrafthor/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircrafthor/image_part_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircrafthor/image_part_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircraftver/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircraftver/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircraftver/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircraftver/image_part_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/aircraftver/image_part_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlehor/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlehor/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlehor/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlehor/image_part_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlever/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlever/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlever/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/battlever/image_part_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/destroyerhor/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/destroyerhor/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/destroyerhor/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/destroyerver/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/destroyerver/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/destroyerver/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/hit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/patrolhor/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/patrolhor/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/patrolver/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/patrolver/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinehor/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinehor/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinehor/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinever/image_part_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinever/image_part_002.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinever/image_part_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinever/image_part_003.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/submarinever/image_part_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/battleshiphor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/battleshipver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/carrierhor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/carrierver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/destroyerhor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/destroyerver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/patrolboathor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/patrolboatver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/submarinehor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/boats/wholeboats/submarinever.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/hit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/hit3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/hitBoat.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/hitBoat2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/hitBoat3.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/06220eb163c248eba4d4857bbdead2443839447c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/06220eb163c248eba4d4857bbdead2443839447c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b4395a62f03369df103417d047a80f905b59cc8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b4395a62f03369df103417d047a80f905b59cc8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ab5c8247b5fa11aa589690655e4e97ee8e32a31" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ab5c8247b5fa11aa589690655e4e97ee8e32a31" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cffc3234bc8e484110d96def966a60a6af4b23e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cffc3234bc8e484110d96def966a60a6af4b23e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c85237a9b776f6cbe2b0aeb794ab2cb5659ad04f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c85237a9b776f6cbe2b0aeb794ab2cb5659ad04f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/da90a5646e5710803a7c907446b5a142c0bddbb7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/da90a5646e5710803a7c907446b5a142c0bddbb7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/daccdd891b5872c458758b6eb09cd94d77528fe6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/daccdd891b5872c458758b6eb09cd94d77528fe6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/games.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/styles/games.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GameRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Salvo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Salvo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scripts/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scripts/games.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/styles/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/styles/game.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="15" />
+    <option name="myElementSize" value="75" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -51,39 +143,48 @@
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="salvo" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="ADD_SUFFIX_TO_CHERRY_PICKS_OF_PUBLISHED_COMMITS" value="false" />
     <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="WARN_ABOUT_CRLF" value="false" />
     <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
   </component>
   <component name="ProjectId" id="1XAQ8q7mNp34JiMO0scumrmKb51" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_ISSUES_SPLIT_PROPORTION" value="0.5264901" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
@@ -184,8 +285,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.salvo [bootRun]" />
-        <item itemvalue="Gradle.salvo [clean]" />
         <item itemvalue="Gradle.salvo [build]" />
+        <item itemvalue="Gradle.salvo [clean]" />
         <item itemvalue="Gradle.salvo [classes]" />
         <item itemvalue="Application.AppController" />
       </list>
@@ -204,7 +305,19 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
@@ -226,22 +339,34 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1580567309731" />
-    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser" timestamp="1583014105694">
+    <state x="414" y="144" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585520774622">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1583014105694" />
-    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582821518204">
+    <state x="414" y="144" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1585520774622" />
+    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser" timestamp="1585406868592">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1582821518204" />
+    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1585406868592" />
+    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583953328727">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1583953328727" />
     <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582914940031">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1582914940031" />
+    <state x="371" y="88" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1585407991825">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="88" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1280.680@0.0.1280.680" timestamp="1585407991825" />
     <state x="399" y="194" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1582118141956">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="399" y="194" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1582118141956" />
+    <state x="231" y="0" key="CommitChangelistDialog2" timestamp="1585571502814">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="231" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1585571502814" />
     <state width="440" height="438" key="DebuggerActiveHint" timestamp="1581703733612">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -250,26 +375,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1580668183643" />
-    <state width="1237" height="247" key="GridCell.Tab.0.bottom" timestamp="1583421950459">
+    <state x="511" y="234" key="Github.ShareDialog" timestamp="1585572035944">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="511" y="234" key="Github.ShareDialog/0.0.1280.680@0.0.1280.680" timestamp="1585572035944" />
+    <state width="1237" height="201" key="GridCell.Tab.0.bottom" timestamp="1585573057810">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="247" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1583421950459" />
-    <state width="1237" height="247" key="GridCell.Tab.0.center" timestamp="1583421950459">
+    <state width="1237" height="201" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585573057810" />
+    <state width="1237" height="201" key="GridCell.Tab.0.center" timestamp="1585573057809">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="247" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1583421950459" />
-    <state width="1237" height="247" key="GridCell.Tab.0.left" timestamp="1583421950459">
+    <state width="1237" height="201" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585573057809" />
+    <state width="1237" height="201" key="GridCell.Tab.0.left" timestamp="1585573057809">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="247" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1583421950459" />
-    <state width="1237" height="247" key="GridCell.Tab.0.right" timestamp="1583421950459">
+    <state width="1237" height="201" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585573057809" />
+    <state width="1237" height="201" key="GridCell.Tab.0.right" timestamp="1585573057809">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="247" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1583421950459" />
+    <state width="1237" height="201" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585573057809" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1581703868765">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -286,37 +415,49 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1581703868765" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1583077961799">
+    <state x="221" y="84" width="838" height="519" key="IDE.errors.dialog" timestamp="1584047417023">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583077961799" />
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1583415449936">
+    <state x="221" y="84" width="838" height="519" key="IDE.errors.dialog/0.0.1280.680@0.0.1280.680" timestamp="1584047417023" />
+    <state x="337" y="63" key="RollbackChangesDialog" timestamp="1585572596999">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1583415449936" />
-    <state x="371" y="97" key="extract.method.dialog" timestamp="1581970846297">
+    <state x="337" y="63" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1585572596999" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1583854628062">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="97" key="extract.method.dialog/0.0.1280.680@0.0.1280.680" timestamp="1581970846297" />
-    <state x="91" y="0" key="new project wizard" timestamp="1580669264153">
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583854628062" />
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1585570187377">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1580669264153" />
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585570187377" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585571404737">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585571404737" />
+    <state x="371" y="97" key="extract.method.dialog" timestamp="1585324829107">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="97" key="extract.method.dialog/0.0.1280.680@0.0.1280.680" timestamp="1585324829107" />
+    <state x="91" y="0" key="new project wizard" timestamp="1585520760342">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1585520760342" />
     <state x="348" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1583514457939">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="348" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1583514457939" />
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1582821697248">
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1584974530327">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1582821697248" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1582118174987">
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1584974530327" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1585080272799">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1582118174987" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1585080272799" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/salvo$salvo__build_.ic" NAME="salvo [build] Coverage Results" MODIFIED="1581352099832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/salvo$salvo__bootRun_.ic" NAME="salvo [bootRun] Coverage Results" MODIFIED="1582915295631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/salvo$salvo__bootRun_.ic" NAME="salvo [bootRun] Coverage Results" MODIFIED="1583933489381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -93,7 +93,6 @@ public class Player {
         return dto;
     }
 
-
     public Map <String, Object> toLeaderBoardDTO() {
         Map <String, Object> dto = new LinkedHashMap <String, Object> ();
         dto.put ("id", this.id);

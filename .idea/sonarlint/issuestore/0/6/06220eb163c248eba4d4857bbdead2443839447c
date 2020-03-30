@@ -1,5 +1,15 @@
 
-e
-java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(ş‘‹„8¤©·µ‰.
+V
+java:S1128"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶8Öù¼Â’.
+^	java:S125Ÿ"<This block of commented-out lines of code should be removed.(šÏ‡µùÿÿÿÿ8…¾¹Â’.
+Y
+java:S3655q"7Call "Optional#isPresent()" before accessing the value.(‚Ìî©ıÿÿÿÿ8…¾¹Â’.
+T
+java:S3655t"7Call "Optional#isPresent()" before accessing the value.(°Çï8ô˜Ä’.
+Z
+java:S3655„"7Call "Optional#isPresent()" before accessing the value.(’¸²´ûÿÿÿÿ8…¾¹Â’.
+Q
+java:S1128"4Remove this unused import 'java.util.stream.Stream'.(ó÷”8‡¸„Ä’.
 {
-java:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8¤©·µ‰.
+java:S22930"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8¤ƒÂÆ.
+Y	java:S125¢"<This block of commented-out lines of code should be removed.(¨µÀÇ8¤šÄÂ’.

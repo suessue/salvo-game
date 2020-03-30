@@ -14,48 +14,87 @@
 		<div class="container">
 			<div class="row justify-contents-center">
 				<div class="col">
-					<h1>LEADERBOARD</h1>
-					<h3 v-if="games.player != null">Welcome to Salvo, <em>{{games.player.name}}</em> !</h3>
 
-					<table class="table leaderboard">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">PLAYER</th>
-								<th scope="col">TOTAL POINTS</th>
-								<th scope="col">WINS</th>
-								<th scope="col">LOSSES</th>
-								<th scope="col">TIES</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr v-for="(player, index) in leaderBoard">
-								<th scope="row">{{(index + 1)}}</th>
-								<td scope="row">{{player.username}}</td>
-								<td scope="row">{{player.totalPoints}}</td>
-								<td scope="row">{{player.wins}}</td>
-								<td scope="row">{{player.losses}}</td>
-								<td scope="row">{{player.ties}}</td>
-							</tr>
-						</tbody>
-					</table>
+					<h2 v-if="games.player != null">WELCOME TO SALVO, <em>{{games.player.username}}</em> !</h2>
+					<div>
+						<h4>LEADERBOARD</h4>
+						<table class="table leaderboard">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">PLAYER</th>
+									<th scope="col">TOTAL POINTS</th>
+									<th scope="col">WINS</th>
+									<th scope="col">LOSSES</th>
+									<th scope="col">TIES</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(player, index) in leaderBoard">
+									<th scope="row">{{(index + 1)}}</th>
+									<td scope="row">{{player.username}}</td>
+									<td scope="row">{{player.totalPoints}}</td>
+									<td scope="row">{{player.wins}}</td>
+									<td scope="row">{{player.losses}}</td>
+									<td scope="row">{{player.ties}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<h4>ALL GAMES</h4>
+						<table class="table text-center">
+							<thead class="thead-dark ">
+								<tr>
+
+									<th scope="col">GAME</th>
+									<th scope="col" colspan="2">PLAYERS</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="game in games.games">
+									<th scope="row">{{game.id}}</th>
+									<td scope="row" v-for="(gamePlayer, index) in game.gamePlayers">
+										<div>{{gamePlayer.player.username}}</div>
+										<div v-if="games.player != null && gamePlayer.player.username ==
+											games.player.username">
+											<a :href="'game.html?gp='+ gamePlayer.id"><button type="button"
+													class="btn btn-sm btn-primary">BACK TO GAME
+												</button></a></div>
+										<div v-if="game.gamePlayers.length == 1 && games.player != null && gamePlayer.player.username !=
+											games.player.username">
+											<button type="button" class="btn btn-sm btn-warning"
+												v-on:click="joinGame(game.id)">JOIN GAME
+											</button></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 			<div class="row justify-contents-center">
 				<div class="col">
 					<form v-if="games.player == null" id="loginform">
-						<label>Name: <input type="text" v-model:value="email"></label>
-						<label>Password: <input type="text" v-model:value="pwd"></label>
+						<label>Name: <input type="email" v-model:value="email" required></label>
+						<label>Password: <input type="password" v-model:value="pwd" required></label>
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="loginNow">Log in</button>
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="signUp">Sign up</button>
 					</form>
+					<div class="row" v-if="games.player != null">
 
+						<button type="button" v-on:click="createGame" class="btn btn-md btn-success">CREATE
+							GAME!</button>
+					</div>
 					<form v-if="games.player != null" id="logoutform">
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="logout">Log out</button>
 					</form>
 
+
 				</div>
 			</div>
+
 		</div>
 	</div>
 	</div>

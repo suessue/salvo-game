@@ -1,14 +1,11 @@
 
-g
-java:S44888"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(üÆĞŠ8ŠÕİ‰.
 [
-java:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(Ûí§Ö8¯ŞšÀ‰.
-y
-java:S1128"\Remove this unused import 'org.springframework.security.core.context.SecurityContextHolder'.(ŒÄæë8‡©ÌÄŠ.
-V
-java:S36553"9Call "gamePlayer.isPresent()" before accessing the value.(¡È®¹8Éºòá‰.
-g
-java:S1128
-"ERemove this unused import 'org.springframework.stereotype.Component'.(Ş÷Ñ¸ÿÿÿÿÿ8‡©ÌÄŠ.
+java:S4973M"9Use the "equals" method if value comparison was intended.(Ÿé­Öøÿÿÿÿ8òúàÁ.
 [
-java:S37520">Add a "method" parameter to this "@RequestMapping" annotation.(•Ğû8ŠÕİ‰.
+java:S4973g"9Use the "equals" method if value comparison was intended.(Ÿé­Öøÿÿÿÿ8òúàÁ.
+c
+java:S1192""FDefine a constant instead of duplicating this literal "error" 8 times.(ÿÀ8£°‚¨Œ.
+b
+java:S4684a"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8òúàÁ.
+I
+java:S1602W",Remove useless curly braces around statement(±—Ö¤8ªø½şŒ.

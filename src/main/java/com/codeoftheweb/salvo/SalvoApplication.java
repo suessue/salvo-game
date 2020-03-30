@@ -52,7 +52,7 @@ public class SalvoApplication extends SpringBootServletInitializer {
             Ship ship5 = new Ship ( "Patrol Boat", Arrays.asList ( "F1", "F2" ) );
             Ship ship6 = new Ship ( "Destroyer", Arrays.asList ( "B5", "C5", "D5" ) );
             Ship ship7 = new Ship ( "Patrol Boat", Arrays.asList ( "F1", "F2" ) );
-            Ship ship8 = new Ship ( "Submarine   ", Arrays.asList ( "A2", "A3", "A4" ) );
+            Ship ship8 = new Ship ( "Submarine", Arrays.asList ( "A2", "A3", "A4" ) );
             Ship ship9 = new Ship ( "Patrol Boat", Arrays.asList ( "G6", "H6" ) );
             Ship ship10 = new Ship ( "Destroyer", Arrays.asList ( "B5", "C5", "D5" ) );
             Ship ship11 = new Ship ( "Patrol Boat", Arrays.asList ( "C6", "C7" ) );

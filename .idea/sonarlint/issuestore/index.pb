@@ -25,3 +25,7 @@ d
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 h
 8src/main/java/com/codeoftheweb/salvo/GameRepository.java,c\a\ca98440cee4cbb3f037b40d788d30b5ed92c3008
+h
+8src/main/java/com/codeoftheweb/salvo/ShipRepository.java,b\9\b90b21deb138a991bdf7782fbc601cce1e62ae57
+^
+.src/main/java/com/codeoftheweb/salvo/Ship.java,9\4\9451dedb6ef7f88f5a803362508d9e38382107c3

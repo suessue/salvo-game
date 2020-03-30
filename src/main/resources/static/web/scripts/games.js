@@ -3,8 +3,8 @@ var app = new Vue({
 	data: {
 		games: [],
 		leaderBoard: [],
-		email: " ",
-		pwd: " ",
+		email: "",
+		pwd: "",
 		players: [],
 		// playersJson: [],
 		// playersSet: [],
@@ -31,30 +31,32 @@ var app = new Vue({
 							ties: 0,
 						}
 
-						if (gp.scores.score == 1) {
-							player.wins += 1;
-							player.totalPoints += 1;
-						} else if (gp.scores.score == 0.5) {
-							player.ties += 1;
-							player.totalPoints += 0.5;
-						} else if (gp.scores.score == 0.0) {
-							player.losses += 1;
-
+						if (gp.scores != null) {
+							if (gp.scores.score == 1) {
+								player.wins += 1;
+								player.totalPoints += 1;
+							} else if (gp.scores.score == 0.5) {
+								player.ties += 1;
+								player.totalPoints += 0.5;
+							} else if (gp.scores.score == 0.0) {
+								player.losses += 1;
+							}
 						}
 
 						app.leaderBoard.push(player);
 
 
 					} else {
-						if (gp.scores.score == 1) {
-							app.leaderBoard[playerIndex].wins += 1;
-							app.leaderBoard[playerIndex].totalPoints += 1;
-						} else if (gp.scores.score == 0.5) {
-							app.leaderBoard[playerIndex].ties += 1;
-							app.leaderBoard[playerIndex].totalPoints += 0.5;
-						} else if (gp.scores.score == 0.0) {
-							app.leaderBoard[playerIndex].losses += 1;
-
+						if (gp.scores != null) {
+							if (gp.scores.score == 1) {
+								app.leaderBoard[playerIndex].wins += 1;
+								app.leaderBoard[playerIndex].totalPoints += 1;
+							} else if (gp.scores.score == 0.5) {
+								app.leaderBoard[playerIndex].ties += 1;
+								app.leaderBoard[playerIndex].totalPoints += 0.5;
+							} else if (gp.scores.score == 0.0) {
+								app.leaderBoard[playerIndex].losses += 1;
+							}
 						}
 					}
 
@@ -97,7 +99,7 @@ var app = new Vue({
 				})
 				.fail(function (error) {
 					alert('Check your email/password or register if you are a new user.')
-					console.log(error.responseJSON.error);
+					console.log(error.responseJSON);
 				});
 		},
 
@@ -113,7 +115,7 @@ var app = new Vue({
 				})
 				.fail(function (error) {
 					alert("Please, enter a valid email/password.");
-					console.log(error);
+					console.log(error.responseJSON);
 
 				})
 
@@ -134,6 +136,28 @@ var app = new Vue({
 					console.log(error.responseJSON.error);
 				})
 		},
+
+		createGame: function () {
+			$.post("/api/games")
+				.done(function (data) {
+					location.assign("game.html?gp=" + data.gpid);
+				})
+				.fail(function (error) {
+					console.log(error.responseJSON.error);
+				});
+
+		},
+
+		joinGame: function (gameId) {
+			$.post("/api/game/" + gameId + "/players")
+				.done(function (data) {
+					location.assign("game.html?gp=" + data.gpid);
+				})
+				.fail(function (error) {
+					console.log(error.responseJSON.error);
+				});
+
+		}
 
 	},
 

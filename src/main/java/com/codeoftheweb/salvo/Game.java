@@ -9,8 +9,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 @Entity
 public class Game {
@@ -38,12 +39,11 @@ public class Game {
         Map <String, Object> dto = new LinkedHashMap <String, Object> ();
         dto.put ( "id", this.id );
         dto.put ( "created", this.creationDate );
-        dto.put("finishedDate", this.creationDate.plusMinutes ( 30 ) );
+        dto.put ( "finishedDate", this.creationDate.plusMinutes ( 30 ) );
         dto.put ( "gamePlayers", this.gamePlayers.stream ().map ( GamePlayer::toDTO ).collect ( toList () ) );
 
         return dto;
     }
-
 
     public void addScore(Score score) {
         score.setGame ( this );
@@ -68,8 +68,11 @@ public class Game {
     }
 
 
-
 }
+
+
+
+
 
 
 

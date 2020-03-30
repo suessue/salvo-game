@@ -5,7 +5,5 @@ package com.codeoftheweb.salvo;
 
 @RepositoryRestResource
     public interface GamePlayerRepository extends JpaRepository<GamePlayer, Long> {
-    Player findByUserName(String email);
-
-
+    GamePlayer findGamePlayerById(Long id);
 }

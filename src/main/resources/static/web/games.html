@@ -57,47 +57,44 @@
 									<th scope="row">{{game.id}}</th>
 									<td scope="row" v-for="(gamePlayer, index) in game.gamePlayers">
 										<div>{{gamePlayer.player.username}}</div>
-										<div
-											v-if="games.player != null && gamePlayer.player.username == games.player.username">
+										<div v-if="games.player != null && gamePlayer.player.username ==
+											games.player.username">
 											<a :href="'game.html?gp='+ gamePlayer.id"><button type="button"
-													class="btn btn-sm btn-primary">JOIN
+													class="btn btn-sm btn-primary">BACK TO GAME
 												</button></a></div>
+										<div v-if="game.gamePlayers.length == 1 && games.player != null && gamePlayer.player.username !=
+											games.player.username">
+											<button type="button" class="btn btn-sm btn-warning"
+												v-on:click="joinGame(game.id)">JOIN GAME
+											</button></div>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<!-- <div>
-						<ol>
-							<li v-for="game in games.games">
-								{{game.created}}
-								<ul>
-									<li v-for="gamePlayer in game.gamePlayers">
-										{{gamePlayer.player.username}}
-									</li>
-								</ul>
-							</li>
-						</ol>
-					</div> -->
-
-
 				</div>
 			</div>
 			<div class="row justify-contents-center">
 				<div class="col">
 					<form v-if="games.player == null" id="loginform">
-						<label>Name: <input type="text" v-model:value="email"></label>
-						<label>Password: <input type="text" v-model:value="pwd"></label>
+						<label>Name: <input type="email" v-model:value="email" required></label>
+						<label>Password: <input type="password" v-model:value="pwd" required></label>
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="loginNow">Log in</button>
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="signUp">Sign up</button>
 					</form>
+					<div class="row" v-if="games.player != null">
 
+						<button type="button" v-on:click="createGame" class="btn btn-md btn-success">CREATE
+							GAME!</button>
+					</div>
 					<form v-if="games.player != null" id="logoutform">
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="logout">Log out</button>
 					</form>
 
+
 				</div>
 			</div>
+
 		</div>
 	</div>
 	</div>

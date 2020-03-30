@@ -1,5 +1,7 @@
 
+Z
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¦“õî.
 I
-java:S1612?",Replace this lambda with a method reference.(Ş§´‰8¤©·µ‰.
+java:S1612?",Replace this lambda with a method reference.(Ş§´‰8¿Ï‚ÚŠ.
 {
-java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8¤©·µ‰.
+java:S2293'"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8¤©·µ‰.

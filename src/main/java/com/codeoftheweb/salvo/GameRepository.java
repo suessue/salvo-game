@@ -14,6 +14,5 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
    List<Game> findByCreationDate (LocalDateTime creationDate);
 
-
 }
 

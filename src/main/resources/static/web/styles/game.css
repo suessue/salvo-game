@@ -1,22 +1,339 @@
 .table {
-    margin: 100px;
 
-
+    cursor: cell;
 }
 
 .table *td {
-
-    text-align: center;
     width: 60px;
+    height: 100%;
+    border-width: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 
+    font-weight: bold;
 }
 
-.table tr {
+.table *tr {
     height: 60px;
+
 }
 
 .gameplayers,
 h3 {
     margin-top: 100px;
     margin-bottom: 50px;
+}
+
+
+.blinking {
+    color: #fff;
+    animation: blinkingBackground 2s infinite;
+}
+
+@keyframes blinkingBackground {
+    0% {
+        background-color: #10c018;
+    }
+
+    25% {
+        background-color: #1056c0;
+    }
+
+    50% {
+        background-color: #ef0a1a;
+    }
+
+    75% {
+        background-color: #254878;
+    }
+
+    100% {
+        background-color: #04a1d5;
+    }
+}
+
+
+/* salvo */
+/* .hitBoat {
+
+    height: 20px;
+    width: 20px;
+    size: contain;
+    size: 100% 100%;
+
+} */
+
+.hit {
+    background-image: url(../images/hit3.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.hitBoat {
+    position: relative;
+    background-image: url(../images/hit.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+/* class aircraft */
+
+.ah1 {
+    background-image: url(../images/boats/aircrafthor/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ah2 {
+    background-image: url(../images/boats/aircrafthor/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ah3 {
+    background-image: url(../images/boats/aircrafthor/image_part_003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ah4 {
+    background-image: url(../images/boats/aircrafthor/image_part_004.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ah5 {
+    background-image: url(../images/boats/aircrafthor/image_part_005.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.av1 {
+    background-image: url(../images/boats/aircraftver/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.av2 {
+    background-image: url(../images/boats/aircraftver/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.av3 {
+    background-image: url(../images/boats/aircraftver/image_part_003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.av4 {
+    background-image: url(../images/boats/aircraftver/image_part_004.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.av5 {
+    background-image: url(../images/boats/aircraftver/image_part_005.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+/* class battleship */
+.bh1 {
+    background-image: url(../images/boats/battlehor/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.bh2 {
+    background-image: url(../images/boats/battlehor/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.bh3 {
+    background-image: url(../images/boats/battlehor/image_part_003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.bh4 {
+    background-image: url(../images/boats/battlehor/image_part_004.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.bv1 {
+    background-image: url(../images/boats/battlever/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.bv2 {
+    background-image: url(../images/boats/battlever/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.bv3 {
+    background-image: url(../images/boats/battlever/image_part_003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.bv4 {
+    background-image: url(../images/boats/battlever/image_part_004.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* class submarine */
+
+
+.sh1 {
+    background-image: url(../images/boats/submarinehor/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sh2 {
+    background-image: url(../images/boats/submarinehor/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sh3 {
+    background-image: url(../images/boats/submarinehor/image_part_003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sv1 {
+    background-image: url(../images/boats/submarinever/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.sv2 {
+    background-image: url(../images/boats/submarinever/image_part_002.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.sv3 {
+    background-image: url(../images/boats/submarinever/image_part_003.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* class destroyer */
+
+.dh1 {
+    background-image: url(../images/boats/destroyerhor/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.dh2 {
+    background-image: url(../images/boats/destroyerhor/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.dh3 {
+    background-image: url(../images/boats/destroyerhor/image_part_003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.dv1 {
+    background-image: url(../images/boats/destroyerver/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.dv2 {
+    background-image: url(../images/boats/destroyerver/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.dv3 {
+    background-image: url(../images/boats/destroyerver/image_part_003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* class patrol boat */
+
+.ph1 {
+    background-image: url(../images/boats/patrolhor/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ph2 {
+    background-image: url(../images/boats/patrolhor/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+
+.pv1 {
+    background-image: url(../images/boats/patrolver/image_part_001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.pv2 {
+    background-image: url(../images/boats/patrolver/image_part_002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
 }

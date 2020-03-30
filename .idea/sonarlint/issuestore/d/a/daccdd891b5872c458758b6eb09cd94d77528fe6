@@ -1,4 +1,10 @@
 
-~squid:S4165:"gRemove this useless assignment; "locations" already holds the assigned value along all execution paths.(š¶Óã
-Ksquid:S11729"5Remove this unused method parameter "salvoLocations".(âÿo
-usquid:S2293B"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ
+]	java:S125V"<This block of commented-out lines of code should be removed.(ûØ½§ùÿÿÿÿ8ÚÕÄ’.
+„
+java:S41656"gRemove this useless assignment; "locations" already holds the assigned value along all execution paths.(š¶Óã8â»±Ã’.
+Q
+java:S11725"5Remove this unused method parameter "salvoLocations".(âÿo8â»±Ã’.
+{
+java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8¶áÃ’.
+{
+java:S2293G"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8â»±Ã’.
