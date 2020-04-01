@@ -1,10 +1,6 @@
 
-]	java:S125V"<This block of commented-out lines of code should be removed.(ûØ½§ùÿÿÿÿ8ÚÕÄ’.
-„
-java:S41656"gRemove this useless assignment; "locations" already holds the assigned value along all execution paths.(š¶Óã8â»±Ã’.
-Q
-java:S11725"5Remove this unused method parameter "salvoLocations".(âÿo8â»±Ã’.
-{
-java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8¶áÃ’.
-{
-java:S2293G"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨ÓË•ùÿÿÿÿ8â»±Ã’.
+X	java:S125d"<This block of commented-out lines of code should be removed.(¸âÛÿ8ÕŠˆš“.
+]	java:S125k"<This block of commented-out lines of code should be removed.(Ó‹ÿ°ıÿÿÿÿ8ÕŠˆš“.
+X	java:S125q"<This block of commented-out lines of code should be removed.(á‹Ëå8ÕŠˆš“.
+X	java:S125h"<This block of commented-out lines of code should be removed.(À±“¿8ÕŠˆš“.
+]	java:S125x"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ÕŠˆš“.

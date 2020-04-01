@@ -63,7 +63,7 @@ public class Player {
 
     @JsonIgnore
     public List <Game> getGames() {
-        return gamePlayers.stream ().map ( sub -> sub.getGame () ).collect ( toList () );
+        return gamePlayers.stream ().map ( GamePlayer::getGame ).collect ( toList () );
     }
 
     public void setGamePlayers(Set <GamePlayer> gamePlayers) {
@@ -85,7 +85,7 @@ public class Player {
     }
 
     public Map <String, Object> toDTO() {
-        Map <String, Object> dto = new LinkedHashMap <String, Object> ();
+        Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
         dto.put ( "username", this.userName );
 
@@ -94,7 +94,7 @@ public class Player {
     }
 
     public Map <String, Object> toLeaderBoardDTO() {
-        Map <String, Object> dto = new LinkedHashMap <String, Object> ();
+        Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ("id", this.id);
         dto.put ( "username", this.userName );
         dto.put("totalPoints", getTotalPoints ());
@@ -107,7 +107,7 @@ public class Player {
 
     public double getTotalPoints() {
         return this.scores.stream ()
-                .mapToDouble ( x -> x.getScore () )
+                .mapToDouble ( Score::getScore )
                 .sum ();
     }
 

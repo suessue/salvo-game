@@ -56,12 +56,14 @@ public class Ship {
         return locations;
     }
 
+
+
     public void setGamePlayer(GamePlayer gamePlayer) {
         this.gamePlayer = gamePlayer;
     }
 
     public Map <String, Object> toDTO() {
-        Map <String, Object> dto = new LinkedHashMap <String, Object> ();
+        Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "type", this.type );
         dto.put ( "locations", this.locations );
         return dto;

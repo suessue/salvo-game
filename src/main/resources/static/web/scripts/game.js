@@ -8,6 +8,10 @@ var app = new Vue({
         gameColumns: ["#", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         mainPlayer: {},
         opponent: {},
+        hitsMp: [],
+        sinksMp: [],
+        hitsOp: [],
+        sinkOp: [],
         firstSquare: [],
         shipType: "",
         shipLocation: [],
@@ -29,9 +33,20 @@ var app = new Vue({
 
     methods: {
 
-        findPlayers: function () {
+        getViewVariables: function () {
+
+
             app.mainPlayer = app.gameView.gamePlayers.filter(x => x.id === app.gameView.id);
             app.opponent = app.gameView.gamePlayers.filter(x => x.id !== app.gameView.id);
+
+            app.gameView.history.hits.forEach(x => {
+                app.hitsMp.push(x.shipStatus)
+            });
+
+            app.hitsOp = app.gameView.history.hitsOpponent;
+            app.sinksMp = app.gameView.history.sinks;
+            app.sinksOp = app.gameView.history.sinksOpponent;
+
         },
 
         findGamePlayerId: function () {
@@ -44,7 +59,7 @@ var app = new Vue({
         findGameView: function () {
             $.get('/api/game_view/' + app.gamePlayerId, function (data) {
                     app.gameView = data;
-                    app.findPlayers();
+                    app.getViewVariables();
                     app.findShipsToPaint();
                     app.findSalvoes();
 
@@ -487,14 +502,6 @@ function saveShips() {
     }
 
 }
-
-// function findHitBoat(td) {
-//     var img = document.createElement('img');
-//     img.src = "images/hitBoat.gif";
-//     img.classList.add("hitBoat");
-//     document.getElementById(td).appendChild(img);
-
-// }
 
 
 app.findGamePlayerId();

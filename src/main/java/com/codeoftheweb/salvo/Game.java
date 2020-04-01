@@ -5,13 +5,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
+
 
 @Entity
 public class Game {
@@ -36,11 +32,11 @@ public class Game {
     }
 
     public Map <String, Object> toDTO() {
-        Map <String, Object> dto = new LinkedHashMap <String, Object> ();
+        Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
         dto.put ( "created", this.creationDate );
         dto.put ( "finishedDate", this.creationDate.plusMinutes ( 30 ) );
-        dto.put ( "gamePlayers", this.gamePlayers.stream ().map ( GamePlayer::toDTO ).collect ( toList () ) );
+        dto.put ( "gamePlayers", this.gamePlayers.stream ().sorted ( Comparator.comparingLong(GamePlayer::getId)).map ( GamePlayer::toDTO ).collect ( toList () ) );
 
         return dto;
     }
@@ -60,7 +56,7 @@ public class Game {
 
     @JsonIgnore
     public List <Player> getPlayers() {
-        return gamePlayers.stream ().map ( sub -> sub.getPlayer () ).collect ( toList () );
+        return gamePlayers.stream ().map ( GamePlayer::getPlayer ).collect ( toList () );
     }
 
     public Set <GamePlayer> getGamePlayers() {

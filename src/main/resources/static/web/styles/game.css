@@ -1,6 +1,6 @@
 .table {
-
     cursor: cell;
+
 }
 
 .table *td {
@@ -9,7 +9,6 @@
     border-width: 0px;
     padding-left: 0px;
     padding-right: 0px;
-
     font-weight: bold;
 }
 
@@ -246,7 +245,7 @@ h3 {
 }
 
 .sv2 {
-    background-image: url(../images/boats/submarinever/image_part_002.jpg);
+    background-image: url(../images/boats/submarinever/image_part_002.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -254,7 +253,7 @@ h3 {
 }
 
 .sv3 {
-    background-image: url(../images/boats/submarinever/image_part_003.jpg);
+    background-image: url(../images/boats/submarinever/image_part_003.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;

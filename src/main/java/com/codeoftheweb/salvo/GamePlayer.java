@@ -4,8 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
+
 
 import static java.util.stream.Collectors.*;
 
@@ -45,7 +44,7 @@ public class GamePlayer {
 
 
     public Map <String, Object> toDTO() {
-        Map <String, Object> dto = new LinkedHashMap <String, Object> ();
+        Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
         dto.put ( "player", this.player.toDTO () );
         Score score = getScore ();
@@ -106,16 +105,18 @@ public class GamePlayer {
         Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
         dto.put ( "created", this.game.getCreationDate () );
-        dto.put ( "gamePlayers", this.game.getGamePlayers ().stream ().map ( GamePlayer::toDTO ).collect ( toList () ) );
-        dto.put ( "ships", this.ships.stream ().map ( Ship::toDTO ).collect ( toList () ) );
-        dto.put ( "salvoes", this.game.getGamePlayers ().stream ().flatMap ( gamePlayer -> gamePlayer.getSalvoes ().stream ().map ( Salvo::toDTO ) ).collect ( toList () ) );
-        dto.put ( "hits", this.salvoes.stream ().map ( Salvo::toHitsDTO ).collect ( toList () ) );
-        List hitsOpponent = getOpponent ().get ().getSalvoes ().stream ().map ( Salvo::toHitsDTO ).collect ( toList () );
-        dto.put ( "hitsOpponent", hitsOpponent );
-        dto.put ( "sinks", recorridoSinks () );
-        dto.put("sinksOpponent", getOpponent ().get ().recorridoSinks ());
-
-
+        dto.put ( "gamePlayers", this.game.getGamePlayers ().stream ()
+                .sorted(Comparator.comparingLong(GamePlayer::getId))
+                .map ( GamePlayer::toDTO ).collect ( toList () ) );
+        dto.put ( "ships", this.ships.stream ()
+                .sorted(Comparator.comparingLong(Ship::getId))
+                .map ( Ship::toDTO ).collect ( toList () ) );
+        dto.put ( "salvoes", this.game.getGamePlayers ().stream ()
+                .sorted(Comparator.comparingLong(GamePlayer::getId))
+                .flatMap ( gamePlayer -> gamePlayer.getSalvoes ()
+                .stream ().sorted(Comparator.comparingInt(Salvo::getTurn))
+                .map ( Salvo::toDTO ) ).collect ( toList () ) );
+        dto.put("history", this.toHistoryDTO());
 
 
         return dto;
@@ -137,29 +138,24 @@ public class GamePlayer {
     public List <String> getOpponentShipLocations() {
         return getShipsOpponent ()
                 .stream ()
+                .sorted(Comparator.comparingLong(Ship::getId))
                 .flatMap ( s -> s.getLocations ().stream () )
                 .collect ( toList () );
     }
-
-
-
 
 
     public List <Map <String, Object>> recorridoSinks() {
         List <Map <String, Object>> dtoList = new ArrayList <> ();
         List <String> allSalvoes = new ArrayList <> ();
 
-        getSalvoes ().forEach ( sa -> {
-            Map <String, Object> dto = new HashMap <> ();
+        getSalvoes ().stream().sorted(Comparator.comparingInt(Salvo::getTurn)).forEach ( sa -> {
+            Map <String, Object> dto = new LinkedHashMap <> ();
             allSalvoes.addAll ( sa.getHits () );
-            List <Ship> allSinks = getShipsOpponent ().stream ().filter ( sh -> allSalvoes.containsAll ( sh.getLocations () ) )
+            List <Ship> allSinks = getShipsOpponent ().stream ().sorted(Comparator.comparingLong(Ship::getId))
+                    .filter ( sh -> allSalvoes.containsAll ( sh.getLocations () ) )
                     .collect ( toList () );
 
-//            List <String> sinkLocations = getShipsOpponent().stream().filter(sh -> allSalvoes.containsAll (sh.getLocations()))
-//                    .flatMap (s -> s.getLocations ().stream()).collect(toList());
-
-//            turn saliendo mal. el for each no está sincronizado.
-//            dto.put("turn", sa.getTurn ());
+            dto.put("turn", sa.getTurn ());
             dto.put ( "sinks", allSinks.stream ().map ( Ship::getType ).collect ( toList () ) );
             dto.put ( "sinkLocations", allSinks.stream ().filter ( sh -> allSalvoes.containsAll ( sh.getLocations () ) )
                     .flatMap ( s -> s.getLocations ().stream () ).collect ( toList () ) );
@@ -169,4 +165,28 @@ public class GamePlayer {
         return dtoList;
     }
 
+
+
+
+    public Map <String, Object> toHistoryDTO() {
+        Map <String, Object> dto = new LinkedHashMap <> ();
+        if (getOpponent ().isPresent ()) {
+            dto.put ( "hits", this.salvoes.stream ().sorted ( Comparator.comparingLong ( Salvo::getId ) )
+                    .map ( Salvo::toHitsDTO ).collect ( toList () ) );
+            dto.put ( "sinks", recorridoSinks () );
+            dto.put ( "hitsOpponent", getOpponent ().get ().getSalvoes ().stream ()
+                    .sorted ( Comparator.comparingInt ( Salvo::getTurn ) )
+                    .map ( Salvo::toHitsDTO ).collect ( toList () ) );
+            dto.put ( "sinksOpponent", getOpponent ().get ().recorridoSinks () );
+        } else {
+            dto.put ( "hits", null );
+            dto.put ( "sinks", null );
+            dto.put ( "hitsOpponent", null );
+            dto.put ( "sinksOpponent", null );
+        }
+
+        return dto;
+    }
+
 }
+

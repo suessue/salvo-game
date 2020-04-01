@@ -31,12 +31,12 @@ public class SalvoController {
     public ResponseEntity <Map<String,Object>> register(@RequestParam String email, @RequestParam String password) {
 
         if (!(email.contains ("@")) || !email.contains(".") ||email.isEmpty() || password.isEmpty()) {
-            return new ResponseEntity<>(makeMap("error", "Please enter a valid e-mail/password"), HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(makeMap("401", "Please enter a valid e-mail/password"), HttpStatus.FORBIDDEN);
         }
 
         Player player = playerRepository.findByUserName ( email );
         if (player != null){
-            return new ResponseEntity<>(makeMap("error", "Username already exists"), HttpStatus.CONFLICT);
+            return new ResponseEntity<>(makeMap("403", "Username already exists"), HttpStatus.CONFLICT);
         }
 
         Player newPlayer = playerRepository.save(new Player(email, passwordEncoder.encode(password)));
@@ -74,14 +74,13 @@ public class SalvoController {
         if (!gamePlayer.isPresent ()){
             return new ResponseEntity <> (  "Log in first!" , HttpStatus.UNAUTHORIZED );
         }
-        if ((isGuest ( authentication )) || gamePlayer.get ().getPlayer ().getUserName () != authentication.getName ()) {
+        if ((isGuest ( authentication )) || !(gamePlayer.get ().getPlayer ().getUserName ().equals ( authentication.getName ()))) {
             return new ResponseEntity <> ( "Not valid" , HttpStatus.UNAUTHORIZED );
         }
 
         if (gamePlayer.get ().getShips ().size() >= 5) {
             return new ResponseEntity <> ( "You have already picked all your ships." , HttpStatus.FORBIDDEN );
         }
-
 
 
         ships.stream ().forEach ( ship -> {
@@ -100,7 +99,7 @@ public class SalvoController {
         if (!gamePlayer.isPresent ()){
             return new ResponseEntity <> (  "Log in first!" , HttpStatus.UNAUTHORIZED );
         }
-        if ((isGuest ( authentication ))  || gamePlayer.get ().getPlayer ().getUserName () != authentication.getName ()) {
+        if ((isGuest ( authentication ))  || ! gamePlayer.get ().getPlayer ().getUserName ().equals(authentication.getName ())) {
             return new ResponseEntity <> (  "You are not the game player" + gamePlayer.get().getId (), HttpStatus.UNAUTHORIZED );
         }
 

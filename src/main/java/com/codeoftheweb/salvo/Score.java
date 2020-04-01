@@ -1,8 +1,6 @@
 package com.codeoftheweb.salvo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -63,11 +61,11 @@ public class Score {
         this.finishDate = finishDate;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(Player player) { this.player = player;
     }
 
     public Map <String, Object> toDTO() {
-        Map <String, Object> dto = new LinkedHashMap <String, Object> ();
+        Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "score", this.score );
         dto.put("username", this.getPlayer ().getUserName ());
         return dto;

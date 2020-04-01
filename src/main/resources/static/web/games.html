@@ -80,6 +80,7 @@
 						<label>Name: <input type="email" v-model:value="email" required></label>
 						<label>Password: <input type="password" v-model:value="pwd" required></label>
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="loginNow">Log in</button>
+						<h4>Are you a new user?</h4>
 						<button type="button" class="btn btn-sm btn-dark" v-on:click="signUp">Sign up</button>
 					</form>
 					<div class="row" v-if="games.player != null">

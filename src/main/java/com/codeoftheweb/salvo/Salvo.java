@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -50,14 +51,6 @@ public class Salvo {
         this.gamePlayer = gamePlayer;
     }
 
-    public void setSalvoLocations(List <String> salvoLocations) {
-        this.locations = locations;
-    }
-
-    public void setTurn(Integer turn) {
-        this.turn = turn;
-    }
-
     public List <String> getLocations() {
         return locations;
     }
@@ -68,67 +61,65 @@ public class Salvo {
     }
 
     public Map <String, Object> toDTO() {
-        Map <String, Object> dto = new LinkedHashMap <String, Object> ();
+        Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "turn", this.turn );
         dto.put ( "player", this.gamePlayer.getId () );
         dto.put ( "locations", this.locations );
 
-
         return dto;
     }
-
 
     public Map<String, Object> toHitsDTO() {
-        Map<String, Object> dto = new LinkedHashMap <String, Object> ();
-        dto.put("turn", this.turn);
-        dto.put("hits", getHits());
-        //why adding this makes the salvoes disappear?
-//        dto.put("shipState", toShipHitsDTO ());
-
-
-        return dto;
-    }
-
-    public Map<String, Object> toShipHitsDTO() {
         Map<String, Object> dto = new LinkedHashMap <> ();
-        getShipHit().forEach ( shipHit -> {
-        String type = shipHit.getType();
-        long numberOfHits = shipHit.getLocations ().stream().filter ( loc -> this.locations.contains ( loc )).count ();
-        dto.put("shipHit", type);
-        dto.put("numberOfHits", numberOfHits);
+        dto.put("turn", this.turn);
+        dto.put("allHits", this.getHits());
+        dto.put("shipStatus", this.toShipHitsDTO ());
 
-
-        }
         return dto;
     }
+
+    public List<Map<String, Object>>toShipHitsDTO() {
+        List<Map<String, Object>> dtoList = new LinkedList <> (  ) ;
+
+
+        this.getShipHit().forEach ( shipHit -> {
+            Map<String, Object> dto = new LinkedHashMap <> ();
+
+            List<Salvo> allSalvoesUpToThisTurn = this.gamePlayer.getSalvoes ().stream ()
+                    .filter( s ->s.getTurn () <= this.turn )
+                .collect(toList());
+
+            List<String> allSalvoesLocationsUpToThisTurn = allSalvoesUpToThisTurn.stream ()
+                    .map(Salvo::getLocations)
+                    .flatMap ( List::stream )
+                    .collect( Collectors.toList () );
+
+
+            int numberOfHits = Math.toIntExact ( shipHit.getLocations ().stream ().filter ( loc -> this.getLocations ().contains ( loc ) ).count () );
+            dto.put ( "type", shipHit.getType () );
+            dto.put("shipId", shipHit.getId ());
+            dto.put ( "numberOfHits",  numberOfHits );
+            int hitsAccumulated = Math.toIntExact ( shipHit.getLocations ().stream ().filter ( allSalvoesLocationsUpToThisTurn::contains ).count () );
+            dto.put("hitsLeft", shipHit.getLocations ().size () - hitsAccumulated);
+
+            dtoList.add( dto );
+        });
+                return dtoList;
+
+    }
+
 
 
     public List<Ship> getShipHit(){
 
         List <Ship> opponentShips = this.gamePlayer.getShipsOpponent ();
-
-        return opponentShips.stream ().filter ( s -> this.locations.retainAll ( s.getLocations () ))
-                .collect ( toList () );
-
-    }
-
-    public List<Ship> getShipSink(){
-
-        List <Ship> opponentShips = this.gamePlayer.getShipsOpponent ();
-        List <String> salvoUntilThisTurn = this.gamePlayer.getSalvoes ()
-                .stream ().filter( sa -> sa.getTurn () <= this.turn )
-                .flatMap (s -> s.getLocations ().stream()).collect(toList())
-                ;
-
-        return opponentShips.stream ().filter ( s ->
-                salvoUntilThisTurn.containsAll (s.getLocations () ))
+        return opponentShips.stream ().filter ( s -> this.getLocations ().stream().anyMatch ( x -> s.getLocations ().contains ( x ) ))
+                .sorted(Comparator.comparingLong(Ship::getId))
                 .collect ( toList () );
 
     }
 
 }
-
-
 
 
 
