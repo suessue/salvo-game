@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 @RestController
 @RequestMapping("/api")
 public class SalvoController {
@@ -59,7 +61,7 @@ public class SalvoController {
         dto.put ( "games",  gameRepository.findAll ()
                 .stream ()
                 .map ( Game::toDTO )
-                .collect ( Collectors.toList () ));
+                .collect ( toList () ));
 
 
         return new ResponseEntity<> (dto, HttpStatus.OK);
@@ -67,7 +69,7 @@ public class SalvoController {
     }
 
     @PostMapping("/games/players/{gamePlayerId}/ships")
-    public ResponseEntity <Object> getShips(@PathVariable Long gamePlayerId, Authentication authentication, @RequestBody List <Ship> ships ) {
+    public ResponseEntity <Object> addShips(@PathVariable Long gamePlayerId, Authentication authentication, @RequestBody Ship ship ) {
 
         Optional <GamePlayer> gamePlayer = gamePlayerRepository.findById ( gamePlayerId );
 
@@ -77,16 +79,20 @@ public class SalvoController {
         if ((isGuest ( authentication )) || !(gamePlayer.get ().getPlayer ().getUserName ().equals ( authentication.getName ()))) {
             return new ResponseEntity <> ( "Not valid" , HttpStatus.UNAUTHORIZED );
         }
+        if (!gamePlayer.get ().getOpponent ().isPresent ()){
+            return new ResponseEntity <> ( "You still don't have an opponent!" , HttpStatus.FORBIDDEN );
+        }
 
         if (gamePlayer.get ().getShips ().size() >= 5) {
-            return new ResponseEntity <> ( "You have already picked all your ships." , HttpStatus.FORBIDDEN );
+            return new ResponseEntity <> ( "You have already sent all your ships." , HttpStatus.FORBIDDEN );
+        }
+
+        if (!gamePlayer.get().getSalvoes ().isEmpty () || !gamePlayer.get ().getOpponent ().get ().getSalvoes ().isEmpty ()) {
+            return new ResponseEntity <> ( "The game has already started! No more ships allowed!" , HttpStatus.FORBIDDEN );
         }
 
 
-        ships.stream ().forEach ( ship -> {
-            gamePlayer.get ().addShip ( ship );
-        } );
-
+        gamePlayer.get().addShip(ship);
         gamePlayerRepository.save ( gamePlayer.get () );
         return new ResponseEntity <> ( "Your ship is on the game!" , HttpStatus.CREATED );
 
@@ -100,17 +106,34 @@ public class SalvoController {
             return new ResponseEntity <> (  "Log in first!" , HttpStatus.UNAUTHORIZED );
         }
         if ((isGuest ( authentication ))  || ! gamePlayer.get ().getPlayer ().getUserName ().equals(authentication.getName ())) {
-            return new ResponseEntity <> (  "You are not the game player" + gamePlayer.get().getId (), HttpStatus.UNAUTHORIZED );
+            return new ResponseEntity <> (  "You are not the game player", HttpStatus.UNAUTHORIZED );
         }
 
-        if (salvo. getTurn() != gamePlayer.get().getSalvoes ().size() + 1 ) {
+        if (!gamePlayer.get().getOpponent ().isPresent ()){
+            return new ResponseEntity <> ( "You still don't have an opponent!" , HttpStatus.FORBIDDEN );
+        }
+
+        if (gamePlayer.get().getShipsOpponent ().isEmpty ()) {
+            return new ResponseEntity <> ( "Wait for opponent's ships!" , HttpStatus.FORBIDDEN );
+        }
+
+        if (gamePlayer.get ().getState ().contains ( "OVER" )) {
+            return new ResponseEntity <> ( "This game is over, babe!" , HttpStatus.FORBIDDEN );
+        }
+
+        if (!gamePlayer.get().getSalvoes ().isEmpty () && salvo. getTurn() < gamePlayer.get().getSalvoes ().size() + 1 ) {
             return new ResponseEntity <> ( "Salvo already fired for this turn" , HttpStatus.FORBIDDEN );
         }
 
+//        if ( !salvo.getGamePlayer ().getOpponent ().get().getSalvoes().isEmpty()|| salvo. getTurn() > salvo.getGamePlayer ().getOpponent ().get().getSalvoes().size() + 1 ) {
+//            return new ResponseEntity <> ( "Wait for your opponent to fire his salvoes" , HttpStatus.FORBIDDEN );
+//        }
 
-        if (gamePlayer.get().getSalvoes ().stream ().count () > 5) {
-            return new ResponseEntity <> ( "Too many shots in salvo" , HttpStatus.FORBIDDEN );
+        if (salvo.getLocations ().size () > 5 || salvo.getLocations ().size() > (salvo.getGamePlayer ().getShips ().size() - salvo.getGamePlayer ().getSinks ())) {
+            return new ResponseEntity <> ( "Too many shots in this salvo" , HttpStatus.FORBIDDEN );
         }
+
+
 
 
         gamePlayer.get ().addSalvo ( salvo );

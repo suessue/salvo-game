@@ -34,11 +34,21 @@ public class Game {
     public Map <String, Object> toDTO() {
         Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
+        dto.put("state", this.getState());
         dto.put ( "created", this.creationDate );
         dto.put ( "finishedDate", this.creationDate.plusMinutes ( 30 ) );
         dto.put ( "gamePlayers", this.gamePlayers.stream ().sorted ( Comparator.comparingLong(GamePlayer::getId)).map ( GamePlayer::toDTO ).collect ( toList () ) );
 
         return dto;
+    }
+
+    public String getState() {
+        if (this.getGamePlayers ().stream ().findAny ().get ().getState ().contains ( "OVER" )){
+        return "GAME OVER";
+        } else if (this.getGamePlayers ().stream ().findAny ().get ().getState ().contains( "WAITING FOR YOUR OPPONENT")){
+            return "WAITING FOR OPPONENT";
+        } else {return "ONGOING";}
+
     }
 
     public void addScore(Score score) {

@@ -1,3 +1,85 @@
 div {
     margin: 30px;
 }
+
+body {
+
+    z-index: 1;
+    background-image: url(../images/sea6.jpg);
+    color: rgba(230, 7, 7, 0.952);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    /* background-size: 100% 100%; */
+    font-family: 'Bungee Inline', cursive;
+    text-shadow: rgba(243, 239, 239, 0.952) 0px 0px 8px;
+}
+
+#main-title h1 {
+    font-size: 110px;
+    margin-top: 60px;
+    text-align: center;
+    width: 100vw;
+    margin-bottom: 0px;
+
+}
+
+.leaderboard div {
+    margin-top: 10px;
+}
+
+.top h2 {
+    text-align: center;
+    color: rgb(13, 4, 63);
+    font-weight: 100;
+    margin-top: 0px;
+
+}
+
+
+
+#login-signup-div {
+    padding: 10px;
+    height: 30vh;
+    width: 25vw;
+    position: fixed;
+    background-color: rgba(250, 246, 246, 0.295);
+    top: 40%;
+    left: 37%;
+    border: outset rgb(250, 218, 218) 2px;
+    letter-spacing: .07em;
+    text-shadow: white 0px 0px 10px;
+
+
+}
+
+/* #logout-create-game {
+
+} */
+
+#signUp {
+    display: none;
+    margin: auto;
+    padding: 0px;
+    font-size: 18px;
+    color: red;
+}
+
+#login {
+    display: block;
+    margin: auto;
+    padding: 0px;
+    font-size: 18px;
+    color: red;
+
+}
+
+#signUp,
+#login * input {
+    max-width: 18vw;
+}
+
+#signUp,
+#login * div {
+    max-height: 10vh;
+}

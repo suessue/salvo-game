@@ -15,7 +15,10 @@ var app = new Vue({
 
 
 	},
+	updated() {
+		filterGameTable();
 
+	},
 	methods: {
 		getLeaderboard: function () {
 			app.games.games.forEach(game => {
@@ -75,15 +78,16 @@ var app = new Vue({
 		},
 
 		findData: function () {
-			$.get("/api/games", function (data) {
-				app.games = data;
-				app.getLeaderboard();
-				findPlayers();
-				// findSets();
-				// findTiesLossesWins(1);
-				// findTiesLossesWins(0.5);
-				// findTiesLossesWins(0);
-			})
+			$.get("/api/games")
+				.done(function (data) {
+					app.games = data;
+					app.getLeaderboard();
+					findPlayers();
+
+					if (app.games.player != null) {
+						document.body.style.backgroundSize = "100% 100%";
+					}
+				})
 		},
 
 		loginNow: function () {
@@ -95,12 +99,16 @@ var app = new Vue({
 				.done(function () {
 
 					alert("Welcome to Salvo! You are now online!");
+					filterGameTable();
 					location.reload(true);
+
 				})
 				.fail(function (error) {
 					alert('Check your email/password or register if you are a new user.')
-					console.log(error.responseJSON);
+					console.log(error);
 				});
+
+
 		},
 
 		signUp: function () {
@@ -157,6 +165,10 @@ var app = new Vue({
 					console.log(error.responseJSON.error);
 				});
 
+		},
+
+		updateGame() {
+
 		}
 
 	},
@@ -169,9 +181,22 @@ function hide(button) {
 
 }
 
-app.findData();
+function alternateDisplays(a, b) {
+	let x = document.getElementById(a);
+	x.style.display = "none";
+	let y = document.getElementById(b);
+	y.style.display = "block";
+}
 
+function filterGameTable() {
 
+	if (app.games.player != null) {
+
+		[...document.querySelectorAll(".my-games-table")]
+		.filter(a => !a.textContent.includes(app.games.player.username) && a.cells.length == 3)
+			.forEach(a => a.style.display = "none");
+	}
+}
 
 function findPlayers() {
 	app.games.games.forEach(game => game.gamePlayers.forEach(gamePlayer => {
@@ -180,73 +205,8 @@ function findPlayers() {
 	}))
 }
 
-// function findSets() {
-// 	app.playersJson = (app.players.map(x => x.player));
-// 	app.playersSet = (app.playersJson.map(x => {
-// 			return {
-
-// 				username: x.username,
-// 				totalPoints: x.totalPoints,
-// 				wins: x.wins,
-// 				losses: x.losses,
-// 				ties: x.ties,
-// 			}
-// 		}
-
-// 	))
-
-// 	app.playersSetSorted = [...new Set(app.playersSet)]
-
-// }
-
-// function findSets() {
-// 	app.playersJson = [...new Set(app.players.map(x => {
-
-// 		return {
-// 			user: x.player.username,
-// 			score: x.scores.score,
-// 			ties: 0,
-// 			wins: 0,
-// 			losses: 0,
-
-// 		}
-// 	}))]
-
-// 	console.log(app.playersJson);
-
-// }
-
-
-// score: 0, app.players.map(x => x.scores),
-// 			ties: 0, app.players.count(x => x.scores.score == 0, 5 && x.player.username == this.user),
-// 			wins: 0, app.players.count(x => x.scores.score == 1 && x.player.username == this.user),
-// 			losses: 0,app.players.count(x => x.scores.score == 0 && x.player.username == this.user),
-
-// function findTiesLossesWins(x, email, y) {
-// 	var result = "";
-// 	result = app.players.filter(b => (b.scores.score == x && b.player.username == email));
-// 	app.y.push(result);
-// }
-
-// function findTiesLossesWins(x) {
-
-// 	let result = app.players.score.find(b => (b.scores.score === x));
-
-// 	if (x = 1) {
-// 		console.log(result);
-// 	} else if (x = 0.5) {
-// 		console.log(result);
-// 	} else if (x = 0) {
-// 		console.log(result);
-// 	}
-// }
-
-// function filterTiesLosseWins() {
-
-// }
-
-// function countTiesLossesWins(td, result) {
-// 	td.includes(player.username && result) ?
-// 		app.result.filter(sub => sub.player.username == player document.getElementById(td);
-// 			var total = a.filter(player)
-// 		}
+app.findData();
+// document.addEventListener('DOMContentLoaded', function () {
+// 	findPlayers();
+// 	filterGameTable();
+// }, false);

@@ -1,7 +1,12 @@
 
-I
-java:S1602V",Remove useless curly braces around statement(±—Ö¤8ªø½şŒ.
-h
-java:S1192"FDefine a constant instead of duplicating this literal "error" 6 times.(îÉµæıÿÿÿÿ8£°‚¨Œ.
 b
-java:S4684`"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8·²ª‰“.
+java:S4684f"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8äÊŞ —.
+T
+java:S3655Z"7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ8äÊŞ —.
+i
+java:S1192–"FDefine a constant instead of duplicating this literal "error" 6 times.(îÉµæıÿÿÿÿ8ÚÛÒ¤—.
+Z
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¦áª•.
+]
+java:S4684H"@Replace this persistent entity with a simple POJO or DTO object.(éîÁÂ8äÊŞ —.
+^	java:S125€"<This block of commented-out lines of code should be removed.(»®—Ìúÿÿÿÿ8İ¸Â¥—.

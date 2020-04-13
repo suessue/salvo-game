@@ -32,13 +32,11 @@ public class SalvoApplication extends SpringBootServletInitializer {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-
     public static void main(String[] args) {
         SpringApplication.run ( SalvoApplication.class, args );
     }
 
-    @Bean
-    public CommandLineRunner initData(PlayerRepository playerRepository, GameRepository gameRepository, GamePlayerRepository gamePlayerRepository, ScoreRepository scoreRepository) {
+    @Bean public CommandLineRunner initData(PlayerRepository playerRepository, GameRepository gameRepository, GamePlayerRepository gamePlayerRepository, ScoreRepository scoreRepository) {
         return args -> {
             Player player1 = new Player ( "j.bauer@ctu.gov", passwordEncoder.encode("24"));
             Player player2 = new Player ( "c.obrian@ctu.gov", passwordEncoder.encode( "42"));
@@ -51,7 +49,7 @@ public class SalvoApplication extends SpringBootServletInitializer {
             Ship ship4 = new Ship ( "Destroyer", Arrays.asList ( "B5", "C5", "D5" ) );
             Ship ship5 = new Ship ( "Patrol Boat", Arrays.asList ( "F1", "F2" ) );
             Ship ship6 = new Ship ( "Destroyer", Arrays.asList ( "B5", "C5", "D5" ) );
-            Ship ship7 = new Ship ( "Patrol Boat", Arrays.asList ( "F1", "F2" ) );
+            Ship ship7 = new Ship ( "Patrol Boat", Arrays.asList ( "C6", "C7" ) );
             Ship ship8 = new Ship ( "Submarine", Arrays.asList ( "A2", "A3", "A4" ) );
             Ship ship9 = new Ship ( "Patrol Boat", Arrays.asList ( "G6", "H6" ) );
             Ship ship10 = new Ship ( "Destroyer", Arrays.asList ( "B5", "C5", "D5" ) );
@@ -60,7 +58,7 @@ public class SalvoApplication extends SpringBootServletInitializer {
             Ship ship13 = new Ship ( "Patrol Boat", Arrays.asList ( "G6", "H6" ) );
 
             Salvo salvo1 = new Salvo ( 1, Arrays.asList ( "B5", "C5", "F1" ) );
-            Salvo salvo2 = new Salvo ( 1, Arrays.asList ( "G6", "H6" ) );
+            Salvo salvo2 = new Salvo ( 1, Arrays.asList ( "B4", "B5", "B6" ) );
             Salvo salvo3 = new Salvo ( 2, Arrays.asList ( "F2", "D5" ) );
             Salvo salvo4 = new Salvo ( 2, Arrays.asList ( "E1", "H3", "A2" ) );
             Salvo salvo5 = new Salvo ( 1, Arrays.asList ( "A2", "A4", "G6" ) );
@@ -90,12 +88,7 @@ public class SalvoApplication extends SpringBootServletInitializer {
             gamePlayer2.addSalvo ( salvo2 );
             gamePlayer2.addSalvo ( salvo4 );
 
-            Score score1 = new Score ( 1, game1, player1, game1.getCreationDate ().plusMinutes ( 30 ) );
-            Score score2 = new Score ( 0,game1, player2, game1.getCreationDate ().plusMinutes ( 30 ) );
-            Score score3 = new Score ( 0.5, game2, player1, game2.getCreationDate ().plusMinutes ( 30 ) );
-            Score score4 = new Score ( 0.5, game2, player2, game2.getCreationDate ().plusMinutes ( 30 ) );
-            Score score5 = new Score ( 1, game3, player2, game3.getCreationDate ().plusMinutes ( 30 ) );
-            Score score6 = new Score ( 0, game3, player3, game3.getCreationDate ().plusMinutes ( 30 ) );
+
 
             GamePlayer gamePlayer3 = new GamePlayer ( player1, game2 );
             gamePlayer3.addShip ( ship6 );
@@ -121,6 +114,13 @@ public class SalvoApplication extends SpringBootServletInitializer {
             gamePlayer6.addSalvo ( salvo10 );
             gamePlayer6.addSalvo ( salvo12 );
 
+            Score score1 = new Score ( 1, game1, player1, game1.getCreationDate ().plusMinutes ( 30 ) );
+            Score score2 = new Score ( 0,game1, player2, game1.getCreationDate ().plusMinutes ( 30 ) );
+            Score score3 = new Score ( 0.5, game2, player1, game2.getCreationDate ().plusMinutes ( 30 ) );
+            Score score4 = new Score ( 0.5, game2, player2, game2.getCreationDate ().plusMinutes ( 30 ) );
+            Score score5 = new Score ( 1, game3, player2, game3.getCreationDate ().plusMinutes ( 30 ) );
+            Score score6 = new Score ( 0, game3, player3, game3.getCreationDate ().plusMinutes ( 30 ) );
+
             playerRepository.save ( player1 );
             playerRepository.save ( player2);
             playerRepository.save ( player3);
@@ -144,7 +144,7 @@ public class SalvoApplication extends SpringBootServletInitializer {
             scoreRepository.save(score5);
             scoreRepository.save(score6);
 
-        };
+    };
     }
 
 

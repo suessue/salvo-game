@@ -29,3 +29,5 @@ h
 8src/main/java/com/codeoftheweb/salvo/ShipRepository.java,b\9\b90b21deb138a991bdf7782fbc601cce1e62ae57
 ^
 .src/main/java/com/codeoftheweb/salvo/Ship.java,9\4\9451dedb6ef7f88f5a803362508d9e38382107c3
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
