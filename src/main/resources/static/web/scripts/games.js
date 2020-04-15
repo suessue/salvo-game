@@ -15,8 +15,9 @@ var app = new Vue({
 
 
 	},
-	updated() {
+	updated: function () {
 		filterGameTable();
+
 
 	},
 	methods: {
@@ -81,8 +82,9 @@ var app = new Vue({
 			$.get("/api/games")
 				.done(function (data) {
 					app.games = data;
-					app.getLeaderboard();
 					findPlayers();
+					app.getLeaderboard();
+
 
 					if (app.games.player != null) {
 						document.body.style.backgroundSize = "100% 100%";
@@ -101,6 +103,7 @@ var app = new Vue({
 					alert("Welcome to Salvo! You are now online!");
 					filterGameTable();
 					location.reload(true);
+					// setInterval(90).location.reload(true);
 
 				})
 				.fail(function (error) {
@@ -149,6 +152,7 @@ var app = new Vue({
 			$.post("/api/games")
 				.done(function (data) {
 					location.assign("game.html?gp=" + data.gpid);
+
 				})
 				.fail(function (error) {
 					console.log(error.responseJSON.error);
@@ -206,6 +210,7 @@ function findPlayers() {
 }
 
 app.findData();
+// app.getLeaderboard();
 // document.addEventListener('DOMContentLoaded', function () {
 // 	findPlayers();
 // 	filterGameTable();

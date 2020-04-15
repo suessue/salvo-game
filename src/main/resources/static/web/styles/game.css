@@ -1,12 +1,24 @@
 body {
     color: red;
     background-image: url(../images/sea.jpg);
+    background-color: ;
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     font-family: 'Bungee Inline', cursive;
+    text-shadow: rgba(243, 239, 239, 0.952) 0px 0px 4px;
 
 }
+
+
+/* #main-title h1 {
+    font-size: 130px;
+    margin-top: 60px;
+    text-align: center;
+    width: 100vw;
+    margin-bottom: 0px;
+
+} */
 
 #header {
     margin-top: 0px;
@@ -14,7 +26,7 @@ body {
 
 #header-title h1 {
     size: 150px;
-    text-shadow: 0.5px 0.5px 2px 0.5px cyan;
+    /* text-shadow: 0.5px 0.5px 2px 0.5px cyan; */
 }
 
 .grids table {
@@ -41,6 +53,11 @@ body {
 
 .grids *tr {
     height: 40px;
+
+}
+
+.columns *th {
+    width: 40px;
 
 }
 
@@ -88,6 +105,9 @@ h3 {
     width: 400px;
     margin-top: 20px;
     margin-left: 80px;
+    color: red;
+    text-shadow: rgba(243, 239, 239, 0.952) 0px 0px 0px;
+    font-size: 15px;
 }
 
 .ships-input form {

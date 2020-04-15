@@ -104,8 +104,6 @@ public class GamePlayer {
     public Map <String, Object> toGameViewDTO() {
         Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
-//        inserir game state
-//        "waiting for ships to be placed" state, "waiting for a salvo be to be entered" state, "waiting for the other player to finish"
         String state = this.getState();
         dto.put("state", state);
         dto.put ( "created", this.game.getCreationDate () );
@@ -127,7 +125,7 @@ public class GamePlayer {
     }
 
     public String getState() {
-        String state = "FIRE!!";
+        String state = "FIRE";
         if(!this.getOpponent ().isPresent ()) {
             state = "WAITING FOR YOUR OPPONENT" ;
             }else if(this.getOpponent ().isPresent () && this.getShips ().isEmpty () ){
@@ -135,25 +133,22 @@ public class GamePlayer {
 
             }else if ( this.getOpponent ().isPresent () && !this.getShips ().isEmpty () && this.getShipsOpponent ().isEmpty () ){
              state = "WAITING FOR OPPONENT'S SHIPS";
-            }else if ( this.getShipsOpponent () != null && this.getOpponent ().get ().getSalvoes ().isEmpty () && this.getSalvoes ().size() > this.getOpponent ().get().getSalvoes ().size () ){
-                 state = "WAITING FOR OPPONENT'S ATTACK";
-            }else if ( !this.getShips ().isEmpty () && this.getShipsOpponent () != null && this.getSalvoes () != null && this.getOpponent ().get ().getSalvoes ().size() >= this.getSalvoes ().size() ) {
+
+            }else if ( !this.getShips ().isEmpty () && this.getShipsOpponent () != null && this.getSalvoes () != null && this.getOpponent ().get ().getSalvoes ().size() == this.getSalvoes ().size() ) {
 
                 if(this.getSinks () < this.getShips ().size () && this.getOpponent ().get().getSinks() == this.getShipsOpponent ().size()){
                 state = "GAME OVER! YOU WON!";
-                Score points = new Score ( 1, this.game, this.player, this.game.getCreationDate ().plusMinutes ( 30 ) );
-                this.player.addScore (points);
+
                 }
                     else if(this.getSinks() == this.getShips ().size ()
                             && this.getOpponent ().get ().getSinks() < this.getShipsOpponent ().size()) {
                         state = "GAME OVER! YOU LOST...";
-                        Score points = new Score ( 0, this.game, this.player, this.game.getCreationDate ().plusMinutes ( 30 ) );
-                        this.player.addScore (points);}
-                    else if(this.getSinks() == this.getShips ().size ()
+
+
+                    }else if(this.getSinks() == this.getShips ().size ()
                             && this.getOpponent ().get ().getSinks() == this.getShipsOpponent ().size()) {
                         state = "GAME OVER! IT'S A TIE!";
-                        Score points = new Score ( 0.5, this.game, this.player, this.game.getCreationDate ().plusMinutes ( 30 ) );
-                        this.player.addScore (points);}
+                    }
                 }
         return state;
 

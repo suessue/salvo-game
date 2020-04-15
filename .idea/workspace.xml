@@ -2,40 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/sea.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/sea2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/sea3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/sea4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/sea5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/images/sea6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/web/styles/TGIF.code-workspace" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/06220eb163c248eba4d4857bbdead2443839447c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/06220eb163c248eba4d4857bbdead2443839447c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b4395a62f03369df103417d047a80f905b59cc8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b4395a62f03369df103417d047a80f905b59cc8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cffc3234bc8e484110d96def966a60a6af4b23e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cffc3234bc8e484110d96def966a60a6af4b23e" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/da90a5646e5710803a7c907446b5a142c0bddbb7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/da90a5646e5710803a7c907446b5a142c0bddbb7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/daccdd891b5872c458758b6eb09cd94d77528fe6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/daccdd891b5872c458758b6eb09cd94d77528fe6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/games.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/hitBoat.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/styles/games.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/salvo06.04.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/salvo18.03.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" afterDir="false" />
@@ -330,26 +312,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="511" y="234" key="Github.ShareDialog/0.0.1280.680@0.0.1280.680" timestamp="1585572035944" />
-    <state width="1237" height="179" key="GridCell.Tab.0.bottom" timestamp="1586818537783">
+    <state width="1237" height="235" key="GridCell.Tab.0.bottom" timestamp="1586974761898">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="179" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586818537783" />
-    <state width="1237" height="179" key="GridCell.Tab.0.center" timestamp="1586818537783">
+    <state width="1237" height="235" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586974761898" />
+    <state width="1237" height="235" key="GridCell.Tab.0.center" timestamp="1586974761897">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="179" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586818537783" />
-    <state width="1237" height="179" key="GridCell.Tab.0.left" timestamp="1586818537782">
+    <state width="1237" height="235" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586974761897" />
+    <state width="1237" height="235" key="GridCell.Tab.0.left" timestamp="1586974761897">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="179" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586818537782" />
-    <state width="1237" height="179" key="GridCell.Tab.0.right" timestamp="1586818537783">
+    <state width="1237" height="235" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586974761897" />
+    <state width="1237" height="235" key="GridCell.Tab.0.right" timestamp="1586974761898">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="179" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586818537783" />
+    <state width="1237" height="235" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586974761898" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1585601562474">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -382,10 +364,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583854628062" />
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1586788830223">
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1586900029961">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1586788830223" />
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1586900029961" />
     <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585785285661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -398,10 +380,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1585520760342" />
-    <state x="348" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1586560857010">
+    <state x="348" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1586974490188">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="348" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1586560857010" />
+    <state x="348" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1586974490188" />
     <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1585589106200">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

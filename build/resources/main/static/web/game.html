@@ -16,6 +16,9 @@
 
     <div id="app">
         <div class="container">
+            <!-- <div id="main-title" class="row">
+				<h1>BATTLESHIP</h1>
+			</div> -->
             <div class="row header gameplayers justify-content-center">
                 <div class="col justify-content-center">
                     <div>
@@ -32,12 +35,12 @@
 
             <div class="row grids text-center justify-content-center">
                 <div id="div-ships-grid" class="col-6  justify-content-center text-center">
-                    <h4>SHIPS GRID</h4>
+                    <h4>SHIPS</h4>
                     <table id="ships-grid" class="table table-dark table-bordered table-striped table-ships thead-dark"
                         cellspacing='0' cellpadding='0'>
                         <thead class="bg-dark text-white">
                             <tr>
-                                <th v-for="column in gameColumns" class="justify-content-center">
+                                <th v-for="column in gameColumns" class="justify-content-center columns">
                                     {{column}}
                                 </th>
                             </tr>
@@ -53,7 +56,7 @@
                 </div>
 
                 <div id="div-salvoes-grid" class="col-6 justify-content-center text-center">
-                    <h4>SALVOES GRID</h4>
+                    <h4>SALVOES </h4>
                     <table id="salvoes-grid" class="table table-dark table-bordered table-striped table-salvoes">
                         <thead class="bg-dark text-white">
                             <tr>
@@ -176,8 +179,7 @@
                     <div id="carouselExampleControls" class="row carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" id="slide0">
-                                <div class="text-secondary d-flex justify-content-center"
-                                    v-on:click="selectShipType('')">
+                                <div class="text-danger d-flex justify-content-center" v-on:click="selectShipType('')">
                                     <h3>Choose your ship!</h3>
                                 </div>
                             </div>
@@ -188,7 +190,7 @@
                                         v-bind:class="{ selectedShip: shipType == 'Aircraft Carrier' }">
                                 </div>
                                 <div
-                                    class="carousel-caption text-secondary d-flex align-items-end justify-content-center ">
+                                    class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
                                     <h5>Aircraft Carrier - Size 5</h5>
                                 </div>
                             </div>
@@ -199,7 +201,7 @@
                                         v-bind:class="{ selectedShip: shipType == 'Battleship' }">
                                 </div>
                                 <div
-                                    class="carousel-caption text-secondary d-flex align-items-end justify-content-center ">
+                                    class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
                                     <h5>Battleship - Size 4</h5>
                                 </div>
                             </div>
@@ -210,7 +212,7 @@
                                         v-bind:class="{ selectedShip: shipType == 'Submarine' }">
                                 </div>
                                 <div
-                                    class="carousel-caption text-secondary d-flex align-items-end justify-content-center ">
+                                    class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
                                     <h5>Submarine - Size 3</h5>
                                 </div>
                             </div>
@@ -221,7 +223,7 @@
                                         v-bind:class="{ selectedShip: shipType == 'Destroyer' }">
                                 </div>
                                 <div
-                                    class="carousel-caption text-secondary d-flex align-items-end justify-content-center ">
+                                    class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
                                     <h5>Destroyer - Size 3</h5>
                                 </div>
                             </div>
@@ -232,7 +234,7 @@
                                         v-bind:class="{ selectedShip: shipType == 'Patrol Boat' }">
                                 </div>
                                 <div
-                                    class="carousel-caption text-secondary d-flex align-items-end justify-content-center ">
+                                    class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
                                     <h5>Patrol Boat - Size 2</h5>
                                 </div>
                             </div>

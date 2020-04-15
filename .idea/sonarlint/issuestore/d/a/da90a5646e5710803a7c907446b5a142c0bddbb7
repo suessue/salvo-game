@@ -1,12 +1,11 @@
 
-b
-java:S4684f"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8äÊŞ —.
-T
-java:S3655Z"7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ8äÊŞ —.
-i
-java:S1192–"FDefine a constant instead of duplicating this literal "error" 6 times.(îÉµæıÿÿÿÿ8ÚÛÒ¤—.
 Z
 java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¦áª•.
+T
+java:S3655Z"7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ8äÊŞ —.
 ]
 java:S4684H"@Replace this persistent entity with a simple POJO or DTO object.(éîÁÂ8äÊŞ —.
-^	java:S125€"<This block of commented-out lines of code should be removed.(»®—Ìúÿÿÿÿ8İ¸Â¥—.
+b
+java:S4684f"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8äÊŞ —.
+i
+java:S1192‘"FDefine a constant instead of duplicating this literal "error" 6 times.(îÉµæıÿÿÿÿ8ÚÛÒ¤—.

@@ -43,10 +43,12 @@ public class Game {
     }
 
     public String getState() {
-        if (this.getGamePlayers ().stream ().findAny ().get ().getState ().contains ( "OVER" )){
-        return "GAME OVER";
-        } else if (this.getGamePlayers ().stream ().findAny ().get ().getState ().contains( "WAITING FOR YOUR OPPONENT")){
+
+        if (this.getGamePlayers ().stream ().anyMatch (gp -> gp.getState ().equals ( "WAITING FOR YOUR OPPONENT" ))){
             return "WAITING FOR OPPONENT";
+        } else if (this.getGamePlayers ().stream ().anyMatch (gp -> gp.getState ().contains ( "OVER" ))){
+            return "GAME OVER";
+
         } else {return "ONGOING";}
 
     }

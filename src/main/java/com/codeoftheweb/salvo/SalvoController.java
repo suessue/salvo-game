@@ -26,6 +26,8 @@ public class SalvoController {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private PlayerRepository playerRepository;
+    @Autowired
+    private ScoreRepository scoreRepository;
 
 
 
@@ -102,6 +104,7 @@ public class SalvoController {
     public ResponseEntity <Object>  getSalvoes(@PathVariable Long gamePlayerId, Authentication authentication, @RequestBody Salvo salvo){
 
         Optional <GamePlayer> gamePlayer = gamePlayerRepository.findById ( gamePlayerId );
+
         if (!gamePlayer.isPresent ()){
             return new ResponseEntity <> (  "Log in first!" , HttpStatus.UNAUTHORIZED );
         }
@@ -117,29 +120,51 @@ public class SalvoController {
             return new ResponseEntity <> ( "Wait for opponent's ships!" , HttpStatus.FORBIDDEN );
         }
 
-        if (gamePlayer.get ().getState ().contains ( "OVER" )) {
-            return new ResponseEntity <> ( "This game is over, babe!" , HttpStatus.FORBIDDEN );
-        }
-
         if (!gamePlayer.get().getSalvoes ().isEmpty () && salvo. getTurn() < gamePlayer.get().getSalvoes ().size() + 1 ) {
             return new ResponseEntity <> ( "Salvo already fired for this turn" , HttpStatus.FORBIDDEN );
         }
 
-//        if ( !salvo.getGamePlayer ().getOpponent ().get().getSalvoes().isEmpty()|| salvo. getTurn() > salvo.getGamePlayer ().getOpponent ().get().getSalvoes().size() + 1 ) {
-//            return new ResponseEntity <> ( "Wait for your opponent to fire his salvoes" , HttpStatus.FORBIDDEN );
-//        }
-
-        if (salvo.getLocations ().size () > 5 || salvo.getLocations ().size() > (salvo.getGamePlayer ().getShips ().size() - salvo.getGamePlayer ().getSinks ())) {
+        if (salvo.getLocations ().size () > 5){
             return new ResponseEntity <> ( "Too many shots in this salvo" , HttpStatus.FORBIDDEN );
         }
 
-
+        if (!gamePlayer.get ().getState ().contains ( "FIRE" )) {
+            return new ResponseEntity <> ( "This game is over, babe!" , HttpStatus.FORBIDDEN );
+        }
 
 
         gamePlayer.get ().addSalvo ( salvo );
-       
+
+
+        if (gamePlayer.get ().getState ().contains ( "WON" )) {
+                Score myPoints = new Score ( 1.0 , gamePlayer.get().getGame (), gamePlayer.get().getPlayer (), (LocalDateTime.now () ));
+                Score opponentPoints = new Score (0d, gamePlayer.get().getGame (), gamePlayer.get().getOpponent ().get ().getPlayer (), (LocalDateTime.now()));
+                scoreRepository.save(myPoints);
+                scoreRepository.save(opponentPoints);
+
+
+        }
+         else if (gamePlayer.get ().getState ().contains ( "TIE" )) {
+                Score myPoints = new Score ( 0.5, gamePlayer.get ().getGame (), gamePlayer.get ().getPlayer (), (LocalDateTime.now ()) );
+                Score opponentPoints = new Score ( 0.5, gamePlayer.get ().getGame (), gamePlayer.get ().getOpponent ().get ().getPlayer (), (LocalDateTime.now ()) );
+                scoreRepository.save(myPoints);
+                scoreRepository.save(opponentPoints);
+
+
+        }else if (gamePlayer.get ().getState ().contains ( "LOST" )) {
+                Score myPoints = new Score ( 0d , gamePlayer.get().getGame (), gamePlayer.get().getPlayer (), (LocalDateTime.now () ));
+                Score opponentPoints = new Score (1.0, gamePlayer.get().getGame (), gamePlayer.get().getOpponent ().get ().getPlayer (), (LocalDateTime.now()));
+                scoreRepository.save(myPoints);
+                scoreRepository.save(opponentPoints);
+
+         }
+
+
         gamePlayerRepository.save ( gamePlayer.get () );
         return new ResponseEntity <> ( "Your shots have been fired!" , HttpStatus.CREATED );
+
+
+
     }
 
 

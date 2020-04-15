@@ -50,16 +50,25 @@ var app = new Vue({
             //hiding controls 
             if (app.gameView.ships.length >= 5 || app.gameView.state.includes("OVER")) {
 
-                document.getElementById("shipControl").style.maxHeight = "10px";
+
+                document.getElementById("shipControl").style.maxHeight = "100px";
+                document.body.style.backgroundSize = "100wh 100%vh";
                 document.getElementById("shipControl").style.visibility = "hidden";
+                document.getElementById("salvoControl").style.visibility = "hidden";
 
 
             }
 
             if (app.gameView.state == "WAITING FOR YOUR OPPONENT") {
                 document.getElementById("salvoControl").style.visibility = "hidden";
+                document.getElementById("shipControl").style.visibility = "hidden";
+            }
+
+            if (app.gameView.state == "PLACE YOUR SHIPS") {
+                document.getElementById("salvoControl").style.visibility = "hidden";
                 document.getElementById("ships-grid").classList.add("selectedShip");
             }
+
 
 
         },
@@ -79,12 +88,14 @@ var app = new Vue({
         findGameView: function () {
             $.get('/api/game_view/' + app.gamePlayerId, function (data) {
                     app.gameView = data;
-                    app.getViewVariables();
-                    app.findShipsToPaint();
-                    app.findSalvoes();
+
 
                 })
                 .done(function () {
+                    app.getViewVariables();
+                    app.findShipsToPaint();
+                    app.findSalvoes();
+                    // setTimeout(60).location = location;
 
 
                 })
@@ -437,12 +448,14 @@ var app = new Vue({
 function selectSalvoes(item) {
     if (app.gameView.state.includes("OVER")) {
         alert("Khalas, Habib! Game over!");
+    } else if (app.gameView.state.includes("WAITING FOR YOUR OPPONENT")) {
+        alert("Wait until your opponent joins the game!")
     } else if (app.gameView.ships.length == 0) {
         alert("Place your ships first");
     } else if (app.thisPlayerSalvoes.length > (app.gameView.salvoes.length / 2)) {
         alert("Wait for the opponent's salvoes! ")
-    } else if (app.gameView.state != "FIRE!!") {
-        alert("Not yet!")
+        // } else if (app.gameView.state != "FIRE!!") {
+        //     alert("Not yet!")
     } else if (app.salvoLocationsPreSave.length >= 5 || (app.thisPlayerSalvoes.length != 0 && app.salvoLocationsPreSave.length >= app.gameView.ships.length - app.gameView.history.sinksOpponent[app.thisPlayerSalvoes.length - 1].sinks.length)) {
         alert("Ops... Don't forget the number of shots in your salvo is the number of ships afloat you have!")
     } else {
@@ -509,6 +522,8 @@ function resetSalvo() {
 function placeShips(item) {
     if (app.gameView.state.includes("OVER")) {
         alert("This game has already finished!")
+    } else if (app.gameView.state.includes("WAITING FOR YOUR OPPONENT")) {
+        alert("Wait until your opponent joins the game!")
     } else if (app.gameView.ships.length >= 5) {
         alert("You can't send anymore ships!")
     } else {
