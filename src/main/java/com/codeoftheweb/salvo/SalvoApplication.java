@@ -36,12 +36,13 @@ public class SalvoApplication extends SpringBootServletInitializer {
         SpringApplication.run ( SalvoApplication.class, args );
     }
 
-    @Bean public CommandLineRunner initData(PlayerRepository playerRepository, GameRepository gameRepository, GamePlayerRepository gamePlayerRepository, ScoreRepository scoreRepository) {
+    @Bean
+    public CommandLineRunner initData(PlayerRepository playerRepository, GameRepository gameRepository, GamePlayerRepository gamePlayerRepository, ScoreRepository scoreRepository) {
         return args -> {
-            Player player1 = new Player ( "j.bauer@ctu.gov", passwordEncoder.encode("24"));
-            Player player2 = new Player ( "c.obrian@ctu.gov", passwordEncoder.encode( "42"));
-            Player player3 = new Player ( "t.almeida@ctu.gov", passwordEncoder.encode("mole"));
-            Player player4 = new Player ( "d.palmer@whitehouse.gov", passwordEncoder.encode("kb"));
+            Player player1 = new Player ( "j.bauer@ctu.gov", passwordEncoder.encode ( "24" ) );
+            Player player2 = new Player ( "c.obrian@ctu.gov", passwordEncoder.encode ( "42" ) );
+            Player player3 = new Player ( "t.almeida@ctu.gov", passwordEncoder.encode ( "mole" ) );
+            Player player4 = new Player ( "d.palmer@whitehouse.gov", passwordEncoder.encode ( "kb" ) );
 
             Ship ship1 = new Ship ( "Destroyer", Arrays.asList ( "H2", "H3", "H4" ) );
             Ship ship2 = new Ship ( "Submarine", Arrays.asList ( "E1", "F1", "G1" ) );
@@ -89,7 +90,6 @@ public class SalvoApplication extends SpringBootServletInitializer {
             gamePlayer2.addSalvo ( salvo4 );
 
 
-
             GamePlayer gamePlayer3 = new GamePlayer ( player1, game2 );
             gamePlayer3.addShip ( ship6 );
             gamePlayer3.addShip ( ship7 );
@@ -115,15 +115,15 @@ public class SalvoApplication extends SpringBootServletInitializer {
             gamePlayer6.addSalvo ( salvo12 );
 
             Score score1 = new Score ( 1, game1, player1, game1.getCreationDate ().plusMinutes ( 30 ) );
-            Score score2 = new Score ( 0,game1, player2, game1.getCreationDate ().plusMinutes ( 30 ) );
+            Score score2 = new Score ( 0, game1, player2, game1.getCreationDate ().plusMinutes ( 30 ) );
             Score score3 = new Score ( 0.5, game2, player1, game2.getCreationDate ().plusMinutes ( 30 ) );
             Score score4 = new Score ( 0.5, game2, player2, game2.getCreationDate ().plusMinutes ( 30 ) );
             Score score5 = new Score ( 1, game3, player2, game3.getCreationDate ().plusMinutes ( 30 ) );
             Score score6 = new Score ( 0, game3, player3, game3.getCreationDate ().plusMinutes ( 30 ) );
 
             playerRepository.save ( player1 );
-            playerRepository.save ( player2);
-            playerRepository.save ( player3);
+            playerRepository.save ( player2 );
+            playerRepository.save ( player3 );
             playerRepository.save ( player4 );
 
             gameRepository.save ( game1 );
@@ -137,14 +137,14 @@ public class SalvoApplication extends SpringBootServletInitializer {
             gamePlayerRepository.save ( gamePlayer5 );
             gamePlayerRepository.save ( gamePlayer6 );
 
-            scoreRepository.save(score1);
-            scoreRepository.save(score2);
-            scoreRepository.save(score3);
-            scoreRepository.save(score4);
-            scoreRepository.save(score5);
-            scoreRepository.save(score6);
+            scoreRepository.save ( score1 );
+            scoreRepository.save ( score2 );
+            scoreRepository.save ( score3 );
+            scoreRepository.save ( score4 );
+            scoreRepository.save ( score5 );
+            scoreRepository.save ( score6 );
 
-    };
+        };
     }
 
 
@@ -159,21 +159,21 @@ class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder ();
     }
 
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(email-> {
+        auth.userDetailsService ( email -> {
             Player player = playerRepository.findByUserName ( email );
             if (player != null) {
                 return new User ( player.getUserName (), player.getPassword (),
                         AuthorityUtils.createAuthorityList ( "USER" ) ) {
                 };
             } else {
-                throw new UsernameNotFoundException ("Unknown user: " + email);
+                throw new UsernameNotFoundException ( "Unknown user: " + email );
             }
-        });
+        } );
     }
 }
 
@@ -184,39 +184,39 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
-                .antMatchers("/web/game.html", "/api/game_view/**").hasAuthority("USER")
-                .antMatchers("/rest/**").hasAuthority("ADMIN")
-                .antMatchers("/web/**").permitAll ()
-                .antMatchers("/api/**").permitAll ();
+        http.authorizeRequests ()
+                .antMatchers ( "/web/game.html", "/api/game_view/**" ).hasAuthority ( "USER" )
+                .antMatchers ( "/rest/**" ).hasAuthority ( "ADMIN" )
+                .antMatchers ( "/web/**" ).permitAll ()
+                .antMatchers ( "/api/**" ).permitAll ();
 
-        http.formLogin()
-                .usernameParameter("email")
-                .passwordParameter("password")
-                .loginPage("/api/login");
+        http.formLogin ()
+                .usernameParameter ( "email" )
+                .passwordParameter ( "password" )
+                .loginPage ( "/api/login" );
 
-        http.logout().logoutUrl("/api/logout");
+        http.logout ().logoutUrl ( "/api/logout" );
         // turn off checking for CSRF tokens
-        http.csrf().disable();
-        http.headers().frameOptions().disable();
+        http.csrf ().disable ();
+        http.headers ().frameOptions ().disable ();
 
         // if user is not authenticated, just send an authentication failure response
-        http.exceptionHandling().authenticationEntryPoint((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));
+        http.exceptionHandling ().authenticationEntryPoint ( (req, res, exc) -> res.sendError ( HttpServletResponse.SC_UNAUTHORIZED ) );
 
         // if login is successful, just clear the flags asking for authentication
-        http.formLogin().successHandler((req, res, auth) -> clearAuthenticationAttributes(req));
+        http.formLogin ().successHandler ( (req, res, auth) -> clearAuthenticationAttributes ( req ) );
 
         // if login fails, just send an authentication failure response
-        http.formLogin().failureHandler((req, res, exc) -> res.sendError( HttpServletResponse.SC_UNAUTHORIZED));
+        http.formLogin ().failureHandler ( (req, res, exc) -> res.sendError ( HttpServletResponse.SC_UNAUTHORIZED ) );
 
         // if logout is successful, just send a success response
-        http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler ());
+        http.logout ().logoutSuccessHandler ( new HttpStatusReturningLogoutSuccessHandler () );
     }
 
     private void clearAuthenticationAttributes(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession ( false );
         if (session != null) {
-            session.removeAttribute( WebAttributes.AUTHENTICATION_EXCEPTION);
+            session.removeAttribute ( WebAttributes.AUTHENTICATION_EXCEPTION );
         }
     }
 }

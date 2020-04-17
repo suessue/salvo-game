@@ -1,11 +1,21 @@
 
+t
+java:S3776g"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(öª”şÿÿÿÿ8„¤æŸ˜.
+U
+java:S3655™"7Call "Optional#isPresent()" before accessing the value.(†¾É®8‘³¼ ˜.
+]
+java:S4684I"@Replace this persistent entity with a simple POJO or DTO object.(éîÁÂ8äÊŞ —.
+U
+java:S3655 "7Call "Optional#isPresent()" before accessing the value.(®¢Ã­8‘³¼ ˜.
+S
+java:S3655~"7Call "Optional#isPresent()" before accessing the value.(òÍ£W8»®²š˜.
 Z
 java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¦áª•.
-T
-java:S3655Z"7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ8äÊŞ —.
-]
-java:S4684H"@Replace this persistent entity with a simple POJO or DTO object.(éîÁÂ8äÊŞ —.
 b
-java:S4684f"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8äÊŞ —.
+java:S4684g"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8äÊŞ —.
+U
+java:S3655§"7Call "Optional#isPresent()" before accessing the value.( ˜¾8‘³¼ ˜.
 i
-java:S1192‘"FDefine a constant instead of duplicating this literal "error" 6 times.(îÉµæıÿÿÿÿ8ÚÛÒ¤—.
+java:S1192¹"FDefine a constant instead of duplicating this literal "error" 6 times.(îÉµæıÿÿÿÿ8‘³¼ ˜.
+T
+java:S3655["7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ8äÊŞ —.

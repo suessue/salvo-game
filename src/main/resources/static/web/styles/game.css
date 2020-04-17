@@ -1,7 +1,6 @@
 body {
     color: red;
-    background-image: url(../images/sea.jpg);
-    background-color: ;
+    background-image: url(../images/sea6.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -10,24 +9,41 @@ body {
 
 }
 
-
-/* #main-title h1 {
+#main-title h1 {
     font-size: 130px;
-    margin-top: 60px;
+    margin-top: 30px;
     text-align: center;
     width: 100vw;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
+    border: outset;
 
-} */
+}
 
-#header {
+.header {
+    padding: 10px;
     margin-top: 0px;
+    text-align: center;
 }
 
-#header-title h1 {
-    size: 150px;
-    /* text-shadow: 0.5px 0.5px 2px 0.5px cyan; */
+.header h3,
+h2 {
+    margin-bottom: 40px;
 }
+
+#game-player-state {
+    color: blue;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
 
 .grids table {
     cursor: cell;
@@ -38,13 +54,12 @@ body {
     margin-bottom: 30px;
     opacity: 0.9;
 
+
 }
 
 .grids *td {
     width: 40px;
     height: 40px;
-    max-width: 40px;
-    min-width: 40px;
     border-width: 0px;
     padding-left: 0px;
     padding-right: 0px;
@@ -56,8 +71,10 @@ body {
 
 }
 
-.columns *th {
+.grids *th {
     width: 40px;
+    max-width: 40px;
+    min-width: 40px;
 
 }
 
@@ -69,12 +86,6 @@ body {
     position: relative;
     margin-right: 30px;
 
-}
-
-.gameplayers,
-h3 {
-    margin-top: 100px;
-    margin-bottom: 50px;
 }
 
 
@@ -152,6 +163,8 @@ h3 {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
+    background-color: rgba(199, 234, 245, 0.295);
+
 
 }
 
@@ -159,6 +172,8 @@ h3 {
     margin: 0px;
     padding: 0px;
     color: red;
+    text-shadow: 0px 0px 0px;
+    font-weight: normal;
 }
 
 .allShipStatus th,
@@ -174,6 +189,8 @@ tr {
     min-width: 60px;
     max-height: 18px;
     text-align: center;
+    background-color: transparent;
+
 
 }
 

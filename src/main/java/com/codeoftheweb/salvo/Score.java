@@ -1,6 +1,7 @@
 package com.codeoftheweb.salvo;
 
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -26,7 +27,7 @@ public class Score {
 
     private double score;
 
-    public Score(){
+    public Score() {
 
     }
 
@@ -61,13 +62,14 @@ public class Score {
         this.finishDate = finishDate;
     }
 
-    public void setPlayer(Player player) { this.player = player;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public Map <String, Object> toDTO() {
         Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "score", this.score );
-        dto.put("username", this.getPlayer ().getUserName ());
+        dto.put ( "username", this.getPlayer ().getUserName () );
         return dto;
     }
 }

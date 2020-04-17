@@ -16,26 +16,28 @@
 
     <div id="app">
         <div class="container">
-            <!-- <div id="main-title" class="row">
-				<h1>BATTLESHIP</h1>
-			</div> -->
-            <div class="row header gameplayers justify-content-center">
-                <div class="col justify-content-center">
-                    <div>
-                        <h2>{{gameView.state}}</h2>
-                    </div>
+            <div id="main-title" class="row" v-on:click="goToHomePage()">
+                <h1>BATTLESHIP</h1>
+            </div>
+
+            <div class="row header gameplayers">
+                <div class="col">
 
                     <h3><span v-for="u in mainPlayer">{{u.player.username}} (you) Vs. </span>
                         <span v-for="u in opponent"> {{u.player.username}} </span>
                         <template v-if="opponent.length == 0"><span>
                                 <p> waiting for your opponent!</p>
                             </span></template></h3>
+
+                    <div id="game-player-state">
+                        <h2>{{gameView.state}}</h2>
+                    </div>
                 </div>
             </div>
 
             <div class="row grids text-center justify-content-center">
                 <div id="div-ships-grid" class="col-6  justify-content-center text-center">
-                    <h4>SHIPS</h4>
+                    <h4 id="ships-grid-title">SHIPS</h4>
                     <table id="ships-grid" class="table table-dark table-bordered table-striped table-ships thead-dark"
                         cellspacing='0' cellpadding='0'>
                         <thead class="bg-dark text-white">
@@ -56,7 +58,7 @@
                 </div>
 
                 <div id="div-salvoes-grid" class="col-6 justify-content-center text-center">
-                    <h4>SALVOES </h4>
+                    <h4 id="salvoes-grid-title">SALVOES </h4>
                     <table id="salvoes-grid" class="table table-dark table-bordered table-striped table-salvoes">
                         <thead class="bg-dark text-white">
                             <tr>
@@ -94,17 +96,17 @@
                                 </div>
                                 <div class="modal-body">
                                     <ol>
+                                        <li>After your opponent is online, it's time to prepare your ships.</li>
                                         <li>Pick your ship type. The number in front of each option indicates the amount
                                             of
                                             spaces the
-                                            ship occupies.</li>
+                                            it occupies.</li>
                                         <li>Decide if you want to place it horizontally or vertically.</li>
-                                        <li>Choose where you're placing your ship bow and send it.</li>
-                                        <li>If you want to change the ship location, press reset <em>before</em> saving
-                                            your
-                                            ship.</li>
-                                        <li>You can choose from one to five ships.</li>
-                                        <li>After placing and saving your ships, click on "SEND MY SHIPS".</li>
+                                        <li>Choose where you're placing your ship bow and off it goes!!</li>
+                                        <li>Ps. If you want to change the ship location, press reset <em>before</em>
+                                            saving it.</li>
+                                        <li>After choosing your 5 ships, wait for your opponent to do the same and then
+                                            you're ready to attack!</li>
                                     </ol>
                                 </div>
                                 <div class="modal-footer">
@@ -118,18 +120,6 @@
                 </div>
 
                 <div class="col-6 d-flex justify-content-center">
-                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#salvoes-instructions">
-                            Get your ships ready!
-                        </button>
-                        <div id="salvoes-instructions">
-                            <h5>Fire your salvoes!</h5>
-                            <ol>
-                                <li>Click on the location you want to fire.</li>
-                                <li>After choosing all your shots, click on FIRE!</li>
-
-                            </ol>
-                        </div> -->
 
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -151,8 +141,14 @@
                                 </div>
                                 <div class="modal-body">
                                     <ol>
+                                        <li>after you and your opponent have placed your ships, it's time to attack!
+                                        </li>
                                         <li>Click on the location you want to fire.</li>
+                                        <li>The number of shots for each turn is the number of ships you have afloat!
+                                        </li>
                                         <li>After choosing all your shots, click on FIRE!</li>
+                                        <li>Wait for your next turn! The game status indicator will tell you when to
+                                            shoot again!</li>
 
                                     </ol>
                                 </div>
@@ -171,7 +167,7 @@
 
             </div>
 
-            <div class="row controllers ">
+            <div id="row-controllers" class="row controllers ">
 
                 <div id="shipControl" class="col-6 ships-control justify-content-center">
 
@@ -317,83 +313,94 @@
             </div>
 
             <div class="row allShipStatus">
+                <template v-if="hitsOp != null">
+                    <table id="my-ships-danger" class="justify-content-center table table-bordered col-4 table-sm">
+                        <thead class="thead-light">
+                            <tr>
+                                <th colspan="4" class="text-center">MY SHIPS IN DANGER</th>
+                            </tr>
+                            <tr>
+                                <th>TURN </th>
+                                <th class="thSpecial">SHIP </th>
+                                <th>HITS</th>
+                                <th>HITS LEFT</th>
+                            </tr>
+                        </thead>
 
-                <table id="my-ships-danger" class="justify-content-center table table-bordered col-4 table-sm">
-                    <thead class="thead-light">
-                        <tr>
-                            <th colspan="4" class="text-center">MY SHIPS IN DANGER</th>
-                        </tr>
-                        <tr>
-                            <th>TURN </th>
-                            <th class="thSpecial">SHIP </th>
-                            <th>HITS</th>
-                            <th>HITS LEFT</th>
-                        </tr>
-                    </thead>
-                    <tbody v-for="(x, index) in hitsOp">
-                        <tr v-show="x.shipStatus.length !=0 ">
-                            <th scope="row">{{index + 1}}</th>
-                            <td colspan="3">
-                                <table class="table shipStatus table-borderless table-sm">
-                                    <thead>
-                                    </thead>
-                                    <tbody v-for="ship in x.shipStatus">
-                                        <tr v-show="ship.hitsLeft != 0">
-                                            <td>
-                                                {{toUpper(ship.type)}} </td>
-                                            <td>{{ship.numberOfHits}}</td>
-                                            <td>{{ship.hitsLeft}}</td>
-                                        </tr>
-                                        <tr v-show="ship.hitsLeft == 0">
-                                            <td>
-                                                {{toUpper(ship.type)}} (ID#{{ship.shipId}})</td>
-                                            <td colspan="2">SUNKEN !! </td>
-                                        </tr>
+                        <tbody v-for="(x, index) in hitsOp.slice().reverse()">
+                            <tr v-show="x.shipStatus.length !=0 ">
+                                <th scope="row">{{hitsMp.length - index}}</th>
+                                <td colspan="3">
+                                    <table class="table shipStatus table-borderless table-sm">
+                                        <thead>
+                                        </thead>
+                                        <tbody v-for="ship in x.shipStatus">
+                                            <tr v-show="ship.hitsLeft != 0">
+                                                <td>
+                                                    {{toUpper(ship.type)}} </td>
+                                                <td>{{ship.numberOfHits}}</td>
+                                                <td>{{ship.hitsLeft}}</td>
+                                            </tr>
+                                            <tr v-show="ship.hitsLeft == 0">
+                                                <td>
+                                                    {{toUpper(ship.type)}} (ID#{{ship.shipId}})</td>
+                                                <td colspan="2">SUNKEN !! </td>
+                                            </tr>
 
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div></div>
-                <table id="crashing-enemy" class="justify-content-center table table-bordered col-4 table-sm">
-                    <thead class="thead-light">
-                        <tr>
-                            <th colspan="4" class="text-center">CRASHING THE ENEMY!</th>
-                        </tr>
-                        <tr>
-                            <th>TURN </th>
-                            <th class="thSpecial" class="text-center">SHIP </th>
-                            <th>HITS</th>
-                            <th>HITS LEFT</th>
-                        </tr>
-                    </thead>
-                    <tbody v-for="(x, index) in hitsMp">
-                        <tr v-show="x.shipStatus.length !=0">
-                            <th scope="row">{{index + 1}}</th>
-                            <td colspan="3">
-                                <table class="table shipStatus table-borderless table-sm">
-                                    <thead>
-                                    </thead>
-                                    <tbody v-for="ship in x.shipStatus">
-                                        <tr v-show="ship.hitsLeft != 0">
-                                            <td>
-                                                {{toUpper(ship.type)}}</td>
-                                            <td>{{ship.numberOfHits}}</td>
-                                            <td>{{ship.hitsLeft}}</td>
-                                        </tr>
-                                        <tr v-show="ship.hitsLeft == 0">
-                                            <td>
-                                                {{toUpper(ship.type)}} (ID#{{ship.shipId}})</td>
-                                            <td colspan="2">SUNKEN !! </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </template>
+                <template v-if="hitsMp != null">
+                    <table id="crashing-enemy" class="justify-content-center table table-bordered col-4 table-sm">
+                        <thead class="thead-light">
+                            <tr>
+                                <th colspan="4" class="text-center">CRASHING THE ENEMY!</th>
+                            </tr>
+                            <tr>
+                                <th>TURN </th>
+                                <th class="thSpecial" class="text-center">SHIP </th>
+                                <th>HITS</th>
+                                <th>HITS LEFT</th>
+                            </tr>
+                        </thead>
+                        <tbody v-for="(x, index) in hitsMp.slice().reverse()">
+                            <template v-if="x.shipStatus.length !=0">
+                                <tr>
+                                    <th scope="row">{{hitsMp.length - index}}</th>
+                                    <td colspan="3">
+                                        <table class="table shipStatus table-borderless table-sm">
+                                            <thead>
+                                            </thead>
+                                            <tbody v-for="ship in x.shipStatus">
+                                                <tr v-show="ship.hitsLeft != 0">
+                                                    <td>
+                                                        {{toUpper(ship.type)}}</td>
+                                                    <td>{{ship.numberOfHits}}</td>
+                                                    <td>{{ship.hitsLeft}}</td>
+                                                </tr>
+                                                <tr v-show="ship.hitsLeft == 0">
+                                                    <td>
+                                                        {{toUpper(ship.type)}} (ID#{{ship.shipId}})</td>
+                                                    <td colspan="2">SUNKEN !! </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </template>
+                            <template v-else>
+                                <tr>
+                                    <th scope="row">{{index + 1}}</th>
+                                    <td colspan="3"> C'MON! TRY HARDER!! </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
 
             </div>
 

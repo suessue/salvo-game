@@ -6,12 +6,6 @@ var app = new Vue({
 		email: "",
 		pwd: "",
 		players: [],
-		// playersJson: [],
-		// playersSet: [],
-		// ties: [],
-		// score: [],
-		// wins: [],
-		// losses: [],
 
 
 	},
@@ -22,6 +16,9 @@ var app = new Vue({
 	},
 	methods: {
 		getLeaderboard: function () {
+
+			app.leaderBoard = [];
+
 			app.games.games.forEach(game => {
 				game.gamePlayers.forEach(gp => {
 					var playerIndex = app.leaderBoard.findIndex(p => p.username == gp.player.username);
@@ -85,9 +82,10 @@ var app = new Vue({
 					findPlayers();
 					app.getLeaderboard();
 
-
 					if (app.games.player != null) {
 						document.body.style.backgroundSize = "100% 100%";
+						document.getElementById("main-title").style.border = "outset";
+
 					}
 				})
 		},
@@ -101,9 +99,9 @@ var app = new Vue({
 				.done(function () {
 
 					alert("Welcome to Salvo! You are now online!");
-					filterGameTable();
+
 					location.reload(true);
-					// setInterval(90).location.reload(true);
+
 
 				})
 				.fail(function (error) {
@@ -209,9 +207,8 @@ function findPlayers() {
 	}))
 }
 
+
 app.findData();
-// app.getLeaderboard();
-// document.addEventListener('DOMContentLoaded', function () {
-// 	findPlayers();
-// 	filterGameTable();
-// }, false);
+setInterval(function () {
+	app.findData();
+}, 15000);

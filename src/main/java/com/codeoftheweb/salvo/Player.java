@@ -2,6 +2,7 @@ package com.codeoftheweb.salvo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -42,7 +43,9 @@ public class Player {
         this.password = password;
     }
 
-    public String getPlayer() {return this.userName;}
+    public String getPlayer() {
+        return this.userName;
+    }
 
     public String getPassword() {
         return password;
@@ -95,12 +98,12 @@ public class Player {
 
     public Map <String, Object> toLeaderBoardDTO() {
         Map <String, Object> dto = new LinkedHashMap <> ();
-        dto.put ("id", this.id);
+        dto.put ( "id", this.id );
         dto.put ( "username", this.userName );
-        dto.put("totalPoints", getTotalPoints ());
-        dto.put("losses", countResults ( 0 ));
-        dto.put("wins", countResults ( 1 ));
-        dto.put("ties", countResults ( 0.5 ));
+        dto.put ( "totalPoints", getTotalPoints () );
+        dto.put ( "losses", countResults ( 0 ) );
+        dto.put ( "wins", countResults ( 1 ) );
+        dto.put ( "ties", countResults ( 0.5 ) );
 
         return dto;
     }
@@ -116,7 +119,6 @@ public class Player {
                 .filter ( b -> b.getScore () == x )
                 .count ();
     }
-
 
 
 }

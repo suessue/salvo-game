@@ -1,6 +1,7 @@
 package com.codeoftheweb.salvo;
 
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -104,21 +105,21 @@ public class GamePlayer {
     public Map <String, Object> toGameViewDTO() {
         Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
-        String state = this.getState();
-        dto.put("state", state);
+        String state = this.getState ();
+        dto.put ( "state", state );
         dto.put ( "created", this.game.getCreationDate () );
         dto.put ( "gamePlayers", this.game.getGamePlayers ().stream ()
-                .sorted(Comparator.comparingLong(GamePlayer::getId))
+                .sorted ( Comparator.comparingLong ( GamePlayer::getId ) )
                 .map ( GamePlayer::toDTO ).collect ( toList () ) );
         dto.put ( "ships", this.ships.stream ()
-                .sorted(Comparator.comparingLong(Ship::getId))
+                .sorted ( Comparator.comparingLong ( Ship::getId ) )
                 .map ( Ship::toDTO ).collect ( toList () ) );
         dto.put ( "salvoes", this.game.getGamePlayers ().stream ()
-                .sorted(Comparator.comparingLong(GamePlayer::getId))
+                .sorted ( Comparator.comparingLong ( GamePlayer::getId ) )
                 .flatMap ( gamePlayer -> gamePlayer.getSalvoes ()
-                .stream ().sorted(Comparator.comparingInt(Salvo::getTurn))
-                .map ( Salvo::toDTO ) ).collect ( toList () ) );
-        dto.put("history", this.toHistoryDTO());
+                        .stream ().sorted ( Comparator.comparingInt ( Salvo::getTurn ) )
+                        .map ( Salvo::toDTO ) ).collect ( toList () ) );
+        dto.put ( "history", this.toHistoryDTO () );
 
 
         return dto;
@@ -126,30 +127,36 @@ public class GamePlayer {
 
     public String getState() {
         String state = "FIRE";
-        if(!this.getOpponent ().isPresent ()) {
-            state = "WAITING FOR YOUR OPPONENT" ;
-            }else if(this.getOpponent ().isPresent () && this.getShips ().isEmpty () ){
-            state = "PLACE YOUR SHIPS";
+        if (!this.getOpponent ().isPresent ()) {
+            state = "WAITING FOR YOUR OPPONENT";
+        } else if (this.getOpponent ().isPresent () && !this.getSalvoes ().isEmpty ()
+                && this.getSalvoes ().size () > this.getOpponent ().get ().getSalvoes ().size () + 1) {
+            state = "WAITING FOR OPPONENT'S ATTACK!";
 
-            }else if ( this.getOpponent ().isPresent () && !this.getShips ().isEmpty () && this.getShipsOpponent ().isEmpty () ){
-             state = "WAITING FOR OPPONENT'S SHIPS";
+        } else if (!this.getShips ().isEmpty () && !this.getShipsOpponent ().isEmpty ()
+                && !this.getSalvoes ().isEmpty () && this.getOpponent ().get ().getSalvoes ().size () == this.getSalvoes ().size ()) {
 
-            }else if ( !this.getShips ().isEmpty () && this.getShipsOpponent () != null && this.getSalvoes () != null && this.getOpponent ().get ().getSalvoes ().size() == this.getSalvoes ().size() ) {
-
-                if(this.getSinks () < this.getShips ().size () && this.getOpponent ().get().getSinks() == this.getShipsOpponent ().size()){
+            if (this.getSinks () < this.getShips ().size ()
+                    && this.getOpponent ().get ().getSinks () == this.getShipsOpponent ().size ()) {
                 state = "GAME OVER! YOU WON!";
 
-                }
-                    else if(this.getSinks() == this.getShips ().size ()
-                            && this.getOpponent ().get ().getSinks() < this.getShipsOpponent ().size()) {
-                        state = "GAME OVER! YOU LOST...";
+            } else if (this.getSinks () == this.getShips ().size ()
+                    && this.getOpponent ().get ().getSinks () < this.getShipsOpponent ().size ()) {
+                state = "GAME OVER! YOU LOST...";
 
 
-                    }else if(this.getSinks() == this.getShips ().size ()
-                            && this.getOpponent ().get ().getSinks() == this.getShipsOpponent ().size()) {
-                        state = "GAME OVER! IT'S A TIE!";
-                    }
-                }
+            } else if (this.getSinks () == this.getShips ().size ()
+                    && this.getOpponent ().get ().getSinks () == this.getShipsOpponent ().size ()) {
+                state = "GAME OVER! IT'S A TIE!";
+            }
+
+        } else if (this.getOpponent ().isPresent () && this.getShips ().size () < 5) {
+            state = "PLACE YOUR SHIPS";
+
+        } else if (this.getOpponent ().isPresent () && this.getShips ().size () == 5 && this.getShipsOpponent ().size () < 5) {
+            state = "WAITING FOR OPPONENT'S SHIPS";
+        }
+
         return state;
 
     }
@@ -157,11 +164,11 @@ public class GamePlayer {
 
     public long getSinks() {
 
-        List <String> getOpponentSalvoes = getOpponentSalvoLocations();
-        return this.getShips ().stream().filter(s -> getOpponentSalvoes.containsAll ( new ArrayList <> ( s.getLocations () ) ))
+        List <String> getOpponentSalvoes = getOpponentSalvoLocations ();
+        return this.getShips ().stream ().filter ( s -> getOpponentSalvoes.containsAll ( new ArrayList <> ( s.getLocations () ) ) )
                 .count ();
 
-}
+    }
 
 
     public Optional <GamePlayer> getOpponent() {
@@ -180,15 +187,15 @@ public class GamePlayer {
     public List <String> getOpponentShipLocations() {
         return getShipsOpponent ()
                 .stream ()
-                .sorted(Comparator.comparingLong(Ship::getId))
+                .sorted ( Comparator.comparingLong ( Ship::getId ) )
                 .flatMap ( s -> s.getLocations ().stream () )
                 .collect ( toList () );
     }
 
     public List <String> getOpponentSalvoLocations() {
-        return getOpponent ().get().getSalvoes ()
+        return getOpponent ().get ().getSalvoes ()
                 .stream ()
-                .sorted(Comparator.comparingLong(Salvo::getId))
+                .sorted ( Comparator.comparingLong ( Salvo::getId ) )
                 .flatMap ( s -> s.getLocations ().stream () )
                 .collect ( toList () );
 
@@ -199,14 +206,14 @@ public class GamePlayer {
         List <Map <String, Object>> dtoList = new ArrayList <> ();
         List <String> allSalvoes = new ArrayList <> ();
 
-        getSalvoes ().stream().sorted(Comparator.comparingInt(Salvo::getTurn)).forEach ( sa -> {
+        getSalvoes ().stream ().sorted ( Comparator.comparingInt ( Salvo::getTurn ) ).forEach ( sa -> {
             Map <String, Object> dto = new LinkedHashMap <> ();
             allSalvoes.addAll ( sa.getHits () );
-            List <Ship> allSinks = getShipsOpponent ().stream ().sorted(Comparator.comparingLong(Ship::getId))
+            List <Ship> allSinks = getShipsOpponent ().stream ().sorted ( Comparator.comparingLong ( Ship::getId ) )
                     .filter ( sh -> allSalvoes.containsAll ( sh.getLocations () ) )
                     .collect ( toList () );
 
-            dto.put("turn", sa.getTurn ());
+            dto.put ( "turn", sa.getTurn () );
             dto.put ( "sinks", allSinks.stream ().map ( Ship::getType ).collect ( toList () ) );
             dto.put ( "sinkLocations", allSinks.stream ().filter ( sh -> allSalvoes.containsAll ( sh.getLocations () ) )
                     .flatMap ( s -> s.getLocations ().stream () ).collect ( toList () ) );
@@ -222,19 +229,19 @@ public class GamePlayer {
         if (getOpponent ().isPresent ()) {
             dto.put ( "hits", this.salvoes.stream ().sorted ( Comparator.comparingLong ( Salvo::getId ) )
                     .map ( Salvo::toHitsDTO ).collect ( toList () ) );
-            dto.put("totalSinks", this.getSinks ());
+            dto.put ( "totalSinks", this.getSinks () );
             dto.put ( "sinks", recorridoSinks () );
             dto.put ( "hitsOpponent", getOpponent ().get ().getSalvoes ().stream ()
                     .sorted ( Comparator.comparingInt ( Salvo::getTurn ) )
                     .map ( Salvo::toHitsDTO ).collect ( toList () ) );
-            dto.put("totalSinksOpponent", getOpponent ().get ().getSinks ());
+            dto.put ( "totalSinksOpponent", getOpponent ().get ().getSinks () );
             dto.put ( "sinksOpponent", getOpponent ().get ().recorridoSinks () );
         } else {
             dto.put ( "hits", null );
             dto.put ( "totalSinks", null );
-            dto.put("sinks", null);
+            dto.put ( "sinks", null );
             dto.put ( "hitsOpponent", null );
-            dto.put("totalSinksOpponent", null);
+            dto.put ( "totalSinksOpponent", null );
             dto.put ( "sinksOpponent", null );
         }
 

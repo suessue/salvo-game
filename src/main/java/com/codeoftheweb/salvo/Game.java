@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
+
 import static java.util.stream.Collectors.toList;
 
 
@@ -34,22 +35,24 @@ public class Game {
     public Map <String, Object> toDTO() {
         Map <String, Object> dto = new LinkedHashMap <> ();
         dto.put ( "id", this.id );
-        dto.put("state", this.getState());
+        dto.put ( "state", this.getState () );
         dto.put ( "created", this.creationDate );
         dto.put ( "finishedDate", this.creationDate.plusMinutes ( 30 ) );
-        dto.put ( "gamePlayers", this.gamePlayers.stream ().sorted ( Comparator.comparingLong(GamePlayer::getId)).map ( GamePlayer::toDTO ).collect ( toList () ) );
+        dto.put ( "gamePlayers", this.gamePlayers.stream ().sorted ( Comparator.comparingLong ( GamePlayer::getId ) ).map ( GamePlayer::toDTO ).collect ( toList () ) );
 
         return dto;
     }
 
     public String getState() {
 
-        if (this.getGamePlayers ().stream ().anyMatch (gp -> gp.getState ().equals ( "WAITING FOR YOUR OPPONENT" ))){
+        if (this.getGamePlayers ().stream ().anyMatch ( gp -> gp.getState ().equals ( "WAITING FOR YOUR OPPONENT" ) )) {
             return "WAITING FOR OPPONENT";
-        } else if (this.getGamePlayers ().stream ().anyMatch (gp -> gp.getState ().contains ( "OVER" ))){
+        } else if (this.getGamePlayers ().stream ().anyMatch ( gp -> gp.getState ().contains ( "OVER" ) )) {
             return "GAME OVER";
 
-        } else {return "ONGOING";}
+        } else {
+            return "ONGOING";
+        }
 
     }
 

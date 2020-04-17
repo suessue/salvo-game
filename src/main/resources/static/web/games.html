@@ -18,7 +18,7 @@
 	<div id="app">
 
 		<div class="container">
-			<div id="main-title" class="row">
+			<div id="main-title" class="row  justify-contents-center">
 				<h1>BATTLESHIP</h1>
 			</div>
 			<template v-if="games.player != null">
@@ -65,7 +65,7 @@
 								</thead>
 								<tbody>
 									<template>
-										<tr v-for="game in games.games" class="my-games-table">
+										<tr v-for="game in games.games.slice().reverse()" class="my-games-table">
 											<th scope=" row">{{game.id}}</th>
 											<td scope="row" v-for="(gamePlayer, index) in game.gamePlayers">
 												<div>{{gamePlayer.player.username}}</div>
@@ -73,20 +73,20 @@
 										games.player.username && game.state == 'GAME OVER'">
 													<div>
 														<a :href="'game.html?gp='+ gamePlayer.id"><button type="button"
-																class="btn btn-sm btn-primary">SEE FINISHED GAME
+																class="btn btn-sm btn-secondary">SEE FINISHED GAME
 															</button></a></div>
 												</template>
 												<template v-if="gamePlayer.player.username ==
 										games.player.username && game.state != 'GAME OVER'">
 													<div>
 														<a :href="'game.html?gp='+ gamePlayer.id"><button type="button"
-																class="btn btn-sm btn-primary">RESUME PLAYING
+																class="btn btn-sm btn-warning blink_me">RESUME PLAYING
 															</button></a></div>
 												</template>
 												<template v-if="game.gamePlayers.length == 1 && games.player != null && gamePlayer.player.username !=
 										games.player.username">
 													<div>
-														<button type="button" class="btn btn-sm btn-warning"
+														<button type="button" class="btn btn-sm btn-primary blink_me"
 															v-on:click="joinGame(game.id)">JOIN GAME
 														</button></div>
 												</template>

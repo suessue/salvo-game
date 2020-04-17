@@ -5,25 +5,29 @@ div {
 body {
 
     z-index: 1;
-    background-image: url(../images/sea6.jpg);
+    background-image: url(../images/sea.jpg);
     color: rgba(230, 7, 7, 0.952);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
-    /* background-size: 100% 100%; */
     font-family: 'Bungee Inline', cursive;
     text-shadow: rgba(243, 239, 239, 0.952) 0px 0px 8px;
-
-
 
 }
 
 #main-title h1 {
     font-size: 130px;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     text-align: center;
     width: 100vw;
     margin-bottom: 0px;
+    padding: auto;
+
+}
+
+.table {
+    background-color: rgba(250, 246, 246, 0.295);
+    border: inset rgba(105, 117, 223, 0.336);
 
 }
 
@@ -85,4 +89,15 @@ body {
 #signUp,
 #login * div {
     max-height: 10vh;
+}
+
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }

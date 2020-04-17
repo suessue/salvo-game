@@ -47,19 +47,19 @@ var app = new Vue({
             app.sinksOp = app.gameView.history.sinksOpponent;
             app.thisPlayerSalvoes = app.gameView.salvoes.filter(salvoes => salvoes.player == app.gameView.id);
 
-            //hiding controls 
+            //hiding controls and adjusting display
             if (app.gameView.ships.length >= 5 || app.gameView.state.includes("OVER")) {
 
-
-                document.getElementById("shipControl").style.maxHeight = "100px";
-                document.body.style.backgroundSize = "100wh 100%vh";
+                document.getElementById("row-controllers").style.maxHeight = "10px";
+                document.body.style.backgroundSize = "100% 130%";
                 document.getElementById("shipControl").style.visibility = "hidden";
                 document.getElementById("salvoControl").style.visibility = "hidden";
+                document.getElementById("game-player-state").classList.add("blink_me");
 
 
             }
 
-            if (app.gameView.state == "WAITING FOR YOUR OPPONENT") {
+            if (app.gameView.state.includes("WAITING FOR YOUR OPPONENT")) {
                 document.getElementById("salvoControl").style.visibility = "hidden";
                 document.getElementById("shipControl").style.visibility = "hidden";
             }
@@ -67,6 +67,13 @@ var app = new Vue({
             if (app.gameView.state == "PLACE YOUR SHIPS") {
                 document.getElementById("salvoControl").style.visibility = "hidden";
                 document.getElementById("ships-grid").classList.add("selectedShip");
+                document.getElementById("ships-grid-title").classList.add("blink_me");
+                document.getElementById("shipControl").style.visibility = "visible";
+            }
+
+            if (app.gameView.state.includes("FIRE")) {
+                document.getElementById("salvoes-grid-title").classList.add("blink_me");
+                document.getElementById("salvoControl").style.visibility = "visible";
             }
 
 
@@ -94,14 +101,15 @@ var app = new Vue({
                 .done(function () {
                     app.getViewVariables();
                     app.findShipsToPaint();
-                    app.findSalvoes();
-                    // setTimeout(60).location = location;
+                    app.findSalvoesToPaint();
 
 
                 })
                 .fail(function (error) {
-                    alert("You are not authorized to see this info.");
-                    console.log(error);
+                    alert(error);
+                    console.log(error.responseJSON);
+                    location.reload(true);
+
                 });
         },
 
@@ -161,7 +169,6 @@ var app = new Vue({
 
 
         },
-
 
         findShipsToPaint: function () {
             app.gameView.ships.forEach(ship => {
@@ -330,36 +337,23 @@ var app = new Vue({
 
         },
 
-        findSalvoes: function () {
+        findSalvoesToPaint: function () {
 
             app.gameView.salvoes.forEach(salvoes => {
                 salvoes.locations.forEach(salvoLocation => {
                     if (salvoes.player !== app.gameView.id && app.shipLocation.includes(salvoLocation) && salvoes.turn <= app.thisPlayerSalvoes.length) {
-                        // app.reversePaintShipsLocation(("ship" + salvoLocation));
+
                         app.hitsOnMe.push(location);
-
-                        //acá. sql está cambiando la info de los games guardados. 
-                        // if (app.gameView.id <= 6) {
-                        //     app.paintSalvoes(("ship" + salvoLocation), "bg-danger", salvoes.turn);
-                        // } else if (app.gameView.id > 6 && app.gameView.ships.length == 5) {
                         app.paintSalvoes(("ship" + salvoLocation), "bg-danger", salvoes.turn);
-                        // }
 
-                        // findHitBoat(("ship" + salvolocation));
-                        //atenti para actualizar el número para que se vean los salvoes solo después q ambos jugadores ya hayan puesto sus barcos. Para gpId >6)
                     } else if (salvoes.player != app.gameView.id && !app.shipLocation.includes(salvoLocation) && salvoes.turn <= app.thisPlayerSalvoes.length) {
-                        //     if (app.gameView.id <= 6) {
-                        //         app.paintSalvoes(("ship" + salvoLocation), "hit", salvoes.turn);
-                        //     } else if (app.gameView.id > 6 && app.gameView.ships.length == 5) {
                         app.paintSalvoes(("ship" + salvoLocation), "hit", salvoes.turn);
-                        // }
+
 
                     } else if (salvoes.player === app.gameView.id) {
                         app.paintSalvoes(("salvo" + salvoLocation), "bg-warning", salvoes.turn);
                         app.thisPlayerSalvoLocations.push(salvoLocation);
-                        // if (app.thisPlayerSalvoes.length == 0) {
-                        //     app.thisPlayerSalvoes.push(app.gameView.salvoes)
-                        // }
+
                     }
 
 
@@ -370,7 +364,7 @@ var app = new Vue({
                 document.getElementById("my-ships-danger").style.display = "none";
             }
 
-            if (app.gameView.history.hitsOpponent == null || app.gameView.history.hitsOpponent.length == 0) {
+            if (app.gameView.history.hits == null || app.gameView.history.hits.length == 0 || app.hitsMp.length == 0) {
                 document.getElementById("crashing-enemy").style.display = "none";
 
             }
@@ -392,24 +386,17 @@ var app = new Vue({
 
                     alert(response)
                     location.assign("game.html?gp=" + app.gamePlayerId);
-                    location.reload(true);
 
-                    // console.log(status);
-                    // resetShip();
-                    // app.findGameView();
-
-
+                    app.findGameView();
+                    app.updateShipControlDisplay();
 
                 })
 
-                // .fail(function (jqXHR, error) {
-                //     alert(error.responseJSON);
-                //     location.reload(true);
 
                 .fail(function (jqXHR, status, httpError) {
                     alert("Failed to add ship: " + textStatus + " " + httpError);
                     console.log(status);
-                    // location.reload(true);
+
                 });
 
         },
@@ -437,6 +424,10 @@ var app = new Vue({
 
         },
 
+        goToHomePage: function () {
+            location.assign("games.html");
+        }
+
 
 
     },
@@ -450,13 +441,11 @@ function selectSalvoes(item) {
         alert("Khalas, Habib! Game over!");
     } else if (app.gameView.state.includes("WAITING FOR YOUR OPPONENT")) {
         alert("Wait until your opponent joins the game!")
-    } else if (app.gameView.ships.length == 0) {
-        alert("Place your ships first");
+    } else if (app.gameView.ships.length < 5) {
+        alert("Place all your ships first!");
     } else if (app.thisPlayerSalvoes.length > (app.gameView.salvoes.length / 2)) {
-        alert("Wait for the opponent's salvoes! ")
-        // } else if (app.gameView.state != "FIRE!!") {
-        //     alert("Not yet!")
-    } else if (app.salvoLocationsPreSave.length >= 5 || (app.thisPlayerSalvoes.length != 0 && app.salvoLocationsPreSave.length >= app.gameView.ships.length - app.gameView.history.sinksOpponent[app.thisPlayerSalvoes.length - 1].sinks.length)) {
+        alert("Wait for your turn! ")
+    } else if (app.salvoLocationsPreSave.length >= 5 || (app.thisPlayerSalvoes.length != 0 && app.gameView.salvoes.length != 0 && app.salvoLocationsPreSave.length >= app.gameView.ships.length - app.gameView.history.sinksOpponent[app.thisPlayerSalvoes.length - 1].sinks.length)) {
         alert("Ops... Don't forget the number of shots in your salvo is the number of ships afloat you have!")
     } else {
         item.style.cursor = "not-allowed";
@@ -640,8 +629,6 @@ function saveShips() {
         alert("You have sent your last ship!");
         app.shipPreSave[a - 1].locations = app.squareToPaint;
         app.createShips();
-        document.getElementById("shipControl").style.maxHeight = "100px";
-        document.getElementById("shipControl").style.visibility = "hidden";
         app.firstSquare = [];
         app.squareToPaint = [];
         app.shipOrientation = "";
@@ -652,8 +639,6 @@ function saveShips() {
         alert("You can have a max of 5 ships only!");
         document.getElementById("ships-grid").style.cursor = "not-allowed";
         resetShip();
-        document.getElementById("shipControl").style.maxHeight = "100px";
-        document.getElementById("shipControl").style.visibility = "hidden";
 
     } else {
         app.shipPreSave[a - 1].locations = app.squareToPaint;
@@ -670,3 +655,11 @@ function saveShips() {
 
 app.findGamePlayerId();
 app.findGameView();
+
+
+setInterval(function () {
+
+    app.findGameView();
+    app.updateShipControlDisplay();
+
+}, 10000);
