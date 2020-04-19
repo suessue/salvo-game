@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -70,7 +69,7 @@ public class SalvoController {
     }
 
     @PostMapping("/games/players/{gamePlayerId}/ships")
-    public ResponseEntity <Object> addShips(@PathVariable Long gamePlayerId, Authentication authentication, @RequestBody Ship ship) {
+    public ResponseEntity <Object> addShips(@PathVariable Long gamePlayerId, Authentication authentication, @RequestBody List <Ship> ships) {
 
         Optional <GamePlayer> gamePlayer = gamePlayerRepository.findById ( gamePlayerId );
 
@@ -84,7 +83,7 @@ public class SalvoController {
             return new ResponseEntity <> ( "You still don't have an opponent!", HttpStatus.FORBIDDEN );
         }
 
-        if (gamePlayer.get ().getShips ().size () >= 5) {
+        if (ships.size () > 5) {
             return new ResponseEntity <> ( "You have already sent all your ships.", HttpStatus.FORBIDDEN );
         }
 
@@ -93,9 +92,12 @@ public class SalvoController {
         }
 
 
-        gamePlayer.get ().addShip ( ship );
+        ships.stream ().forEach ( ship -> {
+            gamePlayer.get ().addShip ( ship );
+        } );
+
         gamePlayerRepository.save ( gamePlayer.get () );
-        return new ResponseEntity <> ( "Your ship is on the game!", HttpStatus.CREATED );
+        return new ResponseEntity <> ( "Your ships are on the game!", HttpStatus.CREATED );
 
     }
 
@@ -119,11 +121,11 @@ public class SalvoController {
             return new ResponseEntity <> ( "Wait for opponent's ships!", HttpStatus.FORBIDDEN );
         }
 
-        if (!gamePlayer.get ().getSalvoes ().isEmpty () && salvo.getTurn () < gamePlayer.get ().getSalvoes ().size () + 1) {
+        if (!gamePlayer.get ().getSalvoes ().isEmpty () && salvo.getTurn ().longValue () < gamePlayer.get ().getSalvoes ().size () + 1) {
             return new ResponseEntity <> ( "Salvo already fired for this turn", HttpStatus.FORBIDDEN );
         }
 
-        if (gamePlayer.get ().getState ().contains ( "ATTACK" ) || gamePlayer.get ().getSalvoes ().size () > gamePlayer.get ().getOpponent ().get ().getSalvoes ().size () + 1) {
+        if (gamePlayer.get ().getState ().contains ( "ATTACK" ) || salvo.getTurn ().longValue () > gamePlayer.get ().getOpponent ().get ().getSalvoes ().size () + 1) {
             return new ResponseEntity <> ( "Wait for the opponent's attack!", HttpStatus.FORBIDDEN );
         }
 
@@ -131,16 +133,16 @@ public class SalvoController {
             return new ResponseEntity <> ( "Too many shots in this salvo", HttpStatus.FORBIDDEN );
         }
 
+        List <Salvo> opponentSalvoes = gamePlayer.get ().getOpponent ().get ().getSalvoes ().stream ().filter ( sa -> sa.getTurn () < salvo.getTurn ()).collect ( toList () );
+        List <String> opponentSalvoesLocations = opponentSalvoes.stream ().map ( Salvo::getLocations ).collect ( toList () ).stream ().flatMap ( List::stream ).collect ( toList () );
 
-        List <Salvo> opponentSalvoes = gamePlayer.get ().getSalvoes ().stream ().filter ( sa -> sa.getTurn () < salvo.getTurn () ).collect ( toList () );
-        List <String> opponentSalvoesLocations = opponentSalvoes.stream ().map ( Salvo::getLocations ).collect ( toList () ).stream().flatMap ( List::stream ).collect(toList());
+        long sinks= gamePlayer.get ().getShips ().stream ().filter ( shi -> opponentSalvoesLocations.containsAll ( shi.getLocations () ) ).count ();
 
-        long sinks = gamePlayer.get ().getShips ().stream ().filter ( shi ->  opponentSalvoesLocations.containsAll ( shi.getLocations () )).count ();
-        if (!gamePlayer.get ().getSalvoes ().isEmpty () && salvo.getLocations ().size () > gamePlayer.get ().getShips ().size () - sinks) {
+        if (gamePlayer.get().getMySunkenShips () > 0 && salvo.getLocations ().size () > gamePlayer.get ().getShips ().size () - sinks) {
             return new ResponseEntity <> ( "Too many shots in this salvo", HttpStatus.FORBIDDEN );
         }
 
-        if (!gamePlayer.get ().getState ().contains ( "FIRE" )) {
+        if (gamePlayer.get ().getGame ().getState ().contains ( "OVER" )) {
             return new ResponseEntity <> ( "The game is over, babe!", HttpStatus.FORBIDDEN );
         }
 
@@ -172,6 +174,7 @@ public class SalvoController {
 
 
         gamePlayerRepository.save ( gamePlayer.get () );
+        gamePlayerRepository.save ( gamePlayer.get ().getOpponent ().get () );
         return new ResponseEntity <> ( "Your shots have been fired!", HttpStatus.CREATED );
 
 

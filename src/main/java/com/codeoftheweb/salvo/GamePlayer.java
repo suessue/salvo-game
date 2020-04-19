@@ -129,24 +129,24 @@ public class GamePlayer {
         String state = "FIRE";
         if (!this.getOpponent ().isPresent ()) {
             state = "WAITING FOR YOUR OPPONENT";
-        } else if (this.getOpponent ().isPresent () && !this.getSalvoes ().isEmpty ()
-                && this.getSalvoes ().size () > this.getOpponent ().get ().getSalvoes ().size () + 1) {
+        } else if (this.getOpponent ().isPresent () && this.getSalvoes ().size() == 1 && this.getOpponent ().get ().getSalvoes ().isEmpty () ||
+                this.getSalvoes ().size () > this.getOpponent ().get ().getSalvoes ().size () ) {
             state = "WAITING FOR OPPONENT'S ATTACK!";
 
         } else if (!this.getShips ().isEmpty () && !this.getShipsOpponent ().isEmpty ()
                 && !this.getSalvoes ().isEmpty () && this.getOpponent ().get ().getSalvoes ().size () == this.getSalvoes ().size ()) {
 
-            if (this.getSinks () < this.getShips ().size ()
-                    && this.getOpponent ().get ().getSinks () == this.getShipsOpponent ().size ()) {
+            if (this.getMySunkenShips () < this.getShips ().size ()
+                    && this.getOpponent ().get ().getMySunkenShips () == this.getShipsOpponent ().size ()) {
                 state = "GAME OVER! YOU WON!";
 
-            } else if (this.getSinks () == this.getShips ().size ()
-                    && this.getOpponent ().get ().getSinks () < this.getShipsOpponent ().size ()) {
+            } else if (this.getMySunkenShips () == this.getShips ().size ()
+                    && this.getOpponent ().get ().getMySunkenShips () < this.getShipsOpponent ().size ()) {
                 state = "GAME OVER! YOU LOST...";
 
 
-            } else if (this.getSinks () == this.getShips ().size ()
-                    && this.getOpponent ().get ().getSinks () == this.getShipsOpponent ().size ()) {
+            } else if (this.getMySunkenShips () == this.getShips ().size ()
+                    && this.getOpponent ().get ().getMySunkenShips () == this.getShipsOpponent ().size ()) {
                 state = "GAME OVER! IT'S A TIE!";
             }
 
@@ -162,7 +162,7 @@ public class GamePlayer {
     }
 
 
-    public long getSinks() {
+    public long getMySunkenShips() {
 
         List <String> getOpponentSalvoes = getOpponentSalvoLocations ();
         return this.getShips ().stream ().filter ( s -> getOpponentSalvoes.containsAll ( new ArrayList <> ( s.getLocations () ) ) )
@@ -229,12 +229,12 @@ public class GamePlayer {
         if (getOpponent ().isPresent ()) {
             dto.put ( "hits", this.salvoes.stream ().sorted ( Comparator.comparingLong ( Salvo::getId ) )
                     .map ( Salvo::toHitsDTO ).collect ( toList () ) );
-            dto.put ( "totalSinks", this.getSinks () );
+            dto.put ( "totalSinks", this.getMySunkenShips () );
             dto.put ( "sinks", recorridoSinks () );
             dto.put ( "hitsOpponent", getOpponent ().get ().getSalvoes ().stream ()
                     .sorted ( Comparator.comparingInt ( Salvo::getTurn ) )
                     .map ( Salvo::toHitsDTO ).collect ( toList () ) );
-            dto.put ( "totalSinksOpponent", getOpponent ().get ().getSinks () );
+            dto.put ( "totalSinksOpponent", getOpponent ().get ().getMySunkenShips () );
             dto.put ( "sinksOpponent", getOpponent ().get ().recorridoSinks () );
         } else {
             dto.put ( "hits", null );

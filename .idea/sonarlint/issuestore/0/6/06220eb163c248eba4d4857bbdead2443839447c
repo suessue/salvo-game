@@ -1,25 +1,27 @@
 
 Z
-java:S3655¶"7Call "Optional#isPresent()" before accessing the value.(’¸²´ûÿÿÿÿ8Äõñ›˜.
+java:S3655•"7Call "Optional#isPresent()" before accessing the value.(€•å¸øÿÿÿÿ8ÆÒ…›˜.
 Z
-java:S3655Œ"7Call "Optional#isPresent()" before accessing the value.(×¬İ™ıÿÿÿÿ8ÆÒ…›˜.
+java:S3655Œ"7Call "Optional#isPresent()" before accessing the value.(€•å¸øÿÿÿÿ8ÆÒ…›˜.
+u
+java:S3776€"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(üÇÿÛûÿÿÿÿ8ÔË›˜.
+Z
+java:S3655¶"7Call "Optional#isPresent()" before accessing the value.(’¸²´ûÿÿÿÿ8Äõñ›˜.
+i
+java:S1192Ù"FDefine a constant instead of duplicating this literal "sinks" 3 times.(öäŞòøÿÿÿÿ8Äõñ›˜.
+Z
+java:S3655…"7Call "Optional#isPresent()" before accessing the value.(Èéºƒÿÿÿÿÿ8È‰‡›˜.
 Z
 java:S3655ê"7Call "Optional#isPresent()" before accessing the value.(´ÎÚüÿÿÿÿ8Äõñ›˜.
 Z
-java:S3655í"7Call "Optional#isPresent()" before accessing the value.(ÏûŸ¬ûÿÿÿÿ8Äõñ›˜.
+java:S3655„"7Call "Optional#isPresent()" before accessing the value.(ê€©›üÿÿÿÿ8Í—„û˜.
 U
 java:S3655î"7Call "Optional#isPresent()" before accessing the value.(°Çï8Äõñ›˜.
 U
 java:S3655‰"7Call "Optional#isPresent()" before accessing the value.(‹„ğ8ÆÒ…›˜.
-Z
-java:S3655"7Call "Optional#isPresent()" before accessing the value.(‚ÌÇ¬øÿÿÿÿ8ÆÒ…›˜.
-i
-java:S1192Ù"FDefine a constant instead of duplicating this literal "sinks" 3 times.(öäŞòøÿÿÿÿ8Äõñ›˜.
-Z
-java:S3655•"7Call "Optional#isPresent()" before accessing the value.(×¬İ™ıÿÿÿÿ8ÆÒ…›˜.
 U
 java:S3655Ä"7Call "Optional#isPresent()" before accessing the value.(…Ñ—ã8Äõñ›˜.
 U
-java:S3655…"7Call "Optional#isPresent()" before accessing the value.(çòŞ‘8È‰‡›˜.
-u
-java:S3776€"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(üÇÿÛûÿÿÿÿ8ÔË›˜.
+java:S3655"7Call "Optional#isPresent()" before accessing the value.(¡¿†í8ÆÒ…›˜.
+Z
+java:S3655í"7Call "Optional#isPresent()" before accessing the value.(¹âÕçúÿÿÿÿ8Äõñ›˜.
