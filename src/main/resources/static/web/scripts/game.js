@@ -31,12 +31,14 @@ var app = new Vue({
         salvoSquare: "",
         salvoLocationsPreSave: [],
         salvoTurn: 0,
+        shots: 0,
 
     },
 
     methods: {
 
         getViewVariables: function () {
+
 
 
             app.mainPlayer = app.gameView.gamePlayers.filter(x => x.id === app.gameView.id);
@@ -80,6 +82,8 @@ var app = new Vue({
 
 
 
+
+
         },
 
         findGamePlayerId: function () {
@@ -98,12 +102,13 @@ var app = new Vue({
             $.get('/api/game_view/' + app.gamePlayerId, function (data) {
                     app.gameView = data;
 
-
                 })
                 .done(function () {
                     app.getViewVariables();
                     app.findShipsToPaint();
                     app.findSalvoesToPaint();
+                    app.getTurn();
+                    app.getShotsforThisTurn();
 
 
                 })
@@ -441,10 +446,43 @@ var app = new Vue({
 
         },
 
+        getShipInitials: function () {
+
+            if (app.shipType == "Aircraft Carrier") {
+                shipInitials = "AC";
+            } else if (app.shipType == "Battleship") {
+                shipInitials = "B";
+            } else if (app.shipType == "Submarine") {
+                shipInitials = "S";
+            } else if (app.shipType == "Destroyer") {
+                shipInitials = "D";
+            } else if (app.shipType == "Patrol Boat") {
+                shipInitials = "PB";
+            }
+
+
+
+        },
+
         getTurn: function () {
 
-            app.thisPlayerSalvoes = app.gameView.salvoes.filter(salvoes => salvoes.player == app.gameView.id);
-            app.salvoTurn = "" + (Math.floor(app.thisPlayerSalvoes.length) + 1);
+            if (app.gameView.salvoes.length == 0) {
+                app.salvoTurn = 1;
+            }
+
+            app.salvoTurn = app.thisPlayerSalvoes.length + 1;
+
+        },
+
+        getShotsforThisTurn: function () {
+
+            app.getTurn();
+
+            if (app.salvoTurn == 1) {
+                app.shots = app.gameView.ships.length;
+            } else {
+                app.shots = app.gameView.ships.length - app.sinksOp[app.salvoTurn - 2].sinks.length;
+            }
 
         },
 
@@ -460,9 +498,13 @@ var app = new Vue({
 })
 
 
+
+
+
 function selectSalvoes(item) {
 
     app.findGameView();
+
 
     if (app.gameView.state.includes("OVER")) {
         alert("Khalas, Habib! Game over!");
@@ -474,15 +516,11 @@ function selectSalvoes(item) {
         alert("Wait for your turn! ");
     } else if (app.salvoLocationsPreSave.length >= 5) {
         alert("Ops... Don't forget the number of shots in your salvo is the number of ships afloat you have!")
-    } else if (app.thisPlayerSalvoes.length >= 2 && app.gameView.salvoes.length - app.thisPlayerSalvoes.length > 1 &&
-        app.salvoLocationsPreSave.length >= app.gameView.ships.length - app.gameView.history.sinksOpponent[app.thisPlayerSalvoes.length - 1].sinks.length != 0) {
-
-        let shots = app.gameView.ships.length - app.gameView.history.sinksOpponent[app.thisPlayerSalvoes.length - 1].sinks.length;
-        alert("You only have " + shots + " shots for this turn!");
-
+    } else if (app.salvoLocationsPreSave.length >= app.shots) {
+        alert("You only have " + app.shots + " shots for this turn!");
     } else {
         item.style.cursor = "not-allowed";
-        app.getTurn();
+
         let x = item.getAttribute('id')
         //  this 7 below refers to salvoA10 (salvo + letter + 2 digits number), for example. whereas the rest refers to salvoA+ only one digit number
         x.length == 7 ? app.salvoSquare = ((x).substr(5, 6)) :
@@ -523,7 +561,6 @@ function createSalvoes() {
         .done(function (response) {
 
             alert(response);
-
             location.assign("game.html?gp=" + app.gamePlayerId);
             app.findGameView();
         })
@@ -549,8 +586,14 @@ function placeShips(item) {
 
     if (app.gameView.state.includes("OVER")) {
         alert("This game has already finished!")
+        app.findGameView();
     } else if (app.gameView.state.includes("WAITING FOR YOUR OPPONENT")) {
         alert("Wait until your opponent joins the game!")
+        app.findGameView();
+    } else if (!app.gameView.state.includes("PLACE")) {
+        alert("You can't send ships now!")
+        app.findGameView();
+
     } else if (app.shipPreSave.length > 5) {
         alert("You have chosen all your ships!")
     } else {
@@ -591,35 +634,25 @@ function placeShips(item) {
                 while (i < (app.shipLength) && 64 < lettersAxe < 75 && 0 < numbersAxe < 11) {
 
                     if (numbersAxe < 1 || numbersAxe > 10 || lettersAxe < 65 || lettersAxe > 74) {
+                        if (app.squareToPaint.length > 0) {
+                            app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+                        }
                         alert("Please respect the grid limits!");
-                        resetShip();
+
                         break;
                     } else {
                         let toPaint = ((String.fromCharCode(lettersAxe)) + app.firstSquare[0].charAt(1) + app.firstSquare[0].charAt(2) || "");
-                        if (app.shipLocation.includes(toPaint)) {
-                            resetShip();
+                        if (app.myPreShipLocations.includes(toPaint)) {
+                            if (app.squareToPaint.length > 0) {
+                                app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+                            }
+
                             alert("You already have a ship in this location!");
                             break;
 
                         } else {
-                            // function getShipInitials() {
-
-
-                            //     if (app.shipType == "Aircraft Carrier") {
-                            //         shipInitials = "AC";
-                            //     } else if (app.shipType == "Battleship") {
-                            //         shipInitials = "B";
-                            //     } else if (app.shipType == "Submarine") {
-                            //         shipInitials = "S";
-                            //     } else if (app.shipType == "Destroyer") {
-                            //         shipInitials = "D";
-                            //     } else if (app.shipType == "Patrol Boat") {
-                            //         shipInitials = "PB";
-                            //     }
-
-                            // }
-
-                            app.paintShipsLocation("ship" + toPaint, "blinking");
+                            app.getShipInitials();
+                            app.paintSalvoes("ship" + toPaint, "blinking", shipInitials);
                             app.squareToPaint.push(toPaint);
                             i++;
                             lettersAxe++;
@@ -634,19 +667,27 @@ function placeShips(item) {
                 while (i < (app.shipLength) && 0 < numbersAxe < 11 && 64 < lettersAxe < 75) {
 
                     if (numbersAxe < 1 || numbersAxe > 10 || lettersAxe < 65 || lettersAxe > 74) {
+
+                        if (app.squareToPaint.length > 0) {
+                            app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+                        }
                         alert("Please respect the grid limits!");
-                        resetShip();
+
                         break;
                     } else {
                         let toPaint = app.firstSquare[0].charAt(0) + numbersAxe;
-                        if (app.shipLocation.includes(toPaint)) {
-                            resetShip();
+                        if (app.myPreShipLocations.includes(toPaint)) {
+
+                            if (app.squareToPaint.length > 0) {
+                                app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+                            }
+
                             alert("You already have a ship in this location!");
                             break;
 
                         } else {
-
-                            app.paintShipsLocation("ship" + toPaint, "blinking");
+                            app.getShipInitials();
+                            app.paintSalvoes("ship" + toPaint, "blinking", shipInitials);
                             app.squareToPaint.push(toPaint);
                             i++;
                             numbersAxe++;
@@ -674,19 +715,16 @@ function placeShips(item) {
 function resetShip() {
     app.shipType = "";
     app.shipOrientation = "";
-
-    if (app.squareToPaint.length != 0) {
-        let x = app.squareToPaint.map(i => ("ship" + i));
-        x.forEach(shipSquare => {
-            app.reversePaintShipsLocation(shipSquare);
-        })
-
-    }
-
+    app.myPreShipLocations.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+    app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+    app.shipPreSave = [];
+    app.findGameView();
     app.updateShipControlDisplay();
     app.firstSquare = [];
     app.squareToPaint = [];
-    app.shipPreSave.pop();
+    app.myPreShipLocations = [];
+    app.myPreShipTypes = [];
+
 
 
 }
@@ -698,8 +736,7 @@ function saveShips() {
     if (a < 5) {
         alert("Choose all your 5 ships before sending them!");
     } else if (a + b == 5) {
-        // alert("You have sent your last ship!");
-        // app.shipPreSave[a - 1].locations = app.squareToPaint;
+
         app.createShips();
         app.firstSquare = [];
         app.squareToPaint = [];
@@ -714,7 +751,6 @@ function saveShips() {
 
     } else {
         app.shipPreSave[a - 1].locations = app.squareToPaint;
-        // app.createShips();
         app.firstSquare = [];
         app.squareToPaint = [];
         app.shipType = "";
@@ -729,10 +765,12 @@ app.findGamePlayerId();
 app.findGameView();
 
 
+
+
 // setInterval(function () {
 
 //     app.findGameView();
 
 
 
-// }, 15000);
+// }, 8000);

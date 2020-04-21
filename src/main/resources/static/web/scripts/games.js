@@ -99,7 +99,6 @@ var app = new Vue({
 				.done(function () {
 
 					alert("Welcome to Salvo! You are now online!");
-
 					location.reload(true);
 
 
@@ -192,7 +191,7 @@ function filterGameTable() {
 	if (app.games.player != null) {
 
 		[...document.querySelectorAll(".my-games-table")]
-		.filter(a => !a.textContent.includes(app.games.player.username) && a.cells.length == 3)
+		.filter(a => !a.textContent.includes(app.games.player.username) && a.cells.length == 4)
 			.forEach(a => a.style.display = "none");
 	}
 }
