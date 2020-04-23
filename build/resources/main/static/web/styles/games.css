@@ -17,11 +17,6 @@ body {
 
 #logout {
     padding-left: 30vw;
-
-}
-
-#logout button {
-    background-color: rgba(230, 7, 7, 0.952);
 }
 
 #new-game {
