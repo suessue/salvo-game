@@ -1,37 +1,7 @@
 
-‚
-java:S1128"eRemove this unused import 'org.springframework.security.config.annotation.web.builders.HttpSecurity'.(ƒµ‹Š8‘ä×è™.
-`
-java:S1128"CRemove this unused import 'javax.servlet.http.HttpServletResponse'.(Á¨ïë8‘ä×è™.
 g
-java:S11925"JDefine a constant instead of duplicating this literal "Submarine" 3 times.(Üÿİª8Ù…Î§–.
-_
-java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…8‘ä×è™.
-X
-java:S1128";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8‘ä×è™.
-—
-java:S1128"zRemove this unused import 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter'.(š©À8‘ä×è™.
-‘
-java:S1128"oRemove this unused import 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity'.(ŸÜÑıÿÿÿÿ8‘ä×è™.
+java:S1192&"JDefine a constant instead of duplicating this literal "Submarine" 3 times.(Üÿİª8Ù…Î§–.
+g
+java:S1192%"JDefine a constant instead of duplicating this literal "Destroyer" 4 times.(ëáš8Ù…Î§–.
 n
-java:S11926"LDefine a constant instead of duplicating this literal "Patrol Boat" 6 times.(ÇÒÆµşÿÿÿÿ8Ù…Î§–.
-g
-java:S11924"JDefine a constant instead of duplicating this literal "Destroyer" 4 times.(ëáš8Ù…Î§–.
-˜
-java:S1128"{Remove this unused import 'org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler'.(ˆ«–—8‘ä×è™.
-m
-java:S1128"KRemove this unused import 'org.springframework.security.web.WebAttributes'.(àï£ªşÿÿÿÿ8‘ä×è™.
-†
-java:S1128"dRemove this unused import 'org.springframework.security.core.userdetails.UsernameNotFoundException'.(Í£Ö¶ùÿÿÿÿ8Ï±Úè™.
-~
-java:S1128"aRemove this unused import 'org.springframework.security.crypto.factory.PasswordEncoderFactories'.(—¶¼é8Ï±Úè™.
-l
-java:S1128"ORemove this unused import 'org.springframework.security.core.userdetails.User'.(–Ä€8Ï±Úè™.
-
-java:S1128"€Remove this unused import 'org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder'.(£ØÓ‰8Ï±Úè™.
-¬
-java:S1128"Remove this unused import 'org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter'.(¨ôË8Ï±Úè™.
-s
-java:S1128"QRemove this unused import 'org.springframework.context.annotation.Configuration'.(¬²Úäşÿÿÿÿ8Ï±Úè™.
-y
-java:S1128"WRemove this unused import 'org.springframework.security.core.authority.AuthorityUtils'.(¬«àõÿÿÿÿÿ8Ï±Úè™.
+java:S1192'"LDefine a constant instead of duplicating this literal "Patrol Boat" 6 times.(ÇÒÆµşÿÿÿÿ8Ù…Î§–.

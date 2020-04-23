@@ -13,8 +13,6 @@ k
 ;src/main/java/com/codeoftheweb/salvo/models/GamePlayer.java,2\c\2cc73f7605ee19e995aa57e4ed13ab98369ec354
 e
 5src/main/java/com/codeoftheweb/salvo/models/Ship.java,5\7\57eb301eb457a4cbda1f4f6a89e84f8e50030773
-y
-Isrc/main/java/com/codeoftheweb/salvo/configurations/SalvoApplication.java,1\d\1d8a581226df603053cf21f5e2cfd72071ff4a4f
 i
 9src/main/java/com/codeoftheweb/salvo/models/Response.java,2\5\2581439e765cce840469e0c20b249fd5dcf8ee4b
 f

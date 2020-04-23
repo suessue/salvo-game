@@ -43,7 +43,7 @@ public class SalvoController {
 
         Player player = playerRepository.findByUserName ( email );
         if (player != null) {
-            return new ResponseEntity <> ( makeMap ( Response.KEY_FAILURE, "USERNAME ALREADY EXISTS" ), HttpStatus.CONFLICT );
+            return new ResponseEntity <> ( makeMap ( Response.KEY_FAILURE, Response.ERR_USERNAME_EXISTS ), HttpStatus.CONFLICT );
         }
 
         Player newPlayer = playerRepository.save ( new Player ( email, passwordEncoder.encode ( password ) ) );
@@ -93,7 +93,7 @@ public class SalvoController {
         }
 
         if (!gamePlayer.get ().getSalvoes ().isEmpty () || !gamePlayer.get ().getOpponent ().get ().getSalvoes ().isEmpty ()) {
-            return new ResponseEntity <> ( makeMap ( Response.KEY_FAILURE, "GAME STARTED! NO MORE SHIPS ALLOWED!"), HttpStatus.FORBIDDEN );
+            return new ResponseEntity <> ( makeMap ( Response.KEY_FAILURE, Response.ERR_GAME_STARTED), HttpStatus.FORBIDDEN );
         }
 
 
@@ -101,7 +101,7 @@ public class SalvoController {
             gamePlayer.get ().addShip ( ship ));
 
         gamePlayerRepository.save ( gamePlayer.get () );
-        return new ResponseEntity <> (Response.SHIPS_SENT, HttpStatus.CREATED );
+        return new ResponseEntity <> (Response.INFO_SHIPS_SENT, HttpStatus.CREATED );
 
     }
 
@@ -126,7 +126,7 @@ public class SalvoController {
         }
 
         if (!gamePlayer.get ().getSalvoes ().isEmpty () && salvo.getTurn ().longValue () < gamePlayer.get ().getSalvoes ().size () + 1) {
-            return new ResponseEntity <> ( makeMap ( Response.KEY_FAILURE, "SALVO ALREADY FIRED FOR THIS TURN"), HttpStatus.FORBIDDEN );
+            return new ResponseEntity <> ( makeMap ( Response.KEY_FAILURE, Response.ERR_SALVO_FIRED_TWICE), HttpStatus.FORBIDDEN );
         }
 
         if (gamePlayer.get ().getState ().contains ( "ATTACK" ) || salvo.getTurn ().longValue () > gamePlayer.get ().getOpponent ().get ().getSalvoes ().size () + 1) {
@@ -179,7 +179,7 @@ public class SalvoController {
 
         gamePlayerRepository.save ( gamePlayer.get () );
         gamePlayerRepository.save ( gamePlayer.get ().getOpponent ().get () );
-        return new ResponseEntity <> (Response.SALVOES_FIRED, HttpStatus.CREATED );
+        return new ResponseEntity <> (Response.INFO_SALVOES_FIRED, HttpStatus.CREATED );
 
     }
 

@@ -32,6 +32,8 @@ var app = new Vue({
         salvoLocationsPreSave: [],
         salvoTurn: 0,
         shots: 0,
+        shotsCounter: 0,
+
 
     },
 
@@ -78,6 +80,13 @@ var app = new Vue({
             if (app.gameView.state.includes("FIRE")) {
                 document.getElementById("salvoes-grid-title").classList.add("blink_me");
                 document.getElementById("salvoControl").style.visibility = "visible";
+                document.getElementById("salvoes-grid").classList.add("selectedShip");
+            }
+
+            if (app.gameView.state.includes("OVER")) {
+                document.getElementById("salvoes-grid").classList.add("over");
+                document.getElementById("ships-grid").classList.add("over");
+
             }
 
 
@@ -109,6 +118,7 @@ var app = new Vue({
                     app.findSalvoesToPaint();
                     app.getTurn();
                     app.getShotsforThisTurn();
+                    app.getViewVariables();
 
 
                 })
@@ -137,58 +147,33 @@ var app = new Vue({
         updateShipControlDisplay() {
             let currentSelection = document.getElementsByClassName("carousel-item active")[0];
 
-            function getSlide(shipType) {
-                let slideId = ""
-
-                if (shipType == "Aircraft Carrier") {
-                    slideId = "carrier";
-                } else if (shipType == "Battleship") {
-                    slideId = "battleship";
-                } else if (shipType == "Submarine") {
-                    slideId = "submarine";
-                } else if (shipType == "Destroyer") {
-                    slideId = "destroyer";
-                } else if (shipType == "Patrol Boat") {
-                    slideId = "patrol";
-                }
-                return slideId;
-            };
-
-
             if (app.shipType == "") {
                 currentSelection.classList.remove("active");
                 document.getElementById("slide0").classList.add("active");
 
             } else {
 
-                let slide = ""
-
-                if (app.shipType == "Aircraft Carrier") {
-                    slide = "carrier";
-                } else if (app.shipType == "Battleship") {
-                    slide = "battleship";
-                } else if (app.shipType == "Submarine") {
-                    slide = "submarine";
-                } else if (app.shipType == "Destroyer") {
-                    slide = "destroyer";
-                } else if (app.shipType == "Patrol Boat") {
-                    slide = "patrol";
-                }
-
-
+                let slide = getSlide();
                 currentSelection.classList.remove("active");
                 document.getElementById(slide).classList.add("active");
+
+
             }
 
         },
 
         selectShipType(value) {
+
+
             if (app.shipType == value) {
                 app.shipType = "";
 
-
             } else {
                 app.shipType = value
+                if (app.myPreShipTypes.includes(app.shipType)) {
+                    alert("You've already sent your" + app.shipType + "!");
+                    app.shipType = "";
+                }
 
             }
 
@@ -348,6 +333,7 @@ var app = new Vue({
             });
         },
 
+
         paintSalvoes: function (a, b, c) {
             let td = document.getElementById(a);
             td.classList.add(b);
@@ -391,11 +377,13 @@ var app = new Vue({
             })
 
             if (app.gameView.history.hitsOpponent == null || app.hitsOnMe.length == 0 || app.gameView.history.hits.length == 0) {
-                document.getElementById("my-ships-danger").style.display = "none";
+                if (document.getElementById("my-ships-danger").style.display != "none")
+                    document.getElementById("my-ships-danger").style.display = "none";
             }
 
             if (app.gameView.history.hits == null || app.gameView.history.hits.length == 0 || app.hitsMp.length == 0) {
-                document.getElementById("crashing-enemy").style.display = "none";
+                if (document.getElementById("crashing-enemy").style.display != "none")
+                    document.getElementById("crashing-enemy").style.display = "none";
 
             }
 
@@ -478,10 +466,13 @@ var app = new Vue({
 
             app.getTurn();
 
-            if (app.salvoTurn == 1) {
-                app.shots = app.gameView.ships.length;
-            } else {
-                app.shots = app.gameView.ships.length - app.sinksOp[app.salvoTurn - 2].sinks.length;
+            if (app.gameView.state == "FIRE") {
+
+                if (app.salvoTurn == 1) {
+                    app.shots = app.gameView.ships.length;
+                } else {
+                    app.shots = app.gameView.ships.length - app.sinksOp[app.salvoTurn - 2].sinks.length;
+                }
             }
 
         },
@@ -500,6 +491,22 @@ var app = new Vue({
 
 
 
+
+function getSlide() {
+    let slide = "";
+    if (app.shipType == "Aircraft Carrier") {
+        slide = "carrier";
+    } else if (app.shipType == "Battleship") {
+        slide = "battleship";
+    } else if (app.shipType == "Submarine") {
+        slide = "submarine";
+    } else if (app.shipType == "Destroyer") {
+        slide = "destroyer";
+    } else if (app.shipType == "Patrol Boat") {
+        slide = "patrol";
+    }
+    return slide;
+}
 
 function selectSalvoes(item) {
 
@@ -533,6 +540,7 @@ function selectSalvoes(item) {
         } else {
             app.salvoLocationsPreSave.push(app.salvoSquare);
             app.paintSalvoes(x, "blinking", app.salvoTurn);
+            app.shotsCounter += 1;
 
         }
 
@@ -574,10 +582,13 @@ function createSalvoes() {
 }
 
 function resetSalvo() {
-    let i = app.salvoLocationsPreSave.length - 1;
-    app.reversePaintSalvoes("salvo" + app.salvoLocationsPreSave[i]);
-    app.salvoSquare = "";
-    app.salvoLocationsPreSave.pop();
+    if (app.salvoLocationsPreSave.length > 0) {
+        let i = app.salvoLocationsPreSave.length - 1;
+        app.reversePaintSalvoes("salvo" + app.salvoLocationsPreSave[i]);
+        app.salvoSquare = "";
+        app.salvoLocationsPreSave.pop();
+        app.shotsCounter -= 1;
+    }
 }
 
 function placeShips(item) {
@@ -602,15 +613,19 @@ function placeShips(item) {
             app.squareToPaint.includes(item.getAttribute('id').substr(4, 5, 6)) ||
             app.myPreShipLocations.includes(item.getAttribute('id').substr(4, 5, 6))) {
             alert("You already have a ship here!")
+            app.shipType = "";
+            app.shipOrientation = "";
+
 
         } else if (app.myPreShipTypes.includes(app.shipType)) {
-            alert("You have already sent your " + app.shipType + "!")
+            alert("You have already sent your  " + app.shipType + "!")
+            app.shipType = "";
+            app.shipOrientation = "";
 
         } else if (app.shipType == "" || app.shipOrientation == "") {
             alert("Choose your ship type and orientation!")
-
-            // } else if (app.firstSquare != "") {
-            //     alert("Save or reset this ship before placing a new bow!")
+            app.shipType = "";
+            app.shipOrientation = "";
 
         } else {
             app.firstSquare.push(item.getAttribute('id').substr(4, 5, 6));
@@ -761,16 +776,29 @@ function saveShips() {
 }
 
 
+function refreshGameState() {
+    var time = new Date().getTime();
+    $("game-player-state").bind("onchange", function (e) {
+        time = new Date().getTime();
+    });
+
+    function refresh() {
+        if (new Date().getTime() - time >= 5000) {
+            app.findGameView();
+            app.getViewVariables();
+        } else {
+            setTimeout(refresh, 5000);
+        }
+    }
+
+    setTimeout(refresh, 5000);
+
+}
+
+
 app.findGamePlayerId();
 app.findGameView();
 
-
-
-
-// setInterval(function () {
-
-//     app.findGameView();
-
-
-
-// }, 8000);
+setInterval(function () {
+    app.findGameView();
+}, 5000);

@@ -8,6 +8,10 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles/game.css">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -16,18 +20,26 @@
 
     <div id="app">
         <div class="container">
-            <div id="main-title" class="row" v-on:click="goToHomePage()">
-                <h1>BATTLESHIP</h1>
+            <div class="row nav-top">
+
+                <div id="main-title" v-on:click="goToHomePage()">
+                    <h1>BATTLESHIP</h1>
+                </div>
             </div>
 
             <div class="row header gameplayers">
                 <div class="col">
 
-                    <h3><span v-for="u in mainPlayer">{{u.player.username}} (you) Vs. </span>
+                    <h3>
+                        <span id="return-button" v-on:click="goToHomePage()">
+                            &#60 &#60
+                        </span>
+                        <span v-for="u in mainPlayer">{{u.player.username}} (you) Vs. </span>
                         <span v-for="u in opponent"> {{u.player.username}} </span>
-                        <template v-if="opponent.length == 0"><span>
-                                <p> waiting for your opponent!</p>
-                            </span></template></h3>
+                        <span v-if="opponent.length == 0"><span>
+                                <p class="blink_me"> ...</p>
+                            </span></span>
+                    </h3>
 
                     <div id="game-player-state">
                         <h2>{{gameView.state}}</h2>
@@ -58,7 +70,8 @@
                 </div>
 
                 <div id="div-salvoes-grid" class="col-6 justify-content-center text-center">
-                    <h4 id="salvoes-grid-title">SALVOES </h4>
+                    <h4 id="salvoes-grid-title">SALVOES <span v-show="gameView.state == 'FIRE'">- TURN
+                            {{salvoTurn}}</span></h4>
                     <table id="salvoes-grid" class="table table-dark table-bordered table-striped table-salvoes">
                         <thead class="bg-dark text-white">
                             <tr>
@@ -98,14 +111,12 @@
                                     <ol>
                                         <li>After your opponent is online, it's time to prepare your ships.</li>
                                         <li>Pick your ship type. The number in front of each option indicates the amount
-                                            of
-                                            spaces the
-                                            it occupies.</li>
+                                            of spaces it occupies.</li>
                                         <li>Decide if you want to place it horizontally or vertically.</li>
-                                        <li>Choose where you're placing your ship bow and off it goes!!</li>
-                                        <li>Ps. If you want to change the ship location, press reset <em>before</em>
-                                            saving it.</li>
-                                        <li>After choosing your 5 ships, wait for your opponent to do the same and then
+                                        <li>Choose where you're placing each of your ships before sending them.</li>
+                                        <li>Pressing reset will give you the chance to choose all your ships again.</li>
+                                        <li>After choosing your 5 ships, press send.</li>
+                                        <li>Now just wait for your opponent to do the same and then
                                             you're ready to attack!</li>
                                     </ol>
                                 </div>
@@ -141,7 +152,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <ol>
-                                        <li>after you and your opponent have placed your ships, it's time to attack!
+                                        <li>After you and your opponent have placed your ships, it's time to attack!
                                         </li>
                                         <li>Click on the location you want to fire.</li>
                                         <li>The number of shots for each turn is the number of ships you have afloat!
@@ -175,28 +186,31 @@
                     <div id="carouselExampleControls" class="row carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" id="slide0">
-                                <div class="text-danger d-flex justify-content-center" v-on:click="selectShipType('')">
+                                <div class="text-danger d-flex justify-content-center align-items-end"
+                                    v-on:click="selectShipType('')">
                                     <h3>Choose your ship!</h3>
                                 </div>
                             </div>
-                            <!-- <template v-show="!myPreShipTypes.includes('Carrier')"> -->
+
                             <div class="carousel-item" id="carrier">
                                 <div class="ship-full-image d-flex justify-content-center">
-                                    <img class="ship-selector-image" src="images/boats/wholeboats/carrierhor.png"
-                                        alt="First Slide" v-on:click="selectShipType('Aircraft Carrier')"
-                                        v-bind:class="{ selectedShip: shipType == 'Aircraft Carrier' }">
+                                    <img id="carrier-img" class="ship-selector-image"
+                                        src="images/boats/wholeboats/carrierhor.png" alt="First Slide"
+                                        v-on:click="selectShipType('Aircraft Carrier')"
+                                        v-bind:class="{ selectedShip: shipType == 'Aircraft Carrier' || myPreShipTypes.includes('Aircraft Carrier') }">
                                 </div>
                                 <div
                                     class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
                                     <h5>Aircraft Carrier - Size 5</h5>
                                 </div>
                             </div>
-                            <!-- </template> -->
+
                             <div class="carousel-item" id="battleship">
                                 <div class="ship-full-image d-flex justify-content-center">
-                                    <img class="ship-selector-image " src="images/boats/wholeboats/battleshiphor.png"
-                                        alt="Second Slide" v-on:click="selectShipType('Battleship')"
-                                        v-bind:class="{ selectedShip: shipType == 'Battleship' }">
+                                    <img id="battleship-img" class="ship-selector-image "
+                                        src="images/boats/wholeboats/battleshiphor.png" alt="Second Slide"
+                                        v-on:click="selectShipType('Battleship')"
+                                        v-bind:class="{ selectedShip: shipType == 'Battleship' || myPreShipTypes.includes('Battleship')}">
                                 </div>
                                 <div
                                     class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
@@ -205,9 +219,10 @@
                             </div>
                             <div class="carousel-item" id="submarine">
                                 <div class="ship-full-image d-flex justify-content-center">
-                                    <img class="ship-selector-image " src="images/boats/wholeboats/submarinehor.png"
-                                        alt="Third Slide" v-on:click="selectShipType('Submarine')"
-                                        v-bind:class="{ selectedShip: shipType == 'Submarine' }">
+                                    <img id="submarine-img" class="ship-selector-image "
+                                        src="images/boats/wholeboats/submarinehor.png" alt="Third Slide"
+                                        v-on:click="selectShipType('Submarine')"
+                                        v-bind:class="{ selectedShip: shipType == 'Submarine' || myPreShipTypes.includes('Submarine') }">
                                 </div>
                                 <div
                                     class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
@@ -216,9 +231,10 @@
                             </div>
                             <div class="carousel-item" id="destroyer">
                                 <div class="ship-full-image d-flex justify-content-center">
-                                    <img class="ship-selector-image " src="images/boats/wholeboats/destroyerhor.png"
-                                        alt="Fourth Slide" v-on:click="selectShipType('Destroyer')"
-                                        v-bind:class="{ selectedShip: shipType == 'Destroyer' }">
+                                    <img id="destroyer-img" class="ship-selector-image "
+                                        src="images/boats/wholeboats/destroyerhor.png" alt="Fourth Slide"
+                                        v-on:click="selectShipType('Destroyer')"
+                                        v-bind:class="{ selectedShip: shipType == 'Destroyer' || myPreShipTypes.includes('Destroyer')}">
                                 </div>
                                 <div
                                     class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
@@ -227,9 +243,10 @@
                             </div>
                             <div class="carousel-item" id="patrol">
                                 <div class="ship-full-image d-flex justify-content-center">
-                                    <img class="ship-selector-image" src="images/boats/wholeboats/patrolboathor.png"
-                                        alt="Fifth Slide" v-on:click="selectShipType('Patrol Boat')"
-                                        v-bind:class="{ selectedShip: shipType == 'Patrol Boat' }">
+                                    <img id="patrol-img" class="ship-selector-image"
+                                        src="images/boats/wholeboats/patrolboathor.png" alt="Fifth Slide"
+                                        v-on:click="selectShipType('Patrol Boat')"
+                                        v-bind:class="{ selectedShip: shipType == 'Patrol Boat' || myPreShipTypes.includes('Patrol Boat') }">
                                 </div>
                                 <div
                                     class="carousel-caption text-danger d-flex align-items-end justify-content-center ">
@@ -251,7 +268,7 @@
                         </div>
 
                     </div>
-                    <form class="row" onsubmit="return false">
+                    <form class="row form-ships" onsubmit="return false">
 
                         <div class="col-4 ">
 
@@ -300,12 +317,18 @@
                 </div>
 
 
-                <div id="salvoControl" class="col-offset-6  col-6 salvoes-control justify-content-center">
+                <div id="salvoControl" class="col-offset-6  col-6 salvoes-control justify-content-center"
+                    v-show="gameView.state == 'FIRE'">
+                    <div class="row counter justify-content-center">
+                        <p class="justify-content-center"><span class="text-light blink_me">{{shots -
+                                shotsCounter}}</span>
+                            shots</p>
+                    </div>
                     <div class="row d-flex justify-content-center">
                         <div class=" col-3 justify-content-start">
                             <button type="reset" class="btn btn-secondary " onclick="resetSalvo()">RESET </button>
                         </div>
-                        <div class="col-1 justify-content-end ">
+                        <div class="col-1 justify-content-start ">
                             <button class="btn btn-danger" onclick="createSalvoes()">FIRE!
                             </button>
                         </div>
@@ -331,21 +354,32 @@
                         <tbody v-for="(x, index) in hitsOp.slice().reverse()">
                             <template v-if="x.shipStatus.length !=0">
                                 <tr>
-                                    <th scope="row">{{hitsOp.length - index}}</th>
+                                    <th scope="row"
+                                        v-show="salvoTurn > hitsOp.length - index || gameView.state.includes('OVER')">
+                                        {{hitsOp.length - index}}</th>
                                     <td colspan="3">
-                                        <table class="table shipStatus table-borderless table-sm">
+                                        <table
+                                            v-show="salvoTurn > hitsOp.length - index || gameView.state.includes('OVER')"
+                                            class=" table shipStatus table-borderless table-sm">
                                             <thead>
                                             </thead>
                                             <tbody v-for="ship in x.shipStatus">
                                                 <tr v-show="ship.hitsLeft != 0">
-                                                    <td>
+                                                    <td v-if="ship.type.includes('Aircraft')">A. CARRIER </td>
+                                                    <td v-if="ship.type.includes('Patrol')">P. BOAT </td>
+                                                    <td
+                                                        v-if="!ship.type.includes('Patrol') && !ship.type.includes('Carrier')">
                                                         {{toUpper(ship.type)}} </td>
                                                     <td>{{ship.numberOfHits}}</td>
                                                     <td>{{ship.hitsLeft}}</td>
                                                 </tr>
                                                 <tr v-show="ship.hitsLeft == 0">
-                                                    <td>
+                                                    <td v-if="ship.type.includes('Aircraft')">A. CARRIER </td>
+                                                    <td v-if="ship.type.includes('Patrol')">P. BOAT </td>
+                                                    <td
+                                                        v-if="!ship.type.includes('Patrol') && !ship.type.includes('Carrier')">
                                                         {{toUpper(ship.type)}} </td>
+                                                    <td>{{ship.numberOfHits}}</td>
                                                     <td colspan="2">SUNKEN !! </td>
                                                 </tr>
                                             </tbody>
@@ -378,21 +412,35 @@
                         <tbody v-for="(x, index) in hitsMp.slice().reverse()">
                             <template v-if="x.shipStatus.length !=0">
                                 <tr>
-                                    <th scope="row">{{hitsMp.length - index}}</th>
+                                    <th scope="row"
+                                        v-show="hitsOp.length >= hitsMp.length - index || gameView.state.includes('OVER')">
+                                        {{hitsMp.length - index}}</th>
                                     <td colspan="3">
-                                        <table class="table shipStatus table-borderless table-sm">
+                                        <table
+                                            v-show="hitsOp.length >= hitsMp.length - index || gameView.state.includes('OVER')"
+                                            class="table shipStatus table-borderless table-sm">
                                             <thead>
                                             </thead>
                                             <tbody v-for="ship in x.shipStatus">
                                                 <tr v-show="ship.hitsLeft != 0">
-                                                    <td>
-                                                        {{toUpper(ship.type)}}</td>
+                                                    <td v-if="ship.type.includes('Aircraft')">
+                                                        A. CARRIER </td>
+                                                    <td v-if="ship.type.includes('Patrol')">
+                                                        P. BOAT </td>
+                                                    <td
+                                                        v-if="!ship.type.includes('Patrol') && !ship.type.includes('Carrier')">
+                                                        {{toUpper(ship.type)}} </td>
                                                     <td>{{ship.numberOfHits}}</td>
                                                     <td>{{ship.hitsLeft}}</td>
+
                                                 </tr>
                                                 <tr v-show="ship.hitsLeft == 0">
-                                                    <td>
+                                                    <td v-if="ship.type.includes('Aircraft')">A. CARRIER </td>
+                                                    <td v-if="ship.type.includes('Patrol')">P. BOAT </td>
+                                                    <td
+                                                        v-if="!ship.type.includes('Patrol') && !ship.type.includes('Carrier')">
                                                         {{toUpper(ship.type)}} </td>
+                                                    <td>{{ship.numberOfHits}}</td>
                                                     <td colspan="2">SUNKEN !! </td>
                                                 </tr>
                                             </tbody>

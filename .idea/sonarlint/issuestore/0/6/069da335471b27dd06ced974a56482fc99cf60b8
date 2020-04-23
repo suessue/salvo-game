@@ -1,19 +1,19 @@
 
-t
-java:S3776m"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(öª”şÿÿÿÿ8„¤æŸ˜.
-U
-java:S3655Ÿ"7Call "Optional#isPresent()" before accessing the value.(†¾É®8¿ş²ç™.
-Z
-java:S3655„"7Call "Optional#isPresent()" before accessing the value.(ƒ¹¹Çüÿÿÿÿ8¿ş²ç™.
-Z
-java:S3655µ"7Call "Optional#isPresent()" before accessing the value.(Ğ¨Ñşÿÿÿÿ8¿ş²ç™.
-U
-java:S3655Œ"7Call "Optional#isPresent()" before accessing the value.(´ûò8¿ş²ç™.
-T
-java:S3655_"7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ8¿ş²ç™.
 U
 java:S3655¦"7Call "Optional#isPresent()" before accessing the value.(®¢Ã­8¿ş²ç™.
 U
-java:S3655­"7Call "Optional#isPresent()" before accessing the value.( ˜¾8¿ş²ç™.
+java:S3655Œ"7Call "Optional#isPresent()" before accessing the value.(´ûò8¿ş²ç™.
+Z
+java:S3655„"7Call "Optional#isPresent()" before accessing the value.(ƒ¹¹Çüÿÿÿÿ8¿ş²ç™.
 b
 java:S4684m"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ8¿ş²ç™.
+t
+java:S3776m"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(öª”şÿÿÿÿ8„¤æŸ˜.
+T
+java:S3655_"7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ8¿ş²ç™.
+U
+java:S3655­"7Call "Optional#isPresent()" before accessing the value.( ˜¾8¿ş²ç™.
+U
+java:S3655Ÿ"7Call "Optional#isPresent()" before accessing the value.(†¾É®8¿ş²ç™.
+Z
+java:S3655µ"7Call "Optional#isPresent()" before accessing the value.(Ğ¨Ñşÿÿÿÿ8¿ş²ç™.

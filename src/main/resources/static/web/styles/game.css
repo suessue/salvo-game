@@ -13,25 +13,40 @@ body {
     font-size: 130px;
     margin-top: 30px;
     text-align: center;
-    width: 100vw;
+    width: 70vw;
     margin-bottom: 30px;
     border: outset;
 
 }
 
+.nav-top div {
+    width: 100vw
+}
+
+#return-button {
+    font-size: 50px;
+    width: 8vw;
+    color: red;
+    padding-top: 60px;
+    display: inline-flex;
+}
+
 .header {
-    padding: 10px;
+    padding: 0px;
     margin-top: 0px;
     text-align: center;
 }
 
-.header h3,
-h2 {
+.header h3 {
     margin-bottom: 40px;
+    text-transform: uppercase;
+    color: rgb(13, 4, 63, 0.9);
 }
 
 #game-player-state {
-    color: blue;
+    color: rgb(13, 4, 63);
+    text-shadow: rgba(243, 239, 239, 0.952) 0px 0px 4px;
+    margin-bottom: 35px;
 }
 
 .blink_me {
@@ -52,10 +67,10 @@ h2 {
     width: 440px;
     height: 440px;
     margin-bottom: 30px;
-    opacity: 0.9;
-
+    opacity: 0.8;
 
 }
+
 
 .grids *td {
     width: 40px;
@@ -78,23 +93,40 @@ h2 {
 
 }
 
+.controllers {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+
+
+}
+
 .salvoes-control div {
     margin-inline-end: 10px;
 }
 
 #salvoControl button {
     position: relative;
-    margin-right: 30px;
+    margin-right: 20px;
 
+}
+
+.counter p {
+    border: outset rgba(250, 246, 246, 0.295);
+    background-color: rgba(80, 79, 79, 0.349);
+    margin-left: 15px;
+    padding: 3px;
+    text-shadow: 0px 0px 0px;
 }
 
 
 .instructions div {
     margin-bottom: 20px;
+
 }
 
 .selectedShip {
     box-shadow: 2px 2px 10px 2px rgb(91, 163, 245);
+    background-color: rgba(250, 246, 246, 0.295);
 }
 
 
@@ -117,8 +149,20 @@ h2 {
     margin-top: 20px;
     margin-left: 80px;
     color: red;
-    text-shadow: rgba(90, 89, 89, 0.952) 0px 0px 0px;
+    text-shadow: rgba(243, 239, 239, 0.952) 0px 0px 4px;
     font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.form-ships {
+    margin-top: 10px;
+}
+
+.carousel-inner {
+    background-color: rgba(63, 62, 62, 0.344);
+    height: 210px;
+    justify-content: center;
+
 }
 
 .ships-input form {
@@ -149,10 +193,7 @@ h2 {
 
 }
 
-.sentToFight div:first-of-type {
-    background-color: 2px 2px 10px 2px rgba(236, 125, 117, 0.3);
 
-}
 
 .carousel-caption div {
     margin-top: 20px;
@@ -160,29 +201,27 @@ h2 {
 
 #my-ships-danger,
 #crashing-enemy {
-    margin-top: 50px;
+    margin-top: 90px;
     color: red;
 }
 
-.allShipStatus table {
+.allShipStatus>table {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(199, 234, 245, 0.295);
-
-
+    background-color: rgba(67, 68, 68, 0.466);
 }
 
 .allShipStatus td {
     margin: 0px;
     padding: 0px;
-    color: red;
+    color: rgba(233, 244, 250, 0.959);
     text-shadow: 0px 0px 0px;
     font-weight: normal;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 .allShipStatus th,
-td,
 tr {
     text-align: center;
     margin: 0px;
@@ -192,11 +231,8 @@ tr {
 
 .shipStatus td {
     min-width: 60px;
+    max-width: 60px;
     max-height: 18px;
-    text-align: center;
-    background-color: transparent;
-
-
 }
 
 .thSpecial {
@@ -208,6 +244,12 @@ tr {
     color: #fff;
     animation: blinkingBackground 2s infinite;
 }
+
+.over {
+    background-color: rgba(119, 125, 163, 0.39);
+}
+
+
 
 @keyframes blinkingBackground {
     0% {

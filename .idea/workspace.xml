@@ -2,62 +2,109 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/configurations/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/configurations/WebSecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/06220eb163c248eba4d4857bbdead2443839447c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b4395a62f03369df103417d047a80f905b59cc8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ab5c8247b5fa11aa589690655e4e97ee8e32a31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cffc3234bc8e484110d96def966a60a6af4b23e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/b/7b20437e44d0a9fee8d8eb9d78229c292dc4bfb8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/0/8094f3ed915c598c83f02577c75a985dca6a0258" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/9451dedb6ef7f88f5a803362508d9e38382107c3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/2/b2d60303389eb50daf4b2c77482b7060db067f0e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b90b21deb138a991bdf7782fbc601cce1e62ae57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c85237a9b776f6cbe2b0aeb794ab2cb5659ad04f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca98440cee4cbb3f037b40d788d30b5ed92c3008" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/da90a5646e5710803a7c907446b5a142c0bddbb7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/daccdd891b5872c458758b6eb09cd94d77528fe6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/e/eef22d8ddb4b5186937719cc0230098623dac121" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/069da335471b27dd06ced974a56482fc99cf60b8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/069da335471b27dd06ced974a56482fc99cf60b8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b4395a62f03369df103417d047a80f905b59cc8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b4395a62f03369df103417d047a80f905b59cc8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1d8a581226df603053cf21f5e2cfd72071ff4a4f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2cc73f7605ee19e995aa57e4ed13ab98369ec354" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2cc73f7605ee19e995aa57e4ed13ab98369ec354" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayerRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GameRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/PlayerRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Score.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/ScoreRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Ship.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/ShipRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/WebSecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/WebSecurityConfiguration$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/WebSecurityConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/GamePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/repositories/GamePlayerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/repositories/GameRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/repositories/PlayerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Salvo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Salvo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/configurations/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/configurations/WebSecurityConfiguration$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/configurations/WebSecurityConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/controllers/SalvoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/models/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/models/GamePlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/models/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/models/Response.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/models/Salvo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/models/Score.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/models/Ship.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/repositories/GamePlayerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/repositories/GameRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/repositories/PlayerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/repositories/SalvoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/repositories/ScoreRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/repositories/ShipRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/manager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/manager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/game.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/games.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircrafthor/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircrafthor/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircrafthor/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircrafthor/image_part_004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircrafthor/image_part_005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircraftver/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircraftver/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircraftver/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircraftver/image_part_004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/aircraftver/image_part_005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlehor/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlehor/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlehor/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlehor/image_part_004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlever/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlever/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlever/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/battlever/image_part_004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/destroyerhor/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/destroyerhor/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/destroyerhor/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/destroyerver/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/destroyerver/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/destroyerver/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/patrolhor/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/patrolhor/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/patrolver/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/patrolver/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinehor/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinehor/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinehor/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinever/image_part_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinever/image_part_002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinever/image_part_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinever/image_part_003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/submarinever/image_part_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/battleshiphor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/battleshipver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/carrierhor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/carrierver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/destroyerhor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/destroyerver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/patrolboathor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/patrolboatver.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/submarinehor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/boats/wholeboats/submarinever.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/hit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/hit3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/hitBoat2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/hitBoat3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/images/sea9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/TGIF.code-workspace" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/games.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/controllers/SalvoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/repositories/SalvoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/ScoreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/repositories/ScoreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/ShipRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/repositories/ShipRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/controllers/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/controllers/SalvoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/models/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scripts/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scripts/games.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/styles/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/styles/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/styles/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/styles/games.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,8 +304,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.salvo [bootRun]" />
         <item itemvalue="Gradle.salvo [clean]" />
+        <item itemvalue="Gradle.salvo [bootRun]" />
         <item itemvalue="Gradle.salvo [build]" />
         <item itemvalue="Gradle.salvo [classes]" />
         <item itemvalue="Application.AppController" />
@@ -370,26 +417,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="511" y="234" key="Github.ShareDialog/0.0.1280.680@0.0.1280.680" timestamp="1585572035944" />
-    <state width="1237" height="242" key="GridCell.Tab.0.bottom" timestamp="1587479323680">
+    <state width="1237" height="242" key="GridCell.Tab.0.bottom" timestamp="1587601804093">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587479323680" />
-    <state width="1237" height="242" key="GridCell.Tab.0.center" timestamp="1587479323679">
+    <state width="1237" height="242" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587601804093" />
+    <state width="1237" height="242" key="GridCell.Tab.0.center" timestamp="1587601804093">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587479323679" />
-    <state width="1237" height="242" key="GridCell.Tab.0.left" timestamp="1587479323679">
+    <state width="1237" height="242" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587601804093" />
+    <state width="1237" height="242" key="GridCell.Tab.0.left" timestamp="1587601804093">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587479323679" />
-    <state width="1237" height="242" key="GridCell.Tab.0.right" timestamp="1587479323680">
+    <state width="1237" height="242" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587601804093" />
+    <state width="1237" height="242" key="GridCell.Tab.0.right" timestamp="1587601804093">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587479323680" />
+    <state width="1237" height="242" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587601804093" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1585601562474">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -426,10 +473,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="495" y="123" key="chooseDestDirectoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1587421355599" />
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1587475682662">
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1587551948185">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587475682662" />
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587551948185" />
     <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585785285661">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
