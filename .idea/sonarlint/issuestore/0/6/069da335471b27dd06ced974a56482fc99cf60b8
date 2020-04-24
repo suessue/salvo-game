@@ -1,0 +1,19 @@
+
+S
+java:S3655„"7Call "Optional#isPresent()" before accessing the value.(ƒ¹¹Çüÿÿÿÿ
+N
+java:S3655Œ"7Call "Optional#isPresent()" before accessing the value.(´ûò
+N
+java:S3655¦"7Call "Optional#isPresent()" before accessing the value.(®¢Ã­
+M
+java:S3655_"7Call "Optional#isPresent()" before accessing the value.(Á¯ÄÚ
+N
+java:S3655Ÿ"7Call "Optional#isPresent()" before accessing the value.(†¾É®
+N
+java:S3655­"7Call "Optional#isPresent()" before accessing the value.( ˜¾
+S
+java:S3655µ"7Call "Optional#isPresent()" before accessing the value.(Ğ¨Ñşÿÿÿÿ
+[
+java:S4684m"@Replace this persistent entity with a simple POJO or DTO object.(öª”şÿÿÿÿ
+m
+java:S3776m"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(öª”şÿÿÿÿ
