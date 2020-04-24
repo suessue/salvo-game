@@ -20,18 +20,18 @@
 	<div id="app">
 
 		<div class="container">
-			<div id="main-title" class="row  justify-contents-center">
+			<div id="main-title" class="row justify-contents-center">
 				<h1>BATTLESHIP</h1>
 			</div>
 			<template v-if="games.player != null">
-				<div class="row leaderboard justify-contents-center">
+				<div class="row leaderboard">
 					<div class="col justify-contents-center">
 						<div class="top">
 							<h2>LET'S PLAY, <em>{{games.player.username}}</em> !</h2>
 						</div>
 						<div>
 							<h4>LEADERBOARD</h4>
-							<table class="table leaderboard">
+							<table id="table-leaderboard" class="table leaderboard">
 								<thead class="thead-dark">
 									<tr>
 										<th scope="col">#</th>
@@ -56,14 +56,14 @@
 						</div>
 						<div>
 							<div class="row">
-								<h4 class="col-9">MY GAMES</h4>
+								<h4 class="col-6">MY GAMES</h4>
 
 								<button id="new-game" type="button" v-on:click="createGame"
-									class="col-2 justify-contents-center btn btn-md btn-success">NEW
+									class="col-2 justify-contents-center btn btn-md red">NEW
 									GAME!</button>
 							</div>
 
-							<table class="table text-center">
+							<table id="table-games" class="table text-center">
 								<thead class="thead-dark ">
 									<tr>
 
@@ -138,40 +138,26 @@
 			</template>
 			<template v-if="games.player == null">
 				<div id="login-signup-div" class="row game-info justify-contents-center">
-					<div class="col">
-						<div id="login">
-							<form>
-								<label class="text-center">email: <input type="email" v-model:value="email"
-										required></label>
-								<label class="text-center">password: <input type="password" v-model:value="pwd"
-										required></label>
-
-							</form>
-							<button type="button" class="btn btn-md btn-danger " v-on:click="loginNow">Log
+					<div id="signUp">
+						<form>
+							<label>Email: <input type="email" v-model:value="email" required></label>
+							<label>Password: <input type="password" v-model:value="pwd" required></label>
+						</form>
+						<div id="signUp-buttons">
+							<button type="button" class="btn btn-sm red " v-on:click="loginNow">Log
 								in</button>
-							<button type="button" class="btn btn-md btn-light "
-								onclick="alternateDisplays('login','signUp')">New
-								user?</button>
-						</div>
-
-
-						<div id="signUp">
-							<form>
-								<label>Email: <input type="email" v-model:value="email" required></label>
-								<label>Password: <input type="password" v-model:value="pwd" required></label>
-
-							</form>
-							<button type="button" class="btn btn-md btn-dark" v-on:click="signUp">Sign up</button>
-							<button class="btn btn-md btn-light " onclick="alternateDisplays('signUp', 'login')">
-								Back to Login</button>
+							<button id="middle-button" class="btn btn-sm btn-light disabled">
+								&#60&#60 >></button>
+							<button type="button" class="btn btn-sm red" v-on:click="signUp">Sign up</button>
 
 						</div>
 					</div>
+
 				</div>
 			</template>
 			<template v-if="games.player != null">
 				<div id="logout" class="row">
-					<div class="col-8">
+					<div class="col">
 						<button type="button" v-on:click="logout" class="btn btn-md">LOGOUT</button>
 					</div>
 				</div>

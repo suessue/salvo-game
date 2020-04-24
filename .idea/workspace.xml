@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="" />
+    <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -353,10 +356,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="495" y="123" key="chooseDestDirectoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1587421355599" />
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1587742634377">
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1587747199675">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587742634377" />
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587747199675" />
     <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587667891186">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

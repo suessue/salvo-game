@@ -1,7 +1,3 @@
-div {
-    margin: 30px;
-}
-
 body {
 
     z-index: 1;
@@ -16,39 +12,73 @@ body {
 }
 
 #logout {
-    padding-left: 45vw;
+    margin-left: 40vw;
 
 }
 
 #logout button {
     background-color: rgba(230, 7, 7, 0.952);
+    width: 10vw;
+    margin-bottom: 30px;
+}
+
+.red {
+    background-color: rgba(230, 7, 7, 0.952);
+    color: white;
+
+}
+
+.leaderboard h4 {
+    justify-content: center;
+    margin-left: 12vw;
+    margin-top: 30px;
+
 }
 
 #new-game {
     box-shadow: rgba(243, 239, 239, 0.952) 0px 0px 8px;
+    height: 40px;
+    width: 60px;
+    margin-top: 30px;
+    color: rgb(13, 4, 63);
 }
 
 #logout button {
     box-shadow: rgba(243, 239, 239, 0.952) 0px 0px 8px;
 }
 
+#main-title {
+    margin-left: auto;
+    justify-content: center;
+    margin-top: 40px;
+    display: flex;
+}
+
 #main-title h1 {
-    font-size: 130px;
+    font-size: 120px;
     text-align: center;
-    width: 100vw;
+    width: 80vw;
     margin-bottom: 0px;
     padding: auto;
     box-shadow: rgba(243, 239, 239, 0.952) 0px 0px 8px;
+    border: 0px;
 
 }
 
 .table {
     background-color: rgba(250, 246, 246, 0.295);
-    border: inset rgba(105, 117, 223, 0.336);
     font-family: 'Archivo Black', sans-serif;
     text-transform: uppercase;
+    box-shadow: rgba(243, 239, 239, 0.952) 3px 3px 3px;
 
+}
 
+#table-leaderboard,
+#table-games {
+    width: 70vw;
+    margin-left: 10vw;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .leaderboard div {
@@ -63,12 +93,10 @@ body {
 
 }
 
-
-
 #login-signup-div {
 
-    height: 28vh;
-    width: 23vw;
+    height: 32vh;
+    width: 28vw;
     position: fixed;
     background-color: rgba(250, 246, 246, 0.295);
     top: 40%;
@@ -76,36 +104,28 @@ body {
     border: outset rgb(250, 218, 218) 2px;
     letter-spacing: .07em;
     text-shadow: white 0px 0px 8px;
-    padding: 0px;
+    padding-top: 10px;
+    justify-content: center;
+
+}
+
+#login-signup-div form {
+    margin-bottom: 10px;
+}
+
+#login-signup input {
+    width: 18vw;
+    align-self: center;
 
 }
 
 
 #signUp {
-    display: none;
-    margin: auto;
+
+    margin: 0px;
     padding: 0px;
     font-size: 18px;
     color: red;
-}
-
-#login {
-    display: block;
-    margin: auto;
-    padding: 0px;
-    font-size: 18px;
-    color: red;
-
-}
-
-#signUp,
-#login * input {
-    max-width: 18vw;
-}
-
-#signUp,
-#login * div {
-    max-height: 10vh;
 }
 
 #signUp,
@@ -114,7 +134,8 @@ body {
 }
 
 #signUp,
-#login * button {
+#login button {
+    margin: 0px;
     text-align: center;
     width: 3 vw;
     margin-left: 1;
@@ -122,9 +143,12 @@ body {
 
 }
 
+#middle-button {
+    cursor: auto
+}
 
 .blink_me {
-    animation: blinker 1s linear infinite;
+    animation: blinker 2s linear infinite;
 }
 
 @keyframes blinker {

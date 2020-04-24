@@ -7,15 +7,23 @@ body {
     font-family: 'Bungee Inline', cursive;
     text-shadow: rgba(243, 239, 239, 0.952) 0px 0px 4px;
 
+
+}
+
+#main-title {
+    margin-left: auto;
+    justify-content: center;
+    margin-top: 40px;
+    display: flex;
 }
 
 #main-title h1 {
-    font-size: 130px;
-    margin-top: 30px;
+    font-size: 120px;
     text-align: center;
-    width: 70vw;
-    margin-bottom: 30px;
-    border: outset;
+    width: 80vw;
+    margin-bottom: 0px;
+    padding: auto;
+    box-shadow: rgba(243, 239, 239, 0.952) 0px 0px 8px;
 
 }
 
