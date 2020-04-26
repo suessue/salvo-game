@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="" />
+    <list default="true" id="e0a53c3a-0464-4b9b-9404-be17c91e82cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/069da335471b27dd06ced974a56482fc99cf60b8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/6/069da335471b27dd06ced974a56482fc99cf60b8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2cc73f7605ee19e995aa57e4ed13ab98369ec354" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/c/2cc73f7605ee19e995aa57e4ed13ab98369ec354" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scripts/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/styles/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/styles/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/styles/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/styles/games.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -257,10 +265,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="381" y="149" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1587421221607" />
-    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583953328727">
+    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587912935038">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1583953328727" />
+    <state x="321" y="69" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1587912935038" />
     <state x="438" y="200" width="505" height="289" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587478432491">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -297,26 +305,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="511" y="234" key="Github.ShareDialog/0.0.1280.680@0.0.1280.680" timestamp="1585572035944" />
-    <state width="1237" height="242" key="GridCell.Tab.0.bottom" timestamp="1587759958884">
+    <state width="1237" height="242" key="GridCell.Tab.0.bottom" timestamp="1587931475071">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587759958884" />
-    <state width="1237" height="242" key="GridCell.Tab.0.center" timestamp="1587759958884">
+    <state width="1237" height="242" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587931475071" />
+    <state width="1237" height="242" key="GridCell.Tab.0.center" timestamp="1587931475070">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587759958884" />
-    <state width="1237" height="242" key="GridCell.Tab.0.left" timestamp="1587759958884">
+    <state width="1237" height="242" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587931475070" />
+    <state width="1237" height="242" key="GridCell.Tab.0.left" timestamp="1587931475070">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587759958884" />
-    <state width="1237" height="242" key="GridCell.Tab.0.right" timestamp="1587759958884">
+    <state width="1237" height="242" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587931475070" />
+    <state width="1237" height="242" key="GridCell.Tab.0.right" timestamp="1587931475070">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="247" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1280.680@0.0.1280.680" timestamp="1583259558604" />
-    <state width="1237" height="242" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587759958884" />
+    <state width="1237" height="242" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587931475070" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1585601562474">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -353,10 +361,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="495" y="123" key="chooseDestDirectoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1587421355599" />
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1587747199675">
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1587913061231">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587747199675" />
+    <state x="341" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1587913061231" />
     <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587667891186">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

@@ -275,7 +275,8 @@
                             <select class="custom-select mr-sm-2" id="shipType" v-model="shipType"
                                 @change="updateShipControlDisplay">
                                 <option value="">SHIP TYPE</option>
-                                <option value="Aircraft Carrier">
+                                <option value="Aircraft Carrier"
+                                    v-bind:class="{ selectedShip: shipType == 'Aircraft Carrier'}">
                                     Aircraft
                                     Carrier</option>
                                 <option value="Battleship" v-bind:class="{ selectedShip: shipType == 'Battleship' }">

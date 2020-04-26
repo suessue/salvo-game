@@ -72,7 +72,7 @@ var app = new Vue({
 
             if (app.gameView.state == "PLACE YOUR SHIPS") {
                 document.getElementById("salvoControl").style.visibility = "hidden";
-                document.getElementById("ships-grid").classList.add("selectedShip");
+                document.getElementById("ships-grid").classList.add("selected");
                 document.getElementById("ships-grid-title").classList.add("blink_me");
                 document.getElementById("shipControl").style.visibility = "visible";
             }
@@ -80,7 +80,7 @@ var app = new Vue({
             if (app.gameView.state.includes("FIRE")) {
                 document.getElementById("salvoes-grid-title").classList.add("blink_me");
                 document.getElementById("salvoControl").style.visibility = "visible";
-                document.getElementById("salvoes-grid").classList.add("selectedShip");
+                document.getElementById("salvoes-grid").classList.add("selected");
             }
 
             if (app.gameView.state.includes("OVER")) {
@@ -106,7 +106,6 @@ var app = new Vue({
             return str.toUpperCase()
         },
 
-
         findGameView: function () {
             $.get('/api/game_view/' + app.gamePlayerId, function (data) {
                     app.gameView = data;
@@ -114,7 +113,7 @@ var app = new Vue({
                 })
                 .done(function () {
                     app.getViewVariables();
-                    app.findShipsToPaint();
+                    app.findShipsToPaint(app.gameView.ships);
                     app.findSalvoesToPaint();
                     app.getTurn();
                     app.getShotsforThisTurn();
@@ -157,8 +156,8 @@ var app = new Vue({
                 currentSelection.classList.remove("active");
                 document.getElementById(slide).classList.add("active");
 
-
             }
+
 
         },
 
@@ -180,8 +179,8 @@ var app = new Vue({
 
         },
 
-        findShipsToPaint: function () {
-            app.gameView.ships.forEach(ship => {
+        findShipsToPaint: function (shipsArray) {
+            shipsArray.forEach(ship => {
                 ship.locations.forEach(location => {
 
                     let orientationHorizontal = (ship.locations[0].charAt(0) == ship.locations[1].charAt(0));
@@ -327,12 +326,13 @@ var app = new Vue({
                     }
 
 
-                    app.shipLocation.push(location);
+                    if (shipsArray = app.gameView.ships) {
+                        app.shipLocation.push(location);
+                    }
 
                 })
             });
         },
-
 
         paintSalvoes: function (a, b, c) {
             let td = document.getElementById(a);
@@ -434,23 +434,7 @@ var app = new Vue({
 
         },
 
-        getShipInitials: function () {
 
-            if (app.shipType == "Aircraft Carrier") {
-                shipInitials = "AC";
-            } else if (app.shipType == "Battleship") {
-                shipInitials = "B";
-            } else if (app.shipType == "Submarine") {
-                shipInitials = "S";
-            } else if (app.shipType == "Destroyer") {
-                shipInitials = "D";
-            } else if (app.shipType == "Patrol Boat") {
-                shipInitials = "PB";
-            }
-
-
-
-        },
 
         getTurn: function () {
 
@@ -601,145 +585,156 @@ function placeShips(item) {
     if (app.gameView.state.includes("OVER")) {
         alert("This game has already finished!")
         app.findGameView();
+
     } else if (app.gameView.state.includes("WAITING FOR YOUR OPPONENT")) {
         alert("Wait until your opponent joins the game!")
         app.findGameView();
+
     } else if (!app.gameView.state.includes("PLACE")) {
         alert("You can't send ships now!")
         app.findGameView();
-    } else if (app.shipPreSave.length > 5) {
-        alert("You have chosen all your ships!")
-    } else if (app.shipPreSave.length < 5) {
-        alert("Make sure you send all your 5 ships!")
+
+    } else if (app.shipPreSave.length == 5) {
+        alert("You have chosen all your ships! Send them now!")
+        app.shipType = "";
+        app.shipOrientation = "";
+
+    } else if (app.shipLocation.includes(item.getAttribute('id').substr(4, 5, 6)) ||
+        app.squareToPaint.includes(item.getAttribute('id').substr(4, 5, 6)) ||
+        app.myPreShipLocations.includes(item.getAttribute('id').substr(4, 5, 6))) {
+        alert("You already have a ship here!")
+        app.shipType = "";
+        app.shipOrientation = "";
+
+    } else if (app.myPreShipTypes.includes(app.shipType)) {
+        alert("You have already sent your  " + app.shipType + "!")
+        app.shipType = "";
+        app.shipOrientation = "";
+
+    } else if (app.shipType == "" || app.shipOrientation == "") {
+        alert("Choose your ship type and orientation!")
+        app.shipType = "";
+        app.shipOrientation = "";
+
     } else {
+        app.squareOne.push(item.getAttribute('id').substr(4, 5, 6));
+        app.getShipLength(app.shipType);
 
-        if (app.shipLocation.includes(item.getAttribute('id').substr(4, 5, 6)) ||
-            app.squareToPaint.includes(item.getAttribute('id').substr(4, 5, 6)) ||
-            app.myPreShipLocations.includes(item.getAttribute('id').substr(4, 5, 6))) {
-            alert("You already have a ship here!")
-            app.shipType = "";
-            app.shipOrientation = "";
+        newShip = {
+            "type": app.shipType,
+            "locations": app.squareToPaint,
+        }
+        var i = 0;
+        var lettersAxe = app.squareOne[0].charCodeAt(0);
+        var numbersAxe = app.squareOne[0].charAt(1) + app.squareOne[0].charAt(2) || "";
+
+        if (app.shipOrientation === "v") {
+
+            while (i < (app.shipLength) && 64 < lettersAxe < 75 && 0 < numbersAxe < 11) {
+
+                if (numbersAxe < 1 || numbersAxe > 10 || lettersAxe < 65 || lettersAxe > 74) {
+                    if (app.squareToPaint.length > 0) {
+                        app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+                    }
+                    alert("Please respect the grid limits!");
+                    app.shipType = "";
+                    app.shipOrientation = "";
+                    app.squareOne = [];
+                    app.squareToPaint = [];
 
 
-        } else if (app.myPreShipTypes.includes(app.shipType)) {
-            alert("You have already sent your  " + app.shipType + "!")
-            app.shipType = "";
-            app.shipOrientation = "";
-
-        } else if (app.shipType == "" || app.shipOrientation == "") {
-            alert("Choose your ship type and orientation!")
-            app.shipType = "";
-            app.shipOrientation = "";
-
-        } else {
-            app.squareOne.push(item.getAttribute('id').substr(4, 5, 6));
-            app.getShipLength(app.shipType);
-
-            newShip = {
-                "type": app.shipType,
-                "locations": app.squareToPaint,
-            }
-
-            var i = 0;
-            var lettersAxe = app.squareOne[0].charCodeAt(0);
-            var numbersAxe = app.squareOne[0].charAt(1) + app.squareOne[0].charAt(2) || "";
-
-            if (app.shipOrientation === "v") {
-
-                while (i < (app.shipLength) && 64 < lettersAxe < 75 && 0 < numbersAxe < 11) {
-
-                    if (numbersAxe < 1 || numbersAxe > 10 || lettersAxe < 65 || lettersAxe > 74) {
+                    break;
+                } else {
+                    let toPaint = ((String.fromCharCode(lettersAxe)) + app.squareOne[0].charAt(1) + app.squareOne[0].charAt(2) || "");
+                    if (app.myPreShipLocations.includes(toPaint)) {
                         if (app.squareToPaint.length > 0) {
                             app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
                         }
-                        alert("Please respect the grid limits!");
+
+                        alert("You already have a ship in this location!");
                         app.shipType = "";
                         app.shipOrientation = "";
                         app.squareOne = [];
+                        app.squareToPaint = [];
 
                         break;
+
                     } else {
-                        let toPaint = ((String.fromCharCode(lettersAxe)) + app.squareOne[0].charAt(1) + app.squareOne[0].charAt(2) || "");
-                        if (app.myPreShipLocations.includes(toPaint)) {
-                            if (app.squareToPaint.length > 0) {
-                                app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
-                            }
-                            app.shipType = "";
-                            app.shipOrientation = "";
-                            app.squareOne = [];
-
-                            alert("You already have a ship in this location!");
-
-                            break;
-
-                        } else {
-                            app.getShipInitials();
-                            app.paintSalvoes("ship" + toPaint, "blinking", shipInitials);
-                            app.squareToPaint.push(toPaint);
-                            i++;
-                            lettersAxe++;
-                        }
+                        app.paintSalvoes("ship" + toPaint, "blink_me", "");
+                        app.squareToPaint.push(toPaint);
+                        i++;
+                        lettersAxe++;
                     }
                 }
             }
+        }
 
-            if (app.shipOrientation === "h") {
+        if (app.shipOrientation === "h") {
 
-                while (i < (app.shipLength) && 0 < numbersAxe < 11 && 64 < lettersAxe < 75) {
+            while (i < (app.shipLength) && 0 < numbersAxe < 11 && 64 < lettersAxe < 75) {
 
-                    if (numbersAxe < 1 || numbersAxe > 10 || lettersAxe < 65 || lettersAxe > 74) {
+                if (numbersAxe < 1 || numbersAxe > 10 || lettersAxe < 65 || lettersAxe > 74) {
+
+                    if (app.squareToPaint.length > 0) {
+                        app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
+                    }
+
+                    alert("Please respect the grid limits!");
+                    app.shipType = "";
+                    app.shipOrientation = "";
+                    app.squareOne = [];
+                    app.squareToPaint = [];
+
+
+
+                    break;
+                } else {
+                    let toPaint = app.squareOne[0].charAt(0) + numbersAxe;
+                    if (app.myPreShipLocations.includes(toPaint)) {
 
                         if (app.squareToPaint.length > 0) {
                             app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
                         }
-                        alert("Please respect the grid limits!");
+
+                        alert("You already have a ship here!");
                         app.shipType = "";
                         app.shipOrientation = "";
                         app.squareOne = [];
+                        app.squareToPaint = [];
 
                         break;
+
                     } else {
-                        let toPaint = app.squareOne[0].charAt(0) + numbersAxe;
-                        if (app.myPreShipLocations.includes(toPaint)) {
 
-                            if (app.squareToPaint.length > 0) {
-                                app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
-                            }
-
-                            alert("You already have a ship in this location!");
-                            app.shipType = "";
-                            app.shipOrientation = "";
-                            app.squareOne = [];
-                            break;
-
-                        } else {
-                            app.getShipInitials();
-                            app.paintSalvoes("ship" + toPaint, "blinking", shipInitials);
-                            app.squareToPaint.push(toPaint);
-                            i++;
-                            numbersAxe++;
-                        }
+                        app.paintSalvoes("ship" + toPaint, "blink_me", "");
+                        app.squareToPaint.push(toPaint);
+                        i++;
+                        numbersAxe++;
                     }
                 }
             }
+        }
 
+        if (app.shipType != "" && app.squareToPaint != "") {
             app.shipPreSave.push(newShip);
             app.myPreShipLocations = app.myPreShipLocations.concat(app.squareToPaint);
             app.myPreShipTypes.push(app.shipType);
-
             app.squareOne = [];
             app.squareToPaint = [];
             app.shipType = "";
             app.shipOrientation = "";
-
+            app.findShipsToPaint(app.shipPreSave);
         }
-    }
 
+    }
 }
+
+
 
 function resetShip() {
     app.shipType = "";
     app.shipOrientation = "";
+
     app.myPreShipLocations.forEach(loc => app.reversePaintSalvoes("ship" + loc));
     app.squareToPaint.forEach(loc => app.reversePaintSalvoes("ship" + loc));
     app.shipPreSave = [];

@@ -275,29 +275,28 @@
                             <select class="custom-select mr-sm-2" id="shipType" v-model="shipType"
                                 @change="updateShipControlDisplay">
                                 <option value="">SHIP TYPE</option>
-                                <option value="Aircraft Carrier">
-                                    Aircraft
-                                    Carrier</option>
+                                <option value="Aircraft Carrier"
+                                    v-bind:class="{ selectedShip: shipType == 'Aircraft Carrier'}">
+                                    AIRCRAFT CARRIER</option>
                                 <option value="Battleship" v-bind:class="{ selectedShip: shipType == 'Battleship' }">
-                                    Battleship
+                                    BATTLESHIP
                                 </option>
                                 <option value="Submarine" v-bind:class="{ selectedShip: shipType == 'Submarine' }">
-                                    Submarine
+                                    SUBMARINE
                                 </option>
                                 <option value="Destroyer" v-bind:class="{ selectedShip: shipType == 'Destroyer' }">
-                                    Destroyer
+                                    DESTROYER
                                 </option>
                                 <option value="Patrol Boat" v-bind:class="{ selectedShip: shipType == 'Patrol Boat' }">
-                                    Patrol
-                                    Boat</option>
+                                    PATROL BOAT</option>
                             </select>
                         </div>
 
                         <div class="col-4 ">
                             <select class="custom-select" id="shipOrientation" v-model="shipOrientation">
                                 <option value="" selected>ORIENTATION</option>
-                                <option value="v">Vertical (Downwards)</option>
-                                <option value="h">Horizontal (Rightwards)</option>
+                                <option value="v">VERTICAL (Downwards)</option>
+                                <option value="h">HORIZONTAL (Rightwards)</option>
                             </select>
                         </div>
 

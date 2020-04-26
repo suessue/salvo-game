@@ -1,27 +1,27 @@
 
-b
-java:S1192Ù"FDefine a constant instead of duplicating this literal "sinks" 3 times.(öäŞòøÿÿÿÿ
-N
-java:S3655"7Call "Optional#isPresent()" before accessing the value.(¡¿†í
-N
-java:S3655î"7Call "Optional#isPresent()" before accessing the value.(°Çï
-N
-java:S3655‰"7Call "Optional#isPresent()" before accessing the value.(‹„ğ
-S
-java:S3655•"7Call "Optional#isPresent()" before accessing the value.(€•å¸øÿÿÿÿ
-S
-java:S3655¶"7Call "Optional#isPresent()" before accessing the value.(’¸²´ûÿÿÿÿ
-N
-java:S3655Ä"7Call "Optional#isPresent()" before accessing the value.(…Ñ—ã
-S
-java:S3655ê"7Call "Optional#isPresent()" before accessing the value.(´ÎÚüÿÿÿÿ
-S
-java:S3655í"7Call "Optional#isPresent()" before accessing the value.(¹âÕçúÿÿÿÿ
 S
 java:S3655„"7Call "Optional#isPresent()" before accessing the value.(ê€©›üÿÿÿÿ
 S
-java:S3655Œ"7Call "Optional#isPresent()" before accessing the value.(€•å¸øÿÿÿÿ
+java:S3655í"7Call "Optional#isPresent()" before accessing the value.(¹âÕçúÿÿÿÿ
 S
 java:S3655…"7Call "Optional#isPresent()" before accessing the value.(Èéºƒÿÿÿÿÿ
+N
+java:S3655‰"7Call "Optional#isPresent()" before accessing the value.(‹„ğ
+S
+java:S3655¶"7Call "Optional#isPresent()" before accessing the value.(’¸²´ûÿÿÿÿ
+b
+java:S1192Ù"FDefine a constant instead of duplicating this literal "sinks" 3 times.(öäŞòøÿÿÿÿ
 n
 java:S3776€"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(üÇÿÛûÿÿÿÿ
+N
+java:S3655"7Call "Optional#isPresent()" before accessing the value.(¡¿†í
+S
+java:S3655•"7Call "Optional#isPresent()" before accessing the value.(€•å¸øÿÿÿÿ
+N
+java:S3655î"7Call "Optional#isPresent()" before accessing the value.(°Çï
+N
+java:S3655Ä"7Call "Optional#isPresent()" before accessing the value.(…Ñ—ã
+S
+java:S3655Œ"7Call "Optional#isPresent()" before accessing the value.(€•å¸øÿÿÿÿ
+S
+java:S3655ê"7Call "Optional#isPresent()" before accessing the value.(´ÎÚüÿÿÿÿ

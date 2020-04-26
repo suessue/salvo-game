@@ -148,7 +148,7 @@ body {
 }
 
 .blink_me {
-    animation: blinker 2s linear infinite;
+    animation: blinker 2s ease-in infinite;
 }
 
 @keyframes blinker {

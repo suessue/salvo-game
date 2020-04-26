@@ -65,7 +65,7 @@ body {
 }
 
 .blink_me {
-    animation: blinker 1s linear infinite;
+    animation: blinker 1s ease-in infinite;
 }
 
 @keyframes blinker {
@@ -139,10 +139,11 @@ body {
 
 }
 
-.selectedShip {
-    box-shadow: 2px 2px 10px 2px rgb(91, 163, 245);
-    background-color: rgba(250, 246, 246, 0.295);
+.selected {
+    box-shadow: 4px 4px 10px 4px rgb(91, 163, 245);
+    background-color: rgba(183, 196, 204, 0.753);
 }
+
 
 
 .ships-input div:first-child {
@@ -174,7 +175,7 @@ body {
 }
 
 .carousel-inner {
-    background-color: rgba(63, 62, 62, 0.344);
+    background-color: rgba(94, 92, 92, 0.219);
     height: 210px;
     justify-content: center;
 
@@ -207,7 +208,6 @@ body {
     margin-bottom: 10px;
 
 }
-
 
 
 .carousel-caption div {
@@ -255,36 +255,37 @@ tr {
     text-align: center;
 }
 
-.blinking {
-    color: #fff;
-    animation: blinkingBackground 2s infinite;
-}
-
 .over {
     background-color: rgba(119, 125, 163, 0.39);
 }
 
+.selectedShip {
+
+    animation: blinkingBackground 5s infinite;
+    box-shadow: 2px 2px 8px 2px rgba(241, 141, 141, 0.541);
+
+}
 
 
 @keyframes blinkingBackground {
     0% {
-        background-color: #10c018;
+        background-color: #ee14265d;
     }
 
     25% {
-        background-color: #1056c0;
+        background-color: #4284ee41;
     }
 
     50% {
-        background-color: #ef0a1a;
+        background-color: #ef0a1941;
     }
 
     75% {
-        background-color: #254878;
+        background-color: #25487852;
     }
 
     100% {
-        background-color: #04a1d5;
+        background-color: #67696bfd;
     }
 }
 

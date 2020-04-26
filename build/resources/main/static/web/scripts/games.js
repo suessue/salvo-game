@@ -84,7 +84,6 @@ var app = new Vue({
 
 					if (app.games.player != null) {
 						document.body.style.backgroundSize = "100% 100%";
-						document.getElementById("main-title").style.border = "outset";
 
 					}
 				})
@@ -181,7 +180,7 @@ function hide(button) {
 
 function alternateDisplays(a, b) {
 	let x = document.getElementById(a);
-	x.style.display = "none";
+	x.style.display = "";
 	let y = document.getElementById(b);
 	y.style.display = "block";
 }
