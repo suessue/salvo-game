@@ -1,5 +1,5 @@
 # salvo-game
-Game project created with Java, JavaScript, SpringBoot.
+Game project created with Java, JavaScript, Spring, Hibernate, H2, PostgreSQL.
 
 Multiplayer online version of Salvo Game.
 
