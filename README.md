@@ -1,9 +1,9 @@
 # salvo-game
-Game project created with Java, JavaScript, Spring, Hibernate, H2, PostgreSQL.
+Game project created with Java, JavaScript, Spring, Hibernate, H2, PostgreSQL among other technologies.
 
 Multiplayer online version of Salvo Game.
 
-In this project - which is part of the Ubiqum/Mindhub FullStack Development Bootcamp Program -  I worked on a front-end web application that game players interact with, and a back-end game server to manage the games, scoring, and player profiles. jQuery JavaScript and Vue.js library were used for the front-end client, and the Spring Boot framework for the Java-based RESTful web server.
+In this project - which is part of the Ubiqum/Mindhub FullStack Development Bootcamp Program -  I worked on a front-end web application that game players interact with, and a back-end game server to manage the games, scoring, and player profiles. jQuery JavaScript and Vue.js library were used for the front-end client, and the Spring framework for the Java-based RESTful web server.
 The project was developed in two parts.
 
 In Part One , the core architecture was implemented with: 
