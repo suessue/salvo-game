@@ -1,6 +1,7 @@
 # salvo-game
 
 https://theseathebattle.herokuapp.com/web/games.html
+
 Game project created with Java, JavaScript, Spring, Hibernate, H2, PostgreSQL among other technologies.
 
 Multiplayer online version of Salvo Game.
