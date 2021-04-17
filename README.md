@@ -2,7 +2,7 @@
 
 https://theseathebattle.herokuapp.com/web/games.html
 
-(You can login as c.obrian@ctu.gov (password 42) to see demo games and its results).
+(You can login as c.obrian@ctu.gov (password 42) to see demo games and its results - use FIREFOX).
 
 Game project created with Java, JavaScript, Spring, Hibernate, H2, among other technologies.
 
