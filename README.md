@@ -1,8 +1,9 @@
 # salvo-game
 
 https://theseathebattle.herokuapp.com/web/games.html
+(You can login as c.obrian@ctu.gov (password 42) to see demo games and its results).
 
-Game project created with Java, JavaScript, Spring, Hibernate, H2, PostgreSQL among other technologies.
+Game project created with Java, JavaScript, Spring, Hibernate, H2, among other technologies.
 
 Multiplayer online version of Salvo Game.
 
