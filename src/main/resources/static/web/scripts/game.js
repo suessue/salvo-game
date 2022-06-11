@@ -509,8 +509,8 @@ function selectSalvoes(item) {
         alert("Ops... Don't forget the number of shots in your salvo is the number of ships afloat you have!")
     } else if (app.salvoLocationsPreSave.length >= app.shots) {
         alert("You only have " + app.shots + " shots for this turn!");
-    } else if (app.salvoLocationsPreSave.length < app.shots) {
-        alert("Choose all your " + app.shots + " shots for this turn before hitting FIRE!");
+   // } else if (app.salvoLocationsPreSave.length < app.shots) {
+     //   alert("Choose all your " + app.shots + " shots for this turn before hitting FIRE!");
 
     } else {
         item.style.cursor = "not-allowed";
